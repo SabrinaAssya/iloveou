@@ -8,9 +8,9 @@
 
 puts "Cleaning database ..."
 
+Review.delete_all
 Activity.delete_all
 Itinerary.delete_all
-Review.delete_all
 Station.delete_all
 Category.delete_all
 User.delete_all
