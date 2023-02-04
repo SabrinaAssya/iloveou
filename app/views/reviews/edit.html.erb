@@ -1,0 +1,14 @@
+<h1>Editing <%= @review.title %></h1>
+
+<%= form_with(model: @review) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :content %>
+  <%= f.text_area :content, rows: 7 %>
+
+  <%= f.label :rating %>
+  <%= f.text_field :rating %>
+
+  <%= f.submit %>
+<% end %>
