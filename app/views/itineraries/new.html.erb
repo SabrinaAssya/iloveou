@@ -1,0 +1,13 @@
+<div class="container">
+  <h1> Please create your new itinerary</h1>
+    <div class="form">
+      <%= simple_form_for(@itinerary) do |f| %>
+      <%= f.input :title, placeholder: "Choose a title for your activity" %>
+      <%= f.input :description, placeholder: "Describe your activity" %>
+      <%= f.input :weather, placeholder: "Please fill in the address" %>
+      <%= f.input :price, placeholder: "Please fill in the address" %>
+      <%= f.input :duration, placeholder: "Please fill in the address" %>
+      <%= f.submit class: "btn btn-primary" re%>
+    <% end %>
+    </div>
+</div>
