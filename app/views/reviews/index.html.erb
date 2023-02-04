@@ -1,16 +1,7 @@
-<% @reviews.each do |review| %>
-  <section class="review">
-    <div class="summary">
-      <h2>
-        <%= link_to(review.title, review) %>
-      </h2>
-      <p>
-        <%= truncate(review.content, length: 150, separator: ' ') %>
-      </p>
-    </div>
-  </section>
-<% end %>
+<h1>Reviews</h1>
 
-<section class="admin">
-  <%= link_to "Add New Review", new_movie_path, class: "button" %>
-</section>
+<ul>
+  <% @review.each do |avis| %>
+    <li><%= link_to avis.content, itinerary_reviews_path(avis) %></li>
+  <% end %>
+</ul>
