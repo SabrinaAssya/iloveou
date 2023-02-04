@@ -1,7 +1,7 @@
 <div class="container">
   <h1> Please create your new activity</h1>
     <div class="form">
-      <%= simple_form_for(@activity) do |f| %>
+      <%= simple_form_for([@itinerary, @activity]) do |f| %>
       <%= f.input :title, placeholder: "Choose a title for your activity" %>
       <%= f.input :description, placeholder: "Describe your activity" %>
       <%= f.input :address, placeholder: "Please fill in the address" %>
