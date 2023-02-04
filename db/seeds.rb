@@ -17,10 +17,16 @@ User.delete_all
 
 puts "Creating 4 stations"
 
-station_1 = Station.create!(name: "Station 1")
-station_2 = Station.create!(name: "Station 2")
-station_3 = Station.create!(name: "Station 3")
-station_4 = Station.create!(name: "Station 4")
+url = "https://opendata.hauts-de-seine.fr/api/records/1.0/search/?dataset=gares-et-stations-du-reseau-ferre-dile-de-france-par-ligne&q=&rows=10000"
+user_serialized = URI.open(url).read
+metros = JSON.parse(user_serialized)
+
+stations = []
+4.times do
+  station_data = metros['records'].sample
+  station = Station.create!(name: station_data['fields']['nom'])
+  stations << station
+end
 
 puts "4 stations created"
 
@@ -45,10 +51,10 @@ user_4 = User.create!(first_name: "Alice", last_name: "Johnson", email: "alicejo
 
 puts "creating 4 itineraries ..."
 
-itinerary_1 = Itinerary.create!(title: "Romantic Itinerary", description: "This is a romantic itinerary.", weather: "sunny", price: "$$", duration: 4, station_id: station_2.id, user_id: user_2.id)
-itinerary_2 = Itinerary.create!(title: "Unusual Itinerary", description: "This is an unusual itinerary.", weather: "covered", price: "$$$", duration: 6, station_id: station_3.id, user_id: user_2.id)
-itinerary_3 = Itinerary.create!(title: "Friendly Itinerary", description: "This is a friendly itinerary.", weather: "rainy", price: "$", duration: 8, station_id: station_4.id, user_id: user_3.id)
-itinerary_4 = Itinerary.create!(title: "Original Itinerary", description: "This is an itinerary.", weather: "sunny", price: "$$$$", duration: 2, station_id: station_2.id, user_id: user_4.id)
+itinerary_1 = Itinerary.create!(title: "Romantic Itinerary", description: "This is a romantic itinerary.", weather: "sunny", price: "$$", duration: 4, station_id: stations[0].id, user_id: user_2.id)
+itinerary_2 = Itinerary.create!(title: "Unusual Itinerary", description: "This is an unusual itinerary.", weather: "covered", price: "$$$", duration: 6, station_id: stations[1].id, user_id: user_2.id)
+itinerary_3 = Itinerary.create!(title: "Friendly Itinerary", description: "This is a friendly itinerary.", weather: "rainy", price: "$", duration: 8, station_id: stations[2].id, user_id: user_3.id)
+itinerary_4 = Itinerary.create!(title: "Original Itinerary", description: "This is an itinerary.", weather: "sunny", price: "$$$$", duration: 2, station_id: stations[3].id, user_id: user_4.id)
 
 puts " 4 itineraries created"
 
