@@ -19,9 +19,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_11_095255) do
     t.text "title"
     t.text "address"
     t.text "description"
+    t.bigint "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_activities_on_category_id"
     t.index ["itinerary_id"], name: "index_activities_on_itinerary_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -86,6 +93,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_11_095255) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "activities", "categories"
   add_foreign_key "activities", "itineraries"
   add_foreign_key "favorites", "itineraries"
   add_foreign_key "favorites", "users"
