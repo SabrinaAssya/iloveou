@@ -1,0 +1,9 @@
+<%= form_with model: @activity do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+  <%= f.label :description %>
+  <%= f.number_field :description %>
+  <%= f.submit %>
+<% end %>
