@@ -1,6 +1,11 @@
 class ItinerariesController < ApplicationController
   before_action :set_itinerary, only: %i[show update destroy]
 
+
+def index
+  @itineraries = Itinerary.all
+end
+
 def new
   @itinerary = Itinerary.new
 end
@@ -9,7 +14,7 @@ def create
   @itinerary = Itinerary.new(itinerary_params)
   @itinerary.user = current_user
   if @itinerary.save
-    redirect_to itinerary_path(@itinerary), notice: 'Itinerary was successfully created.'
+    redirect_to itineraries_path(@itinerary), notice: 'Itinerary was successfully created.'
   else
     render :new, status: :unprocessable_entity
   end
@@ -43,4 +48,3 @@ def itinerary_params
 end
 
 end
-
