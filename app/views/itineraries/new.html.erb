@@ -7,7 +7,7 @@
       <%= f.input :weather, placeholder: "Please fill in the weather" %>
       <%= f.input :price, placeholder: "Please fill in the price" %>
       <%= f.input :duration, placeholder: "Please fill in the duration" %>
-      <%= f.input :station_id, placeholder: "Please choose the station" %>
+      <%= f.input :station, collection: Station.all, value_method: :id, placeholder: "Please choose the station" %>
       <%= f.submit class: "btn btn-primary"%>
     <% end %>
     </div>
