@@ -5,8 +5,12 @@ class ActivitiesController < ApplicationController
 
   def create
     @activity = Activity.new(params[:activity])
-    @activity.save
-    redirect_to_activity_path(@activity)
+    @activity.user = current_user
+    if @clothe.save
+      redirect_to activity_path(@activity.id)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
