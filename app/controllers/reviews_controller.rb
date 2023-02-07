@@ -22,6 +22,12 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def show
+  end
+
+  def edit
+  end
+
   def update
     @review = Review.find(params[:id])
     @review.update(review_params)
@@ -36,6 +42,10 @@ class ReviewsController < ApplicationController
   end
 
 private
+
+  def set_itineraries
+    @itinerary_review = Itinerary_review.find_by!(slug: params[:id])
+  end
 
   def review_params
     params.require(:review).permit(:rating, :content)
