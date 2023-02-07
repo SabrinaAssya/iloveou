@@ -2,13 +2,11 @@ class ActivitiesController < ApplicationController
   def new
     @activity = Activity.new
     @itinerary = Itinerary.find(params[:itinerary_id])
-    @activity.user_id = current_user
   end
 
   def create
     @activity = Activity.new(activity_params)
     @itinerary = Itinerary.find(params[:itinerary_id])
-    @activity.user_id = current_user.id
     @activity.itinerary_id = @itinerary.id
     @activity.category_id = Category.first.id
     if @activity.save
