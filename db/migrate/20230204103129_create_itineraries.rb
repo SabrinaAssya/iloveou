@@ -3,7 +3,7 @@ class CreateItineraries < ActiveRecord::Migration[7.0]
     create_table :itineraries do |t|
       t.text :title
       t.text :description
-      t.text :weather
+      t.integer :weather, index: true
       t.float :price
       t.text :duration
       t.references :user, null: false, foreign_key: true
