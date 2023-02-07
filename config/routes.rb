@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'stimulus/search_station'
   devise_for :users
   root to: "pages#home"
   resources :itineraries do
