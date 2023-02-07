@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>All my activities</h1>
+  <% @activities.each do |activity| %>
+    <%= activity.title %>
+    <%= activity.description %>
+    <%= activity.address %>
+    <p>
+      <%= link_to "Show this activity", itinerary_activities_path, class: "btn btn-primary" %>
+    </p>
+  <% end %>
+</div>

@@ -1,4 +1,8 @@
 class ActivitiesController < ApplicationController
+  def index
+    @activities = Activity.all
+  end
+
   def new
     @activity = Activity.new
     @itinerary = Itinerary.find(params[:itinerary_id])
