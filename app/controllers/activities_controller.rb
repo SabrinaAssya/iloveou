@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
   def index
-    @activities = Activity.all
+    @activities = Activity.where(itinerary: Itinerary.find(params[:itinerary_id]))
   end
 
   def new
@@ -41,7 +41,7 @@ class ActivitiesController < ApplicationController
   def destroy
     @activity = Activity.find(params[:id])
     @activity.destroy
-    redirect_to activities status: :see_other
+    redirect_to activities_path status: :see_other
   end
 
   private
