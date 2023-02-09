@@ -1,11 +1,18 @@
 class ActivitiesController < ApplicationController
   def index
-    @activities = Activity.all
+    @activities = Activity.where(itinerary: Itinerary.find(params[:itinerary_id]))
   end
 
   def new
     @activity = Activity.new
     @itinerary = Itinerary.find(params[:itinerary_id])
+  end
+
+  def show
+    @activity = Activity.find(params[:id])
+    @itinerary_id = @activity.itinerary.id
+    @itinerary= Itinerary.find(@itinerary_id)
+    @itinerary.user = current_user
   end
 
   def create
@@ -34,7 +41,7 @@ class ActivitiesController < ApplicationController
   def destroy
     @activity = Activity.find(params[:id])
     @activity.destroy
-    redirect_to activities status: :see_other
+    redirect_to itinerary_activities_path(Itinerary.find(params[:itinerary_id])), status: :see_other
   end
 
   private
