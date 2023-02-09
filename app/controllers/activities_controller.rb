@@ -8,6 +8,13 @@ class ActivitiesController < ApplicationController
     @itinerary = Itinerary.find(params[:itinerary_id])
   end
 
+  def show
+    @activity = Activity.find(params[:id])
+    @itinerary_id = @activity.itinerary.id
+    @itinerary= Itinerary.find(@itinerary_id)
+    @itinerary.user = current_user
+  end
+
   def create
     @activity = Activity.new(activity_params)
     @itinerary = Itinerary.find(params[:itinerary_id])
