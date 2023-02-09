@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>All my activities</h1>
+  <% @activities.each do |activity| %>
+    <%= activity.title %>
+    <%= activity.description %>
+    <%= activity.address %>
+    <p>
+      <%= link_to "Show this activity", activity_path(activity), class: "btn btn-primary" %>
+      <%= link_to "Edit", edit_activity_url(activity), class: "btn btn-primary" %>
+    </p>
+  <% end %>
+</div>

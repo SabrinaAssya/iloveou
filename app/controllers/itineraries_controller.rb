@@ -13,7 +13,7 @@ end
 def create
   @itinerary = Itinerary.new(itinerary_params)
   @itinerary.user = current_user
-  if @itinerary.save
+  if @itinerary.save!
     redirect_to itineraries_path(@itinerary), notice: 'Itinerary was successfully created.'
   else
     render :new, status: :unprocessable_entity
@@ -44,7 +44,7 @@ def set_itinerary
 end
 
 def itinerary_params
-  params.require(:itinerary).permit(:title, :description, :weather, :price, :duration, :station_id, :user_id)
+  params.require(:itinerary).permit(:title, :description, :price, :duration, :station_id, :weather)
 end
 
 end
