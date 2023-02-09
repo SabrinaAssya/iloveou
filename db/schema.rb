@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_04_115847) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_09_184712) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,16 +44,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_04_115847) do
   create_table "itineraries", force: :cascade do |t|
     t.text "title"
     t.text "description"
-    t.integer "weather"
+    t.text "weather"
     t.float "price"
     t.text "duration"
     t.bigint "user_id", null: false
     t.bigint "station_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "rating"
     t.index ["station_id"], name: "index_itineraries_on_station_id"
     t.index ["user_id"], name: "index_itineraries_on_user_id"
-    t.index ["weather"], name: "index_itineraries_on_weather"
   end
 
   create_table "reviews", force: :cascade do |t|
