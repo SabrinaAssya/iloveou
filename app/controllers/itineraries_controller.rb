@@ -1,9 +1,16 @@
 class ItinerariesController < ApplicationController
   before_action :set_itinerary, only: %i[show update destroy]
 
-
 def index
   @itineraries = Itinerary.all
+  
+  if params[:sort_populars].present?
+    @itineraries = @itineraries.order(rating: :desc)
+  end 
+
+  if params[:sort_recent].present?
+    @itineraries = @itineraries.order(rating: :desc)
+  end 
 end
 
 def new
