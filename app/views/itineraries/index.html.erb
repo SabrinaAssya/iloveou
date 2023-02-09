@@ -1,3 +1,5 @@
+<%= render "shared/normal_search" %>
+
 <h1>All itineraries</h1>
 <% @itineraries.each do |itinerary| %>
 <%= link_to "#{itinerary.title}", itinerary_path(itinerary) %>

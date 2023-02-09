@@ -28,7 +28,6 @@ end
 
 puts "4 stations created"
 
-
 puts "Creating 4 categories"
 
 category_1 = Category.create!(name: "Outdoor Adventure")
@@ -49,13 +48,13 @@ user_4 = User.create!(first_name: "Alice", last_name: "Johnson", email: "alicejo
 
 puts "creating 4 itineraries ..."
 
-itinerary_1 = Itinerary.create!(title: "Romantic Itinerary", description: "This is a romantic itinerary.", weather: :sunny, price: "$$", duration: 4, station_id: Station.all.sample.id, user_id: user_2.id, rating: 4.5)
+itinerary_1 = Itinerary.create!(title: "Romantic Itinerary", description: "This is a romantic itinerary.", weather: :sunny, price: "$$", duration: "1h-2h", station_id: Station.all.sample.id, user_id: user_2.id, rating: 4.5)
 sleep(1) 
-itinerary_2 = Itinerary.create!(title: "Unusual Itinerary", description: "This is an unusual itinerary.", weather: :cloudy , price: "$$$", duration: 6, station_id: Station.all.sample.id, user_id: user_2.id, rating: 3)
+itinerary_2 = Itinerary.create!(title: "Unusual Itinerary", description: "This is an unusual itinerary.", weather: :cloudy , price: "$$$", duration: "2h-4h", station_id: Station.all.sample.id, user_id: user_2.id, rating: 3)
 sleep(1) 
-itinerary_3 = Itinerary.create!(title: "Friendly Itinerary", description: "This is a friendly itinerary.", weather: :rainy, price: "$", duration: 8, station_id: Station.all.sample.id, user_id: user_3.id, rating: 5)
+itinerary_3 = Itinerary.create!(title: "Friendly Itinerary", description: "This is a friendly itinerary.", weather: :rainy, price: "$", duration: "1h-2h", station_id: Station.all.sample.id, user_id: user_3.id, rating: 5)
 sleep(1) 
-itinerary_4 = Itinerary.create!(title: "Original Itinerary", description: "This is an itinerary.", weather: :sunny, price: "$$$$", duration: 2, station_id: Station.all.sample.id, user_id: user_4.id, rating: 4)
+itinerary_4 = Itinerary.create!(title: "Original Itinerary", description: "This is an itinerary.", weather: :sunny, price: "$$$", duration: "More than 4h", station_id: Station.all.sample.id, user_id: user_4.id, rating: 4)
 
 puts " 4 itineraries created"
 
