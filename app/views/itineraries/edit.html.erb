@@ -15,7 +15,7 @@
       <%= f.input :duration, placeholder: "Please fill in the duration" %>
       <%= f.association :station,
                     placeholder: "Please choose the station",
-                    input_html: {data: {controller: "search_station", search_station_target: "input"}} %>
+      %>
       <%= f.submit class: "btn btn-primary" %>
     <% end %>
     </div>
