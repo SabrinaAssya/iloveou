@@ -7,4 +7,16 @@ class Itinerary < ApplicationRecord
     cloudy: 1,
     rainy: 2,
   }
+
+  enum price: {
+    "$": 0,
+    "$$": 1,
+    "$$$": 2,
+  }
+
+  enum duration: {
+    "0-1h": 0,
+    "1-2h": 1,
+    "more than 3h": 2,
+  }
 end
