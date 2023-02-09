@@ -6,17 +6,26 @@
       <%= f.input :title, placeholder: "Choose a title for your itinerary" %>
       <%= f.input :description, placeholder: "Describe your itinerary" %>
           <div class="form-check">
-           <%= f.input :weather,
-            collection: Itinerary.weathers.keys,
-            wrapper_html: {class: 'flex justify-center'},
-            as: :radio_buttons
-          %>
+            <%= f.input :weather,
+              collection: Itinerary.weathers.keys,
+              wrapper_html: {class: 'flex justify-center'},
+              as: :radio_buttons
+            %>
           </div>
-      <%= f.input :price, placeholder: "Please fill in the price" %>
-      <%= f.input :duration, placeholder: "Please fill in the duration" %>
+          <div class="form-check">
+            <%= f.input :price,
+                collection: Itinerary.prices.keys,
+                as: :radio_buttons
+            %>
+          </div>
+         <div class="form-check">
+            <%= f.input :duration,
+              collection: Itinerary.durations.keys,
+              as: :radio_buttons
+            %>
+          </div>
       <%= f.association :station,
-                    placeholder: "Please choose the station",
-                    input_html: {data: {controller: "search_station", search_station_target: "input"}} %>
+                    placeholder: "Please choose the station" %>,
       <%= f.submit class: "btn btn-primary" %>
     <% end %>
     </div>
