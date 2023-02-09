@@ -41,7 +41,7 @@ class ActivitiesController < ApplicationController
   def destroy
     @activity = Activity.find(params[:id])
     @activity.destroy
-    redirect_to activities_path status: :see_other
+    redirect_to itinerary_activities_path(Itinerary.find(params[:itinerary_id])), status: :see_other
   end
 
   private
