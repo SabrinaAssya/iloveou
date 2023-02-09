@@ -1,4 +1,4 @@
 <h1>All itineraries</h1>
 <% @itineraries.each do |itinerary| %>
-<%= itinerary.title%>
+<%= link_to "#{itinerary.title}", itinerary_path(itinerary) %>
 <% end %>

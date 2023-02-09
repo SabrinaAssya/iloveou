@@ -1,0 +1,7 @@
+<div class="container mt-5">
+<h1><%= @itinerary.title %></h1>
+<p><%= @itinerary.description %></p>
+<p><%= @itinerary.price %></p>
+<%= link_to "Edit", edit_itinerary_path(@itinerary), class: "btn btn-primary" %>
+<%= link_to "Destroy", itinerary_path(@itinerary), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-primary" %>
+</div>
