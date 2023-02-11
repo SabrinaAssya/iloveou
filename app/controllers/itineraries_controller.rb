@@ -5,20 +5,31 @@ def index
 
   @itineraries = Itinerary.all
 
-  if params[:sort_populars].present?
+# "search"=>{"station"=>"Trocadéro", 
+#   "weather"=>["sunny", "cloudy", "rainy"], 
+#   "price"=>["$", "$$", "$$$"], 
+#   "duration"=>["1h-2h", "2h-4h", "More than 4h"],
+#    "categories"=>["restaurant", "culture", "drinks", "outdoor", "original"]}, 
+ raise 
+  @itineraries = @itineraries.where(price: )
 
+  if params.dig(:search, :sort) == "Populars"
     @itineraries = @itineraries.order(rating: :desc)
   end
 
-  if params[:sort_newests].present?
-    @itineraries = @itineraries.order(created_at: :asc)
+  if params.dig(:search, :sort) == "Populars"
+    @itineraries = @itineraries.order(rating: :desc)
+  end
+
+  if params.dig(:search, :sort) == "Newests"
+    @itineraries = @itineraries.order(created_at: :asc) 
   end 
 
-  if params[:sort_oldests].present?
+  if params.dig(:search, :sort) == "Oldests"
     @itineraries = @itineraries.order(created_at: :desc)
   end 
 
-  if params[:sort_radom].present?
+  if params.dig(:search, :sort) == "Random"
     @itineraries = @itineraries .order("RANDOM()")
   end 
 end
