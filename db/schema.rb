@@ -11,6 +11,7 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.0].define(version: 2023_02_11_094507) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,7 +24,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_11_094507) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.index ["itinerary_id"], name: "index_activities_on_itinerary_id"
-    t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -38,7 +38,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_11_094507) do
   create_table "itineraries", force: :cascade do |t|
     t.text "title"
     t.text "description"
-    t.text "weather"
     t.float "price"
     t.text "duration"
     t.bigint "user_id", null: false
@@ -46,6 +45,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_11_094507) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.float "rating"
+    t.boolean "sunny", default: false, null: false
+    t.boolean "cloudy", default: false, null: false
+    t.boolean "rainy", default: false, null: false
+    t.boolean "restaurant", default: false, null: false
+    t.boolean "culture", default: false, null: false
+    t.boolean "drinks", default: false, null: false
+    t.boolean "outdoor", default: false, null: false
+    t.boolean "original", default: false, null: false
     t.index ["station_id"], name: "index_itineraries_on_station_id"
     t.index ["user_id"], name: "index_itineraries_on_user_id"
   end
@@ -82,7 +89,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_11_094507) do
   end
 
   add_foreign_key "activities", "itineraries"
-  add_foreign_key "activities", "users"
   add_foreign_key "favorites", "itineraries"
   add_foreign_key "favorites", "users"
   add_foreign_key "itineraries", "stations"
