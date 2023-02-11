@@ -3,14 +3,18 @@ class ItinerariesController < ApplicationController
 
 def index
   @itineraries = Itinerary.all
-  
+
   if params[:sort_popular].present?
     @itineraries = @itineraries.order(rating: :desc)
-  end 
+  end
 
   if params[:sort_recent].present?
     @itineraries = @itineraries.order(created_at: :asc)
-  end 
+  end
+end
+
+def avg_rating
+  review.average(:rating)
 end
 
 def new
