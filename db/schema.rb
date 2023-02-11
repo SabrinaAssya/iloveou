@@ -21,7 +21,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_11_095255) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["itinerary_id"], name: "index_activities_on_itinerary_id"
+    t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -87,6 +89,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_11_095255) do
   end
 
   add_foreign_key "activities", "itineraries"
+  add_foreign_key "activities", "users"
   add_foreign_key "favorites", "itineraries"
   add_foreign_key "favorites", "users"
   add_foreign_key "itineraries", "stations"
