@@ -53,7 +53,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_11_095255) do
     t.boolean "original", default: false, null: false
     t.index ["station_id"], name: "index_itineraries_on_station_id"
     t.index ["user_id"], name: "index_itineraries_on_user_id"
-    t.index ["weather"], name: "index_itineraries_on_weather"
   end
 
   create_table "reviews", force: :cascade do |t|
