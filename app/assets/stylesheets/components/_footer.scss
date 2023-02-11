@@ -1,8 +1,53 @@
 .footer {
-  margin: 30px;
+  margin-top: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  border: 1px solid grey;
+  padding-top: 40px;
 }
 
+.footer h1 {
+  font-weight: bold;
+  color: #32A9E3;
+  margin-bottom: 30px;
+}
+
+.footer p {
+  margin-bottom: 40px;
+}
+
+span {
+  color: #EE5885;
+}
+
+b, strong {
+  font-weight: bolder;
+  color: #EE5885;
+}
+
+.socials li {
+  list-style: none;
+  display: inline;
+  padding: 15px;
+  font-size: 30px;
+}
+
+.socials li :hover {
+  color: #32A9E3;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.socials {
+  margin: 30px;
+}
+
+.nav-link {
+  display: inline;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 15px;
+  margin: 10px;
+}
