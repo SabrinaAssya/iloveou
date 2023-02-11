@@ -1,7 +1,23 @@
 <div class="container mt-5">
-<h1><%= @itinerary.title %></h1>
-<p><%= @itinerary.description %></p>
-<p><%= @itinerary.price %></p>
-<%= link_to "Edit", edit_itinerary_path(@itinerary), class: "btn btn-primary" %>
-<%= link_to "Destroy", itinerary_path(@itinerary), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-primary" %>
+  <h1><%= @itinerary.title %></h1>
+  <div class="itinerary-info">
+    <p><%= @itinerary.station.name %></p>
+    <p><%= @itinerary.rating %></p>
+    <p> Created by <%= @itinerary.user.first_name %> </p>
+  <p><%= @itinerary.price %></p>
+  <p><%= @itinerary.duration %></p>
+  <p><%= @itinerary.duration %></p>
+  </div>
+  <p><%= @itinerary.description %></p>
+  <div class="activities-card">
+    <% @itinerary.activities.each do |activity| %>
+    <div class="activity-info">
+        <p> <strong> <%= activity.title %> </strong> </p>
+        <p><%= activity.address %> </p>
+        <p> <%= activity.description %> </p>
+    </div>
+    <% end %>
+  </div>
+  <%= link_to "Edit", edit_itinerary_path(@itinerary), class: "btn btn-primary" %>
+  <%= link_to "Destroy", itinerary_path(@itinerary), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-primary" %>
 </div>
