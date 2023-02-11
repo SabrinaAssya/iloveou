@@ -1,5 +1,5 @@
 class Review < ApplicationRecord
-  belongs_to :itinerary, dependent: :destroy
+  belongs_to :itinerary
   belongs_to :user
 
   validates :content, length: { minimum: 4 }, presence: true

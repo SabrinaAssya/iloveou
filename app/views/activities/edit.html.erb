@@ -1,9 +1,11 @@
-<%= form_with model: @activity do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-  <%= f.label :description %>
-  <%= f.number_field :description %>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+  <h1> Please edit your activity</h1>
+    <div class="form">
+      <%= simple_form_for([@itinerary, @activity]) do |f| %>
+      <%= f.input :title, placeholder: "Choose a title for your activity" %>
+      <%= f.input :description, placeholder: "Describe your activity" %>
+      <%= f.input :address, placeholder: "Please fill in the address" %>
+      <%= f.submit class: "btn btn-primary"%>
+    <% end %>
+    </div>
+</div>
