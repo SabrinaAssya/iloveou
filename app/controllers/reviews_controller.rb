@@ -2,7 +2,7 @@ class ReviewsController < ApplicationController
   before_action :set_itinerary
 
   def index
-    @review = Review.all
+    @review = Review.where(itinerary: Itinerary.find(params[:itinerary_id])) #cherche la review dans un itineraire donné
   end
 
   def new
