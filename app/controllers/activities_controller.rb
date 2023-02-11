@@ -18,7 +18,6 @@ class ActivitiesController < ApplicationController
     @activity = Activity.new(activity_params)
     @itinerary = Itinerary.find(params[:itinerary_id])
     @activity.itinerary = @itinerary
-    @activity.category = Category.first
     if @activity.save
       redirect_to itinerary_activities_path(Itinerary.find(params[:itinerary_id]))
     else

@@ -1,36 +1,9 @@
 <div class="row">
   <div class="col-8 mt-2 p-5">
-    <h3 class="mb-5">Itinerary creation</h3>
-    <div class="form">
-      <%= simple_form_for(@itinerary) do |f| %>
-      <%= f.input :title, placeholder: "Choose a title for your itinerary" %>
-      <%= f.input :description, placeholder: "Describe your itinerary" %>
-          <div class="form-check">
-            <%= f.input :weather,
-              collection: Itinerary.weathers.keys,
-              wrapper_html: {class: 'flex justify-center'},
-              as: :radio_buttons
-            %>
-          </div>
-          <div class="form-check">
-            <%= f.input :price,
-                collection: Itinerary.prices.keys,
-                as: :radio_buttons
-            %>
-          </div>
-         <div class="form-check">
-            <%= f.input :duration,
-              collection: Itinerary.durations.keys,
-              as: :radio_buttons
-            %>
-          </div>
-      <%= f.association :station,
-                    placeholder: "Please choose the station" %>,
-      <%= f.submit class: "btn btn-primary" %>
-    <% end %>
-    </div>
+    <h1>Please, create your itinerary</h1>
+    <%= render "shared/form" %>
   </div>
   <div class="col-4">
-  <img src="https://www.noovomoi.ca/content/style-de-vie/fr/vivre/couple/dates-originales/_jcr_content/root/main/responsivegrid/image_1663125779.coreimg.jpeg/1658776859818/dates-originales-3.jpeg" class="h-100">
+    <img src="https://www.noovomoi.ca/content/style-de-vie/fr/vivre/couple/dates-originales/_jcr_content/root/main/responsivegrid/image_1663125779.coreimg.jpeg/1658776859818/dates-originales-3.jpeg" class="h-100">
   </div>
 </div>
