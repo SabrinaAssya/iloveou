@@ -21,4 +21,5 @@ class Itinerary < ApplicationRecord
     "2h-4h": 1,
     "More than 4h": 2,
   }
+  
 end
