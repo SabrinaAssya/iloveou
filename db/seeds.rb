@@ -12,7 +12,6 @@ Review.delete_all
 Activity.delete_all
 Itinerary.delete_all
 Station.delete_all
-Category.delete_all
 User.delete_all
 
 puts "Creating 4 stations"
@@ -27,15 +26,6 @@ metros["records"].each do |metro|
 end
 
 puts "4 stations created"
-
-puts "Creating 4 categories"
-
-category_1 = Category.create!(name: "Outdoor Adventure")
-category_2 = Category.create!(name: "Cultural Excursion")
-category_3 = Category.create!(name: "Water Activities")
-category_4 = Category.create!(name: "Historical Sites")
-
-puts "4 categories created"
 
 
 puts "Creating 4 users"
@@ -60,14 +50,14 @@ puts " 4 itineraries created"
 
 puts "Creating 8 activities"
 
-activity_1 = Activity.create!(itinerary_id: itinerary_1.id, title: "Walk in the Forest", address: "Fontainebleau Forest", description: "Enjoy a peaceful walk in the Fontainebleau Forest.", category_id: category_1.id)
-activity_2 = Activity.create!(itinerary_id: itinerary_2.id, title: "Visit to Fontainebleau Castle", address: "Fontainebleau Castle", description: "Discover the history and architecture of the famous Fontainebleau Castle.", category_id: category_3.id)
-activity_3 = Activity.create!(itinerary_id: itinerary_4.id, title: "Cruise on the Seine", address: "Quai de la Loire, Paris", description: "Embark on a cruise on the Seine and discover the famous monuments of Paris.", category_id: category_4.id)
-activity_4 = Activity.create!(itinerary_id: itinerary_3.id, title: "Visit to the Musée d'Orsay", address: "Musée d'Orsay, Paris", description: "Discover modern art and French culture at the Musée d'Orsay.", category_id: category_1.id)
-activity_5 = Activity.create!(itinerary_id: itinerary_1.id, title: "Hiking in the mountains", address: "Alps", description: "Go on an adventure in the snow-capped mountains of the Alps.", category_id: category_2.id)
-activity_6 = Activity.create!(itinerary_id: itinerary_3.id, title: "Visit to the Alpine shelter", address: "Alpine shelter in the Alps", description: "Discover the life of mountaineers in a typical Alpine shelter.", category_id: category_2.id)
-activity_7 = Activity.create!(itinerary_id: itinerary_4.id, title: "Visit to the old port", address: "Old port, Marseille", description: "Explore the old port of Marseille and discover its maritime history.", category_id: category_1.id)
-activity_8 = Activity.create!(itinerary_id: itinerary_1.id, title: "Visit to Notre-Dame de la Garde Basilica", address: "Notre-Dame de la Garde Basilica, Marseille", description: "Admire the panoramic view of Marseille from Notre-Dame de la Garde Basilica.", category_id: category_3.id)
+activity_1 = Activity.create!(itinerary_id: itinerary_1.id, title: "Walk in the Forest", address: "Fontainebleau Forest", description: "Enjoy a peaceful walk in the Fontainebleau Forest.")
+activity_2 = Activity.create!(itinerary_id: itinerary_2.id, title: "Visit to Fontainebleau Castle", address: "Fontainebleau Castle", description: "Discover the history and architecture of the famous Fontainebleau Castle.")
+activity_3 = Activity.create!(itinerary_id: itinerary_4.id, title: "Cruise on the Seine", address: "Quai de la Loire, Paris", description: "Embark on a cruise on the Seine and discover the famous monuments of Paris.")
+activity_4 = Activity.create!(itinerary_id: itinerary_3.id, title: "Visit to the Musée d'Orsay", address: "Musée d'Orsay, Paris", description: "Discover modern art and French culture at the Musée d'Orsay.")
+activity_5 = Activity.create!(itinerary_id: itinerary_1.id, title: "Hiking in the mountains", address: "Alps", description: "Go on an adventure in the snow-capped mountains of the Alps.")
+activity_6 = Activity.create!(itinerary_id: itinerary_3.id, title: "Visit to the Alpine shelter", address: "Alpine shelter in the Alps", description: "Discover the life of mountaineers in a typical Alpine shelter.")
+activity_7 = Activity.create!(itinerary_id: itinerary_4.id, title: "Visit to the old port", address: "Old port, Marseille", description: "Explore the old port of Marseille and discover its maritime history.")
+activity_8 = Activity.create!(itinerary_id: itinerary_1.id, title: "Visit to Notre-Dame de la Garde Basilica", address: "Notre-Dame de la Garde Basilica, Marseille", description: "Admire the panoramic view of Marseille from Notre-Dame de la Garde Basilica.")
 
 puts "8 activities created ..."
 
