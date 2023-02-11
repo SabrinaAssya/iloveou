@@ -2,17 +2,16 @@ class ActivitiesController < ApplicationController
   def index
     @activities = Activity.where(itinerary: Itinerary.find(params[:itinerary_id]))
   end
-
-  def new
-    @activity = Activity.new
-    @itinerary = Itinerary.find(params[:itinerary_id])
-  end
-
   def show
     @activity = Activity.find(params[:id])
     @itinerary_id = @activity.itinerary.id
     @itinerary= Itinerary.find(@itinerary_id)
     @itinerary.user = current_user
+  end
+
+  def new
+    @activity = Activity.new
+    @itinerary = Itinerary.find(params[:itinerary_id])
   end
 
   def create
@@ -21,7 +20,7 @@ class ActivitiesController < ApplicationController
     @activity.itinerary = @itinerary
     @activity.category = Category.first
     if @activity.save
-      redirect_to activity_path(@activity)
+      redirect_to itinerary_activities_path(Itinerary.find(params[:itinerary_id]))
     else
       render :new, status: :unprocessable_entity
     end
