@@ -10,8 +10,13 @@ def index
 #   "price"=>["$", "$$", "$$$"], 
 #   "duration"=>["1h-2h", "2h-4h", "More than 4h"],
 #    "categories"=>["restaurant", "culture", "drinks", "outdoor", "original"]}, 
- raise 
-  @itineraries = @itineraries.where(price: )
+
+  # if 
+  # @itineraries = @itineraries.where(price: )
+  # end
+
+  raise
+
 
   if params.dig(:search, :sort) == "Populars"
     @itineraries = @itineraries.order(rating: :desc)
