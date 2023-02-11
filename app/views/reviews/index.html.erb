@@ -1,7 +1,16 @@
-<h1>Reviews</h1>
+<h1>All Reviews</h1>
 
-<ul>
+<ul class="reviews">
   <% @review.each do |avis| %>
-    <li><%= link_to avis.content, itinerary_reviews_path(avis) %></li>
+    <li>
+      <%= pluralize(avis.rating, 'star') %>
+      <p>
+        <span class="date">
+        <%= link_to avis.content, itinerary_reviews_path(avis) %></li>
+        <%= link_to avis.rating, itinerary_reviews_path(avis) %></li>
+          posted <%= time_ago_in_words(avis.created_at) %> ago
+        </span>
+      </p>
+    <li>
   <% end %>
 </ul>

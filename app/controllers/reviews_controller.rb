@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :set_itinerary
 
   def index
     @review = Review.all
@@ -22,20 +23,25 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def update
-    @review = Review.find(params[:id])
-    @review.update(review_params)
-    redirect_to review_path(@review)
-  end
-
-  def destroy
-    @review = Review.find(params[:id])
-    @review.user = current_user
-    @review.destroy
-    redirect_to review_path status: :see_other
-  end
-
 private
+
+
+#rescue => exception
+
+  def set_itinerary
+    @itinerary = Itinerary.find(params[:itinerary_id])
+  end
+
+=begin
+end
+  def set_review
+    @review = Review.find(params[:id])
+  end
+
+  def set_itineraries
+    @itinerary_review = Itinerary_review.find_by!(slug: params[:id])
+  end
+=end
 
   def review_params
     params.require(:review).permit(:rating, :content)
