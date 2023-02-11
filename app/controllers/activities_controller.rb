@@ -1,4 +1,4 @@
-class ActivitiesController < ApplicationController
+class ActivitiesController < ApplicationController@itinerary = Itinerary.find(params[:itinerary_id])
   def index
     @activities = Activity.where(itinerary: Itinerary.find(params[:itinerary_id]))
   end
@@ -42,6 +42,12 @@ class ActivitiesController < ApplicationController
     redirect_to itinerary_activities_path(Itinerary.find(params[:itinerary_id])), status: :see_other
   end
 
+  def info
+    @activities = Activity.all
+    @itinerary = Itinerary.find(params[:itinerary_id])
+    
+    @activity.itinerary = @itinerary
+  end
   private
 
   def activity_params

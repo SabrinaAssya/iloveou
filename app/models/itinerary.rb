@@ -2,6 +2,7 @@ class Itinerary < ApplicationRecord
   belongs_to :user
   belongs_to :station
   has_many :reviews, dependent: :destroy
+  has_many :activities, dependent: :destroy
   #validates :title, :weather, :price, :duration, presence: true
 
   enum weather: {
@@ -21,5 +22,5 @@ class Itinerary < ApplicationRecord
     "2h-4h": 1,
     "More than 4h": 2,
   }
-  
+
 end
