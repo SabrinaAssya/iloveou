@@ -3,7 +3,6 @@ class ItinerariesController < ApplicationController
 
 def index
   @itineraries = Itinerary.all
-  raise
 
   if params[:sort_popular].present?
     @itineraries = @itineraries.order(rating: :desc)
