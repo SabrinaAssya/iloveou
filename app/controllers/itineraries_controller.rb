@@ -21,18 +21,21 @@ def new
   @itinerary = Itinerary.new
 end
 
-def show
-end
-
 def create
   @itinerary = Itinerary.new(itinerary_params)
   @itinerary.user = current_user
+  @itinerary_id = Itinerary.find(params[:id])
   if @itinerary.save!
-    redirect_to itineraries_path, notice: 'Itinerary was successfully created.'
+    redirect_to itinerary_path(@itinerary), notice: 'Itinerary was successfully created.'
   else
     render :new, status: :unprocessable_entity
   end
 end
+
+def show
+  @itinerary = Itinerary.find(params[:id])
+end
+
 
 def edit
 end
