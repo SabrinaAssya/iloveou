@@ -22,8 +22,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_09_184712) do
     t.bigint "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["category_id"], name: "index_activities_on_category_id"
     t.index ["itinerary_id"], name: "index_activities_on_itinerary_id"
+    t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -44,7 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_09_184712) do
   create_table "itineraries", force: :cascade do |t|
     t.text "title"
     t.text "description"
-    t.text "weather"
+    t.integer "weather"
     t.float "price"
     t.text "duration"
     t.bigint "user_id", null: false
@@ -54,6 +56,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_09_184712) do
     t.float "rating"
     t.index ["station_id"], name: "index_itineraries_on_station_id"
     t.index ["user_id"], name: "index_itineraries_on_user_id"
+    t.index ["weather"], name: "index_itineraries_on_weather"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -89,6 +92,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_09_184712) do
 
   add_foreign_key "activities", "categories"
   add_foreign_key "activities", "itineraries"
+  add_foreign_key "activities", "users"
   add_foreign_key "favorites", "itineraries"
   add_foreign_key "favorites", "users"
   add_foreign_key "itineraries", "stations"

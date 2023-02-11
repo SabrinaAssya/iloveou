@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>Your activity for <%= @itinerary.title %> </h1>
+  <p> Created by <%= @itinerary.user.first_name %> </p>
+  <div class="card">
+    <p> Details : <%= @activity.description %></p>
+  </div>
+<%= link_to "Back to my itineraries", itineraries_path, class: "btn btn-primary" %>
+</div>
