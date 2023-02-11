@@ -2,6 +2,9 @@
 
 <h1>All itineraries</h1>
 <% @itineraries.each do |itinerary| %>
+  <%# itinerary.activities.each do |activity| %>
+    <%# cl_image_tag activity.photo.key %>
+  <%# end %>
   <%= link_to "#{itinerary.title}", itinerary_path(itinerary) %>
   <p> Rating : <%= itinerary.rating %></p>
   <p> Description : <%= itinerary.description %></p>
