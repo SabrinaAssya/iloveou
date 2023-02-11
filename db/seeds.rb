@@ -53,7 +53,7 @@ puts "Creating 8 activities"
 activity_1 = Activity.create!(itinerary_id: itinerary_1.id, title: "Walk in the Forest", address: "Fontainebleau Forest", description: "Enjoy a peaceful walk in the Fontainebleau Forest.")
 activity_1.photo.attach(
   io: URI.open('https://www.bienmagazine.co.uk/system/articles/images/000/000/222/large/randki36.jpg'),
-  filename: 'forest.jpg', # use the extension of the attached file here (found at the end of the url)
+  filename: 'randki36.jpg', # use the extension of the attached file here (found at the end of the url)
   content_type: 'image/jpg' # use the mime type of the attached file here
 )
 activity_2 = Activity.create!(itinerary_id: itinerary_2.id, title: "Visit to Fontainebleau Castle", address: "Fontainebleau Castle", description: "Discover the history and architecture of the famous Fontainebleau Castle.")
