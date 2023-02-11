@@ -39,11 +39,11 @@ user_4 = User.create!(first_name: "Alice", last_name: "Johnson", email: "alicejo
 puts "creating 4 itineraries ..."
 
 itinerary_1 = Itinerary.create!(title: "Romantic Itinerary", description: "This is a romantic itinerary.", price: "$$", duration: "1h-2h", station_id: Station.all.sample.id, user_id: user_2.id, rating: 4.5)
-sleep(1) 
+sleep(1)
 itinerary_2 = Itinerary.create!(title: "Unusual Itinerary", description: "This is an unusual itinerary.", price: "$$$", duration: "2h-4h", station_id: Station.all.sample.id, user_id: user_2.id, rating: 3)
-sleep(1) 
+sleep(1)
 itinerary_3 = Itinerary.create!(title: "Friendly Itinerary", description: "This is a friendly itinerary.", price: "$", duration: "1h-2h", station_id: Station.all.sample.id, user_id: user_3.id, rating: 5)
-sleep(1) 
+sleep(1)
 itinerary_4 = Itinerary.create!(title: "Original Itinerary", description: "This is an itinerary.", price: "$$$", duration: "More than 4h", station_id: Station.all.sample.id, user_id: user_4.id, rating: 4)
 
 puts " 4 itineraries created"
@@ -51,6 +51,11 @@ puts " 4 itineraries created"
 puts "Creating 8 activities"
 
 activity_1 = Activity.create!(itinerary_id: itinerary_1.id, title: "Walk in the Forest", address: "Fontainebleau Forest", description: "Enjoy a peaceful walk in the Fontainebleau Forest.")
+activity_1.photo.attach(
+  io: URI.open('https://www.bienmagazine.co.uk/system/articles/images/000/000/222/large/randki36.jpg'),
+  filename: 'forest.jpg', # use the extension of the attached file here (found at the end of the url)
+  content_type: 'image/jpg' # use the mime type of the attached file here
+)
 activity_2 = Activity.create!(itinerary_id: itinerary_2.id, title: "Visit to Fontainebleau Castle", address: "Fontainebleau Castle", description: "Discover the history and architecture of the famous Fontainebleau Castle.")
 activity_3 = Activity.create!(itinerary_id: itinerary_4.id, title: "Cruise on the Seine", address: "Quai de la Loire, Paris", description: "Embark on a cruise on the Seine and discover the famous monuments of Paris.")
 activity_4 = Activity.create!(itinerary_id: itinerary_3.id, title: "Visit to the Musée d'Orsay", address: "Musée d'Orsay, Paris", description: "Discover modern art and French culture at the Musée d'Orsay.")

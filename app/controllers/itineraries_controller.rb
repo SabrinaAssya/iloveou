@@ -4,12 +4,11 @@ class ItinerariesController < ApplicationController
 def index
 
   @itineraries = Itinerary.all
-  
-  raise 
 
   if params[:sort_populars].present?
+
     @itineraries = @itineraries.order(rating: :desc)
-  end 
+  end
 
   if params[:sort_newests].present?
     @itineraries = @itineraries.order(created_at: :asc)
@@ -22,7 +21,6 @@ def index
   if params[:sort_radom].present?
     @itineraries = @itineraries .order("RANDOM()")
   end 
-
 end
 
 def new
