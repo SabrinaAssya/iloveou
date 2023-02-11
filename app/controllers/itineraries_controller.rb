@@ -3,7 +3,8 @@ class ItinerariesController < ApplicationController
 
   def index
     @itineraries = Itinerary.all
-    @itineraries = results_filters(@itineraries, params)
+    # Methode ci dessous en cours de construction par Baptiste ne pas supprimer svp :)
+    # @itineraries = results_filters(@itineraries, params)
     @itineraries = sort_results(@itineraries, params)
   end
 
@@ -51,12 +52,13 @@ class ItinerariesController < ApplicationController
   end
 
   def sort_results(itineraries, params)
+ 
     if params[:search].present? && params.dig(:search, :sort) == "Populars"
       itineraries = itineraries.order(rating: :desc)
     end
 
     if params[:search].present? && params.dig(:search, :sort) == "Populars"
-      itineraries = @itineraries.order(rating: :desc)
+      itineraries = itineraries.order(rating: :desc)
     end
 
     if params[:search].present? && params.dig(:search, :sort) == "Newests"
@@ -72,9 +74,10 @@ class ItinerariesController < ApplicationController
     end 
 
     return itineraries
+
   end 
 
-  def filters(itineraries, params)
+  def results_filters(itineraries, params)
     # "search"=>{"station"=>"Trocadéro", 
     #   "weather"=>["sunny", "cloudy", "rainy"], 
     #   "price"=>["$", "$$", "$$$"], 
@@ -84,6 +87,7 @@ class ItinerariesController < ApplicationController
     if params[:search][:price].present?
       raise
     end
+    
   end
 
 end
