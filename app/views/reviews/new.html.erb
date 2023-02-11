@@ -1,14 +1,31 @@
-<h1>New Review for <%= link_to @itinerary.title, @itinerary %></h1>
-
-<%= simple_form_for([@itinerary, @review]) do |f| %>
-
-  <%= f.label :rating %>
-  <%= f.select :rating, Review::RATING, prompt: "Pick one" %>
-
-
-  <%= f.label :content %>
-  <%= f.text_area :content, placeholder: "What did you think?" %>
-
-
-  <%= f.submit "Post Review" %>
-<% end %>
+<div class="container m-5">
+  <div class="row mb-5">
+    <div class="col-8">
+      <div class="title">
+        <h4>NO REVIEW HAS BEEN WRITTEN YET</h4>
+        <h2>BE THE FIRST ONE TO COMMENT THIS ITINERARY</h2>
+      </div>
+    </div>
+    <div class="col-4">
+       <%= image_tag "Customerreviews.png", class: "w-100", alt: "une image"%>
+    </div>
+  </div>
+</div>
+<div class="container m-5 d-flex justify-content-center mt-5">
+  <div class="review-card p-5">
+    <h4 class="text-center mb-5"><strong>Write your review</strong></h4>
+      <p class="text-center mb-5">In order to guide other users, you can write your own opinion about this itinerary, and say what you liked and disliked.</p>
+        <div class="form">
+          <%= simple_form_for([@itinerary, @review]) do |f| %>
+          <%= f.input :rating,
+              collection: [1, 2, 3, 4, 5],
+              wrapper_html: {class: 'flex justify-center'},
+              as: :radio_buttons
+            %>
+          <%= f.input :content, placeholder: "What did you think?" %>
+          <%= f.submit "Post Review", class: "review-btn"%>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>
