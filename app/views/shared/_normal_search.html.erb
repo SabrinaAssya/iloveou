@@ -1,7 +1,13 @@
 <%= form_with url: "itineraries?", method: :get do |form| %>
     <div class="global">
+        <%= form.label :station, "Where do you want to date ?" %>
         <%= form.text_field :station, placeholder: 'Please enter a subway station'%>
-        <%= form.number_field :guests, placeholder: 'Guests number', in: 1..10, step: 1 %>
+
+
+        
+        <%= form.text_field :station, placeholder: 'Please enter a subway station'%>
+        <%= form.text_field :station, placeholder: 'Please enter a subway station'%>
+        <%= form.text_field :station, placeholder: 'Please enter a subway station'%>
     </div>
     <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
 <% end %>
