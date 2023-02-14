@@ -38,13 +38,13 @@ user_4 = User.create!(first_name: "Alice", last_name: "Johnson", email: "alicejo
 
 puts "creating 4 itineraries ..."
 
-itinerary_1 = Itinerary.create!(title: "Romantic Itinerary", description: "This is a romantic itinerary.", price: "$$", duration: "1h-2h", station_id: Station.all.sample.id, user_id: user_2.id, rating: 4.5)
+itinerary_1 = Itinerary.create!(title: "Romantic Itinerary", description: "This is a romantic itinerary.", price: "$$", sunny: true, cloudy: true, culture: true, restaurant: true, drinks: true, duration: "1h-2h", station_id: Station.all.sample.id, user_id: user_2.id, rating: 4.5)
 sleep(1)
-itinerary_2 = Itinerary.create!(title: "Unusual Itinerary", description: "This is an unusual itinerary.", price: "$$$", duration: "2h-4h", station_id: Station.all.sample.id, user_id: user_2.id, rating: 3)
+itinerary_2 = Itinerary.create!(title: "Unusual Itinerary", description: "This is an unusual itinerary.", price: "$$$", cloudy: true, drinks: true, original: true, culture: true, duration: "2h-4h", station_id: Station.all.sample.id, user_id: user_2.id, rating: 3)
 sleep(1)
-itinerary_3 = Itinerary.create!(title: "Friendly Itinerary", description: "This is a friendly itinerary.", price: "$", duration: "1h-2h", station_id: Station.all.sample.id, user_id: user_3.id, rating: 5)
+itinerary_3 = Itinerary.create!(title: "Friendly Itinerary", description: "This is a friendly itinerary.", price: "$", sunny: true, rainy: true, cloudy: true, restaurant: true, original: true, culture: true, duration: "1h-2h", station_id: Station.all.sample.id, user_id: user_3.id, rating: 5)
 sleep(1)
-itinerary_4 = Itinerary.create!(title: "Original Itinerary", description: "This is an itinerary.", price: "$$$", duration: "More than 4h", station_id: Station.all.sample.id, user_id: user_4.id, rating: 4)
+itinerary_4 = Itinerary.create!(title: "Original Itinerary", description: "This is an itinerary.", price: "$$$", sunny: true, restaurant: true, original: true, duration: "More than 4h", station_id: Station.all.sample.id, user_id: user_4.id, rating: 4)
 
 puts " 4 itineraries created"
 

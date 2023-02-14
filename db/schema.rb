@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema[7.0].define(version: 2023_02_14_190135) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -69,8 +71,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_14_190135) do
   create_table "itineraries", force: :cascade do |t|
     t.text "title"
     t.text "description"
-    t.float "price"
-    t.text "duration"
+    t.string "price"
+    t.string "duration"
     t.bigint "user_id", null: false
     t.bigint "station_id", null: false
     t.datetime "created_at", null: false
