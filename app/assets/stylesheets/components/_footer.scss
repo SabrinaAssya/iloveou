@@ -51,3 +51,14 @@ b, strong {
   border-radius: 15px;
   margin: 10px;
 }
+
+.menu {
+  margin: 40px;
+}
+
+a.nav-link:hover {
+  background-color: #EE5885;
+  color: white;
+  transition: 0.3s;
+  border: none;
+}
