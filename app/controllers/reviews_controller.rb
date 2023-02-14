@@ -17,7 +17,7 @@ class ReviewsController < ApplicationController
     @review.itinerary_id = @itinerary.id # mandatory de tout renseigner pour récupérer l'info complète
     @review.user_id = current_user.id # mandatory de tout renseigner pour récupérer l'info complète
     if @review.save
-      redirect_to itinerary_reviews_path(@itinerary.id, @review.id)
+      redirect_to itinerary_path(@itinerary.id)
     else
       render :new, status: :see_other
     end

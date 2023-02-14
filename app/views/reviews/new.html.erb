@@ -17,12 +17,13 @@
       <p class="text-center mb-5">In order to guide other users, you can write your own opinion about this itinerary, and say what you liked and disliked.</p>
         <div class="form">
           <%= simple_form_for([@itinerary, @review]) do |f| %>
-          <%= f.input :rating,
-              collection: [1, 2, 3, 4, 5],
-              wrapper_html: {class: 'flex justify-center'},
-              as: :radio_buttons
-            %>
           <%= f.input :content, placeholder: "What did you think?" %>
+           <%= f.input :rating, as: :hidden  %>
+            <div class="my-3">
+              <% Review::AUTHORIZED_RATINGS.each do |index| %>
+                <i id="<%= index %>" class="review-rating far fa-star"></i>
+               <% end %>
+            </div>
           <%= f.submit "Post Review", class: "review-btn"%>
           </div>
         </div>
