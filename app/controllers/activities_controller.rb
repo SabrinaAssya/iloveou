@@ -1,7 +1,9 @@
-class ActivitiesController < ApplicationController@itinerary = Itinerary.find(params[:itinerary_id])
+class ActivitiesController < ApplicationController
+
   def index
     @activities = Activity.where(itinerary: Itinerary.find(params[:itinerary_id]))
   end
+
   def show
     @activity = Activity.find(params[:id])
     @itinerary_id = @activity.itinerary.id
@@ -45,7 +47,7 @@ class ActivitiesController < ApplicationController@itinerary = Itinerary.find(pa
   def info
     @activities = Activity.all
     @itinerary = Itinerary.find(params[:itinerary_id])
-    
+
     @activity.itinerary = @itinerary
   end
   private
