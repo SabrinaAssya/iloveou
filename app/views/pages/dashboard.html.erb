@@ -1,21 +1,31 @@
 <div class="container">
-  <h1>My Dashboard</h1>
+    <h1>My Dashboard</h1>
+  <div class="user-card">
+    <h2> My account</h2>
+    <p> <%= current_user.first_name %>
+        <%= current_user.last_name %>
+        <%= image_tag "bella_hadid", width: 400, height: 400, crop: :fill %>
+    </p>
+<%= link_to "Create an itinerary", new_itinerary_path, class: "btn-itinerary-new" %>
+  </div>
+
+
+
   <h2> My itineraries</h2>
-  <% @itineraries.each do |b| %>
-    <% if b.status == true && b.user_id == current_user.id %>
+  <% @itineraries.each do |itinerary| %>
+    <% if itinerary.user_id == current_user.id %>
       <div class="itinerary-card">
-        <div class="activity-image">
-          <%= cl_image_tag Activity.find(b.activity_id).photo.key,  width: 400, height: 300, crop: :fill%>
-        </div>
+          <%# cl_image_tag Activity.find(b.activity_id).photo.key,  width: 400, height: 300, crop: :fill%>
         <div class="itinerary-info">
-          <h3> <%= Itinerary.find(b.activity_id).title %> </h3>
-          <p> Address : <%= Activity.find(b.activity_id).address %></p>
-          <p> Description : <%= Activity.find(b.activity_id).description %></p>
+          <h3> <%= itinerary.title %> </h3>
+          <p> Price : <%= itinerary.price %></p>
+          <p> Description : <%= itinerary.description %></p>
+          <p> Duration : <%= itinerary.duration %></p>
         </div>
-          <%= link_to "View more", itineraries_path, class: "btn btn-primary" %>
       </div>
     <% end %>
   <% end %>
+          <%= link_to "View more", itineraries_path, class: "btn btn-primary" %>
   <% if @itineraries.length == 0 %>
     <div class="no-itinerary-card">
       <h3>No activities added... yet!</h3>
