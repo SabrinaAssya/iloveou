@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>My Dashboard</h1>
+  <h2> My itineraries</h2>
+  <% @itineraries.each do |b| %>
+    <% if b.status == true && b.user_id == current_user.id %>
+      <div class="itinerary-card">
+        <div class="activity-image">
+          <%= cl_image_tag Activity.find(b.activity_id).photo.key,  width: 400, height: 300, crop: :fill%>
+        </div>
+        <div class="itinerary-info">
+          <h3> <%= Itinerary.find(b.activity_id).title %> </h3>
+          <p> Address : <%= Activity.find(b.activity_id).address %></p>
+          <p> Description : <%= Activity.find(b.activity_id).description %></p>
+        </div>
+          <%= link_to "View more", itineraries_path, class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  <% end %>
+  <% if @itineraries.length == 0 %>
+    <div class="no-itinerary-card">
+      <h3>No activities added... yet!</h3>
+      <p>It's time to go out and get ready for your next date.</p>
+      <%= link_to "Start searching", itineraries_path, class: "btn-itinerary-index" %>
+      </div>
+  <% end %>
+  <h2> My favorites </h2>
+  <div class="itinerary-card">
+    </div>
+</div>
