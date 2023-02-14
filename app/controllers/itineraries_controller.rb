@@ -52,7 +52,7 @@ class ItinerariesController < ApplicationController
   end
 
   def sort_results(itineraries, params)
- 
+
     if params[:search].present? && params.dig(:search, :sort) == "Populars"
       itineraries = itineraries.order(rating: :desc)
     end
@@ -62,32 +62,32 @@ class ItinerariesController < ApplicationController
     end
 
     if params[:search].present? && params.dig(:search, :sort) == "Newests"
-      itineraries = itineraries.order(created_at: :asc) 
-    end 
+      itineraries = itineraries.order(created_at: :asc)
+    end
 
     if params[:search].present? && params.dig(:search, :sort) == "Oldests"
       itineraries = itineraries.order(created_at: :desc)
-    end 
+    end
 
     if params[:search].present? && params.dig(:search, :sort) == "Random"
       itineraries = itineraries .order("RANDOM()")
-    end 
+    end
 
     return itineraries
 
-  end 
+  end
 
   def results_filters(itineraries, params)
-    # "search"=>{"station"=>"Trocadéro", 
-    #   "weather"=>["sunny", "cloudy", "rainy"], 
-    #   "price"=>["$", "$$", "$$$"], 
+    # "search"=>{"station"=>"Trocadéro",
+    #   "weather"=>["sunny", "cloudy", "rainy"],
+    #   "price"=>["$", "$$", "$$$"],
     #   "duration"=>["1h-2h", "2h-4h", "More than 4h"],
-    #    "categories"=>["restaurant", "culture", "drinks", "outdoor", "original"]}, 
+    #    "categories"=>["restaurant", "culture", "drinks", "outdoor", "original"]},
 
     if params[:search][:price].present?
       raise
     end
-    
+
   end
 
 end
