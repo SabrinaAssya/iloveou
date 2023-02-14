@@ -3,8 +3,8 @@ class ItinerariesController < ApplicationController
 
   def index
     @itineraries = Itinerary.all
-    # Methode ci dessous en cours de construction par Baptiste ne pas supprimer svp :)
-    # @itineraries = results_filters(@itineraries, params)
+    @itineraries = station_results(@itineraries, params)
+    @itineraries = results_filters(@itineraries, params)
     @itineraries = sort_results(@itineraries, params)
   end
 
@@ -74,20 +74,58 @@ class ItinerariesController < ApplicationController
     end
 
     return itineraries
-
   end
 
   def results_filters(itineraries, params)
-    # "search"=>{"station"=>"Trocadéro",
-    #   "weather"=>["sunny", "cloudy", "rainy"],
-    #   "price"=>["$", "$$", "$$$"],
-    #   "duration"=>["1h-2h", "2h-4h", "More than 4h"],
-    #    "categories"=>["restaurant", "culture", "drinks", "outdoor", "original"]},
-
-    if params[:search][:price].present?
-      raise
+  
+    if params[:search].present? && params.dig(:search, :price).present?
+      @prices = params.dig(:search, :price)
+      itineraries = itineraries.where(price: @prices)
     end
 
+    if params[:search].present? && params.dig(:search, :duration).present?
+      @duration = params.dig(:search, :duration)
+      itineraries = itineraries.where(duration: @duration)
+    end
+
+    if params[:search].present? && params.dig(:search, :weather).present?
+      @weather = params.dig(:search, :weather)
+      @weather.each do |weather| 
+        if weather == "sunny"
+           itineraries = itineraries.where(sunny: true) 
+        elsif weather == "cloudy"
+          itineraries = itineraries.where(cloudy: true) 
+        elsif weather == "rainy"
+          itineraries = itineraries.where(rainy: true)
+        end
+      end
+    end
+
+    if params[:search].present? && params.dig(:search, :categories).present?
+      @categories = params.dig(:search, :categories)
+      @categories.each do |category| 
+        if category == "restaurant"
+           itineraries = itineraries.where(restaurant: true) 
+        elsif category == "culture"
+          itineraries = itineraries.where(culture: true) 
+        elsif category == "drinks"
+          itineraries = itineraries.where(drinks: true)
+        elsif category == "outdoor"
+          itineraries = itineraries.where(outdoor: true)
+        elsif category == "original"
+          itineraries = itineraries.where(original: true)
+        end
+      end
+    end
+
+  return itineraries
   end
 
+  def station_results(itineraries, params)
+    if params[:search].present? && params.dig(:search, :station).present?
+      itineraries = itineraries.joins(:station).where("stations.name ILIKE ?", "#{params.dig(:search, :station)}%")
+    end
+  return itineraries
+  end
 end
+
