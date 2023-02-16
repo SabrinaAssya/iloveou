@@ -104,11 +104,11 @@ class ItinerariesController < ApplicationController
     if params[:search].present? && params.dig(:search, :categories).present?
       @categories = params.dig(:search, :categories)
       @categories.each do |category| 
-        if category == "restaurant"
+        if category == "restaurant" && params.dig(:search, :restaurant).present?
            itineraries = itineraries.where(restaurant: true) 
-        elsif category == "culture"
+        elsif category == "culture" && params.dig(:search, :culture).present?
           itineraries = itineraries.where(culture: true) 
-        elsif category == "drinks"
+        elsif category == "drinks" && params.dig(:search, :drinks).present?
           itineraries = itineraries.where(drinks: true)
         elsif category == "outdoor"
           itineraries = itineraries.where(outdoor: true)
