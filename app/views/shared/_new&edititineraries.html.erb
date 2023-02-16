@@ -4,7 +4,7 @@
     <%= f.input :description, placeholder: "Describe your itinerary" %>
       <div class="form-check">
         <%= f.input :weather,
-          collection: Itinerary.weathers.keys,
+          collection: ["sunny", "cloudy", "rainy"],
           wrapper_html: {class: 'flex justify-center'},
           as: :radio_buttons
         %>
