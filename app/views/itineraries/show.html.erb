@@ -20,5 +20,6 @@
   </div>
   <%= link_to "Edit", edit_itinerary_path(@itinerary), class: "submit-btn" %>
   <%= link_to "Destroy", itinerary_path(@itinerary), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "submit-btn" %>
+  <%= link_to "Add to favorites", itinerary_favorites_path(@itinerary), data: { turbo_method: :post }, class: "submit-btn" %>
   <%= link_to "Add a review", new_itinerary_review_path(@itinerary), class: "submit-btn" %>
 </div>
