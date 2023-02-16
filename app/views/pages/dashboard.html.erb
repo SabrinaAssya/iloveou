@@ -34,7 +34,13 @@
       <%= link_to "Start searching", itineraries_path, class: "btn-itinerary-index" %>
       </div>
   <% end %>
-  <h2> My favorites </h2>
-  <div class="itinerary-card">
-    </div>
+    <h2> My favorites </h2>
+      <div class="itinerary-card">
+        <% current_user.saved_itineraries.each do |itinerary|%>
+          <h3> <%= itinerary.title %> </h3>
+          <p> Price : <%= itinerary.price %></p>
+          <p> Description : <%= itinerary.description %></p>
+          <p> Duration : <%= itinerary.duration %></p>
+        <% end %>
+      </div>
 </div>
