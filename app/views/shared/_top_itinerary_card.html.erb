@@ -1,3 +1,15 @@
 <div class="card-slider">
-
+  <% top_itineraries = Itinerary.all.order(rating: :desc) %>
+  <% top_itineraries.each do |itinerary|%>
+    <div class="card">
+      <h2><%= itinerary.title %></h2>
+      <p><%= itinerary.user.first_name%> <%= itinerary.user.last_name%></p>
+      <p> <% if itinerary.rating == itinerary.rating.round %>
+        <%= itinerary.rating.round %>
+      <% else %>
+        <%= itinerary.rating %>
+      <% end %>
+      ● <%= itinerary.reviews.count %> reviews </p>
+    </div>
+  <% end %>
 </div>
