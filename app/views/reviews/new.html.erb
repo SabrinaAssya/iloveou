@@ -19,12 +19,12 @@
           <%= simple_form_for([@itinerary, @review]) do |f| %>
           <%= f.input :content, placeholder: "What did you think?" %>
            <%= f.input :rating, as: :hidden  %>
-            <div class="my-3">
+            <div class="my-3 d-flex justify-content-center mt-5">
               <% Review::AUTHORIZED_RATINGS.each do |index| %>
                 <i id="<%= index %>" class="review-rating far fa-star"></i>
                <% end %>
             </div>
-          <%= f.submit "Post Review", class: "review-btn"%>
+            <%= f.submit "Post Review", class: "review-btn"%>
           </div>
         </div>
     <% end %>
