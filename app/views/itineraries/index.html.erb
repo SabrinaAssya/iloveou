@@ -5,9 +5,42 @@
   <%# itinerary.activities.each do |activity| %>
     <%# cl_image_tag activity.photo.key %>
   <%# end %>
+
   <%= link_to "#{itinerary.title}", itinerary_path(itinerary) %>
+  <p>Station : <%= itinerary.station.name %></p>
   <p> Rating : <%= itinerary.rating %></p>
   <p> Description : <%= itinerary.description %></p>
   <p> Price : <%= itinerary.price %></p>
   <p> Duration : <%= itinerary.duration %></p>
+
+  <p> weather : 
+    <% if itinerary.sunny == true  %>
+      <i class="fa-solid fa-sun"></i>
+    <% end  %>
+    <% if itinerary.rainy == true  %>
+      <i class="fa-solid fa-cloud-rain"></i>
+    <% end  %>
+    <% if itinerary.cloudy == true  %>
+      <i class="fa-solid fa-cloud-sun"></i>
+    <% end  %>
+  </p>
+
+  <p> Categories : 
+    <% if itinerary.restaurant == true  %>
+      <i class="fa-solid fa-utensils"></i>
+    <% end  %>
+    <% if itinerary.culture == true  %>
+      <i class="fa-solid fa-palette"></i>
+    <% end  %>
+    <% if itinerary.drinks == true  %>
+      <i class="fa-solid fa-champagne-glasses"></i>
+    <% end  %>
+    <% if itinerary.outdoor == true  %>
+      <i class="fa-solid fa-tree-city"></i>
+    <% end  %>
+    <% if itinerary.original == true  %>
+      <i class="fa-solid fa-face-grin-stars"></i>
+    <% end  %>
+  </p>
+
 <% end %>
