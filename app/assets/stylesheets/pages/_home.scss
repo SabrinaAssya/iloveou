@@ -27,6 +27,11 @@
         padding: 15px;
         border-radius: 15px;
         font-size: 20px;
+        &:hover {
+          color: #32A9E3;
+          background-color: white;
+
+        }
       }
     }
   }
