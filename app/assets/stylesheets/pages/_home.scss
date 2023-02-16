@@ -1,1 +1,129 @@
 // Specific CSS for your home-page
+.home {
+  margin-left: 150px;
+  margin-right: 150px;
+  margin-top: 100px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .left-side {
+    h1 {
+      font-size: 50px;
+      margin-bottom: 30px;
+    }
+    p {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+    .call-to-action {
+      margin-top: 50px;
+      a.btn-blue {
+        text-decoration: none;
+        color: white;
+        background: linear-gradient(90deg, #32A9E3, #0088CB);
+        padding: 15px;
+        border-radius: 15px;
+        font-size: 20px;
+        transition: 0.3s ease-in-out;
+        &:hover {
+          color: #32A9E3;
+          background: transparent;
+          border: 2px solid #32A9E3;
+        }
+      }
+    }
+  }
+  .right-side {
+    .header-img {
+      width: 50rem;
+    }
+  }
+}
+
+.app-features {
+  margin-top: 10rem;
+  margin-bottom: 15rem;
+  h1 {
+    text-align: right;
+    padding-right: 61rem;
+    margin-top: 25px;
+  }
+  h2 {
+    color: #EE5885;
+    font-size: 25px;
+  }
+  .features-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h3 {
+      font-weight: bold;
+      font-size: 25px;
+      margin-bottom: 2rem;
+    }
+    p {
+      font-size: 17px;
+    }
+    .first-card {
+      padding: 30px;
+      /* border: solid 1px; */
+      text-align: center;
+      background: linear-gradient(180deg, rgba(50, 169, 227, 0.48), transparent);
+      border-radius: 15px;
+      width: 327.34px;
+      height: 404.61px;
+      margin-right: 5rem;
+      .card-img {
+        width: 10rem;
+      }
+    }
+    .second-card {
+      padding: 30px;
+      /* border: solid 1px; */
+      text-align: center;
+      background: linear-gradient(180deg, rgba(238, 88, 133, 0.53), transparent);
+      border-radius: 15px;
+      width: 327.34px;
+      height: 404.61px;
+      margin-right: 5rem;
+      margin-top: 7rem;
+      .card-img {
+        width: 8rem;
+      }
+    }
+    .third-card {
+      padding: 30px;
+      /* border: solid 1px; */
+      text-align: center;
+      background: linear-gradient(180deg, rgba(50, 169, 227, 0.48), transparent);
+      border-radius: 15px;
+      width: 327.34px;
+      height: 404.61px;
+      margin-top: 14rem;
+      .card-img {
+        width: 8rem;
+      }
+    }
+    img.card-img {
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.top-itineraries {
+  text-align: center;
+  margin-bottom: 10rem;
+  p {
+    font-size: 20px;
+    padding-left: 20rem;
+    padding-right: 20rem;
+    margin-top: 2rem;
+    span {
+      font-weight: bold;
+    }
+  }
+}
