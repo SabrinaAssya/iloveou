@@ -27,23 +27,11 @@
         padding: 15px;
         border-radius: 15px;
         font-size: 20px;
-        transition: 1s ease-in-out;
-        svg {
-          position: absolute;
-          left: 0;
-          top: 0;
-          fill: none;
-          stroke: #fff;
-          stroke-dasharray: 150 480;
-          stroke-dashoffset: 150;
-          transition: 1s ease-in-out;
-        }
+        transition: 0.3s ease-in-out;
         &:hover {
-          transition: 1s ease-in-out;
-          background: #4F95DA;
-        }
-        &:hover svg {
-          stroke-dashoffset: -480;
+          color: #32A9E3;
+          background: transparent;
+          border: 2px solid #32A9E3;
         }
       }
     }
@@ -60,7 +48,7 @@
   margin-bottom: 15rem;
   h1 {
     text-align: right;
-    padding-right: 55rem;
+    padding-right: 61rem;
     margin-top: 25px;
   }
   h2 {
