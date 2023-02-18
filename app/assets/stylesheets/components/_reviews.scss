@@ -1,28 +1,61 @@
-.review-btn {
-  background: linear-gradient(45deg, #32A9E3, #0088CB);
-  border-radius: 5px;
-  border-color: #32A9E3;
+
+.h2-title {
+  color: #EE5885;
+}
+
+.btn-blue {
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(90deg, #32A9E3, #0088CB);
+  padding: 15px;
+  border-radius: 15px;
+  font-size: 20px;
+  transition: 0.3s ease-in-out;
+  width: 40%;
+  &:hover {
+    color: #32A9E3;
+    background: transparent;
+    border: 2px solid #32A9E3;
+  }
+}
+
+
+.btn-pink {
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(90deg,#EE5885,#EF396F);
+  padding: 15px;
+  border-radius: 15px;
+  font-size: 20px;
+  transition: 0.3s ease-in-out;
+  width: 40%;
+  border: none;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
-  align-items: center;
+  &:hover {
+    color: #EE5885;
+    background: transparent;
+    border: 2px solid #EE5885;
+  }
 }
+
 
 .review-card {
   background-color: white;
   border-color: white;
   border-width: 5px;
-  border-radius: 5px;
+  border-radius: 10px;
   overflow: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  width: 70%;
+  width: 90%;
 }
-
 
 .fa-star {
   color:  #FFD700;
 }
 
 .review-rating {
-  cursor:    pointer;
+  cursor: pointer;
   font-size: 2rem;
 }

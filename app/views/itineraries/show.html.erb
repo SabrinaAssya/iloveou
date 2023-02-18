@@ -1,27 +1,49 @@
-<div class="container mt-5">
-  <h1><%= @itinerary.title %></h1>
-  <div class="itinerary-info">
-    <p><%= @itinerary.station.name %></p>
-    <p><%= @itinerary.rating %></p>
-    <p> Created by <%= @itinerary.user.first_name %> </p>
-  <p><%= @itinerary.price %></p>
-  <p><%= @itinerary.duration %></p>
-  <p><%= @itinerary.duration %></p>
-  </div>
-  <p><%= @itinerary.description %></p>
-  <div id="map" data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-map-markers-value="<%= @markers.to_json %>">
-  </div>
-  <div class="activities-card">
-    <% @itinerary.activities.each do |activity| %>
-    <div class="activity-info">
-        <p> <strong> <%= activity.title %> </strong> </p>
-        <p><%= activity.address %> </p>
-        <p> <%= activity.description %> </p>
+
+<div class="i-header  mb-5">
+  <div class="row">
+    <div class="col-9">
+    <h2><%= @itinerary.title %></h2>
+    <p class= "mt-5"><%= @itinerary.description %></p>
+      <div class="info-text d-flex">
+        <div class="info-text-station p-5">
+          <p><i class="fa-solid fa-train-subway"></i>   <%= @itinerary.station.name %></p>
+        </div>
+        <div class="info-text-rating p-5">
+          <i class="fa-solid fa-star"></i>
+          <%= @itinerary.rating %>
+        </div>
+        <div class="info-text-review p-5">
+          <p><i class="fa-solid fa-comment"></i> <%= @itinerary.reviews.count%> reviews </p>
+        </div>
+        <div id="map" data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-map-markers-value="<%= @markers.to_json %>">
+        </div>
+        <div class="username p-5">
+          <%= @itinerary.user.first_name %>
+        </div>
+      </div>
     </div>
-    <% end %>
+    <div class="col-3">
+      <div class="info-box d-flex justify-content-center">
+        <div class="hour">
+          <p><i class="fa-solid fa-clock"></i> <%= @itinerary.duration %></p>
+        </div>
+        <div class="price">
+          <%= @itinerary.price %></p>
+        </div>
+        <div class="weather">
+         <p>
+            <% if @itinerary.sunny == true  %>
+              <i class="fa-solid fa-sun"></i>
+            <% end  %>
+            <% if @itinerary.rainy == true  %>
+              <i class="fa-solid fa-cloud-rain"></i>
+            <% end  %>
+            <% if @itinerary.cloudy == true  %>
+              <i class="fa-solid fa-cloud-sun"></i>
+            <% end  %>
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
-  <%= link_to "Edit", edit_itinerary_path(@itinerary), class: "submit-btn" %>
-  <%= link_to "Destroy", itinerary_path(@itinerary), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "submit-btn" %>
-  <%= link_to "Add to favorites", itinerary_favorites_path(@itinerary), data: { turbo_method: :post }, class: "submit-btn" %>
-  <%= link_to "Add a review", new_itinerary_review_path(@itinerary), class: "submit-btn" %>
 </div>
