@@ -40,8 +40,8 @@
   margin: 0;
 }
 
-.itinerary-info-card h5, a {
-  font-size: 12px;
+.itinerary-info-card h3, a {
+  font-size: 16px;
   opacity: .7;
   margin: 0;
   text-decoration: none;
@@ -50,6 +50,16 @@
 .itinerary-title-card {
   display: flex;
   align-items: center;
-  justify-content: left;
-  padding: ;
+  text-align: left;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.itinerary-title-card a.submit-btn {
+ border: 65%;
+ justify-content: space-evenly;
+ text-align: center;
+ font-size: 12px;
+ width: fit-content;
+ height: fit-content;
 }
