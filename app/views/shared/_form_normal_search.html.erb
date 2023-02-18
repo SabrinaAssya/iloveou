@@ -1,0 +1,75 @@
+<div>
+  <%= simple_form_for :search, url: itineraries_path, method: "GET" do |f| %>
+    <div class="d-flex align-items-center">
+
+      <%= f.input :station,
+                  wrapper_html: {
+                  class: "search-input"},
+                  collection: Station.all, 
+                  selected: params.dig(:search, :station), 
+                  value_method: :name, 
+                  prompt: "Type a station name", 
+                  input_html: {
+                    data: {
+                      controller: "tom-select", 
+                      tom_select_options_value: {tags: true}
+                    }
+                  }%>
+
+      <%= f.input :weather,
+                  wrapper_html: {
+                  class: "search-input"},
+                  as: :check_boxes, 
+                  checked: params.dig(:search, :weather),
+                  collection: ["sunny", "cloudy", "rainy"],
+                  input_html: { multiple: true }, 
+                  include_blank: false, 
+                  include_hidden: false %> 
+
+      <%= f.input :price,
+                  wrapper_html: {
+                  class: "search-input"},
+                  as: :check_boxes,
+                  checked: params.dig(:search, :price),
+                  collection: ["$", "$$", "$$$"],
+                  input_html: { multiple: true },
+                  include_blank: false,
+                  include_hidden: false  %> 
+
+      <%= f.input :duration,
+                  wrapper_html: {
+                  class: "search-input"},
+                  as: :check_boxes, 
+                  checked: params.dig(:search, :duration),
+                  collection: ["1h-2h", "2h-4h", "More than 4h"],
+                  input_html: { multiple: true },
+                  include_blank: false,
+                  include_hidden: false %> 
+
+      <%= f.input :sort,
+                  wrapper_html: {
+                  class: "search-input"},
+                  as: :radio_buttons,
+                  checked: params.dig(:search, :sort),
+                  collection: ["Populars", "Newests", "Oldests", "Random"],
+                  include_blank: false,
+                  include_hidden: false %> 
+
+      <%= f.button :button do %>
+        <i class="fa-solid fa-magnifying-glass"></i>
+      <% end %>
+
+    </div>
+    <div>
+      <%= f.input :categories,
+                  wrapper_html: {
+                    class: "checkboxes-inline"},
+                  as: :check_boxes,
+                  checked: params.dig(:search, :categories),
+                  collection: ["restaurant", "culture", "drinks","outdoor","original"],
+                  input_html: { multiple: true },
+                  include_blank: false,
+                  include_hidden: false %> 
+    </div>
+  <% end %>
+</div>

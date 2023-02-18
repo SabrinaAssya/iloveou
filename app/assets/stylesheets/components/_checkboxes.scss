@@ -1,5 +1,17 @@
 .checkbox-container {
   background-color: black;
   border-radius: 20px;
+}
 
+.checkboxes-inline {
+  display: flex;
+  align-items: center;
+}
+
+.checkboxes-inline legend {
+  display: none;
+}
+
+.checkboxes-inline div {
+  margin-right: 20px;
 }
