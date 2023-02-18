@@ -15,18 +15,19 @@ Itinerary.delete_all
 Station.delete_all
 User.delete_all
 
-puts "Creating 4 stations"
+puts "Creating stations"
 
 url = "https://opendata.hauts-de-seine.fr/api/records/1.0/search/?dataset=gares-et-stations-du-reseau-ferre-dile-de-france-par-ligne&q=&rows=10000"
 user_serialized = URI.open(url).read
 metros = JSON.parse(user_serialized)
-
+i = 0 
 stations = []
 metros["records"].each do |metro|
-  station = Station.create!(name: metro['fields']['nom'])
+  station = Station.create!(name: metro['fields']['nom'].strip )
+  i += 1
 end
 
-puts "4 stations created"
+puts " #{i} stations created"
 
 
 puts "Creating 4 users"

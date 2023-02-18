@@ -6,7 +6,7 @@ class ItinerariesController < ApplicationController
     @itineraries = station_results(@itineraries, params)
     @itineraries = results_filters(@itineraries, params)
     @itineraries = sort_results(@itineraries, params)
-
+    @number_results = @itineraries.count
   end
 
   def new

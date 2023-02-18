@@ -1,5 +1,9 @@
 .checkbox-container {
   background-color: black;
   border-radius: 20px;
+}
 
+.checkboxes-inline label {
+  display: flex;
+  align-items: center;
 }
