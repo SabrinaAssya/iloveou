@@ -1,5 +1,5 @@
 
-h2 {
+.h2-title {
   color: #EE5885;
 }
 
@@ -31,6 +31,8 @@ h2 {
   width: 40%;
   border: none;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
   &:hover {
     color: #EE5885;
     background: transparent;
