@@ -1,46 +1,53 @@
 <%= render "shared/normal_search" %>
 
 <h1>All itineraries</h1>
-<% @itineraries.each do |itinerary| %>
-  <%# itinerary.activities.each do |activity| %>
-    <%# cl_image_tag activity.photo.key %>
-  <%# end %>
+<div class="itineraries-card">
+  <% @itineraries.each do |itinerary| %>
+    <div class="itinerary-card">
+      <div class="itinerary-info-card">
+        <%= cl_image_tag itinerary.activities.first.photo.key, height: 420, width: 296, crop: :fill, style: :background, class: "activity-photo" %>
+        <div class="itinerary-title-card">
+          <h3> <strong> <%= link_to "#{itinerary.title}", itinerary_path(itinerary) %></strong> </h3>
+          <%= link_to "See more", itinerary_path(itinerary), class: "submit-btn" %>
+          <%= link_to "Add to favorites", itinerary_favorites_path(itinerary), data: { turbo_method: :post, turbo_confirm: "Are you sure?" }, class: "submit-btn" %>
+        </div>
+        <p>Station : <%= itinerary.station.name %></p>
+        <p> Rating : <%= itinerary.rating %></p>
+        <p> Description : <%= itinerary.description %></p>
+        <p> Price : <%= itinerary.price %></p>
+        <p> Duration : <%= itinerary.duration %></p>
 
-  <%= link_to "#{itinerary.title}", itinerary_path(itinerary) %>
-  <p>Station : <%= itinerary.station.name %></p>
-  <p> Rating : <%= itinerary.rating %></p>
-  <p> Description : <%= itinerary.description %></p>
-  <p> Price : <%= itinerary.price %></p>
-  <p> Duration : <%= itinerary.duration %></p>
+        <p> weather :
+          <% if itinerary.sunny == true  %>
+            <i class="fa-solid fa-sun"></i>
+          <% end  %>
+          <% if itinerary.rainy == true  %>
+            <i class="fa-solid fa-cloud-rain"></i>
+          <% end  %>
+          <% if itinerary.cloudy == true  %>
+            <i class="fa-solid fa-cloud-sun"></i>
+          <% end  %>
+        </p>
 
-  <p> weather : 
-    <% if itinerary.sunny == true  %>
-      <i class="fa-solid fa-sun"></i>
-    <% end  %>
-    <% if itinerary.rainy == true  %>
-      <i class="fa-solid fa-cloud-rain"></i>
-    <% end  %>
-    <% if itinerary.cloudy == true  %>
-      <i class="fa-solid fa-cloud-sun"></i>
-    <% end  %>
-  </p>
+        <p> Categories :
+          <% if itinerary.restaurant == true  %>
+            <i class="fa-solid fa-utensils"></i>
+          <% end  %>
+          <% if itinerary.culture == true  %>
+            <i class="fa-solid fa-palette"></i>
+          <% end  %>
+          <% if itinerary.drinks == true  %>
+            <i class="fa-solid fa-champagne-glasses"></i>
+          <% end  %>
+          <% if itinerary.outdoor == true  %>
+            <i class="fa-solid fa-tree-city"></i>
+          <% end  %>
+          <% if itinerary.original == true  %>
+            <i class="fa-solid fa-face-grin-stars"></i>
+          <% end  %>
+        </p>
+      </div>
+    </div>
+  <% end %>
 
-  <p> Categories : 
-    <% if itinerary.restaurant == true  %>
-      <i class="fa-solid fa-utensils"></i>
-    <% end  %>
-    <% if itinerary.culture == true  %>
-      <i class="fa-solid fa-palette"></i>
-    <% end  %>
-    <% if itinerary.drinks == true  %>
-      <i class="fa-solid fa-champagne-glasses"></i>
-    <% end  %>
-    <% if itinerary.outdoor == true  %>
-      <i class="fa-solid fa-tree-city"></i>
-    <% end  %>
-    <% if itinerary.original == true  %>
-      <i class="fa-solid fa-face-grin-stars"></i>
-    <% end  %>
-  </p>
-
-<% end %>
+</div>

@@ -1,0 +1,64 @@
+.itineraries-card {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  display: inline-grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+  padding: 20px;
+      /* border: solid 1px; */
+      text-align: left;
+      border-radius: 15px;
+}
+.itineraries-card h1 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.activity-photo {
+  height: 200px;
+  width: 100%;
+}
+
+
+.itinerary-card {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: inline-grid;
+  grid-template-rows: 1fr;
+  padding: 20px;
+      /* border: solid 1px; */
+      text-align: left;
+      border-radius: 20px;
+}
+.itinerary-card p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+.itinerary-info-card h3, a {
+  font-size: 16px;
+  opacity: .7;
+  margin: 0;
+  text-decoration: none;
+}
+
+.itinerary-title-card {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.itinerary-title-card a.submit-btn {
+ border: 65%;
+ justify-content: space-evenly;
+ text-align: center;
+ font-size: 12px;
+ width: fit-content;
+ height: fit-content;
+}
