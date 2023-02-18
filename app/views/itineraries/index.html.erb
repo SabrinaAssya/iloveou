@@ -6,7 +6,9 @@
   <% @itineraries.each do |itinerary| %>
     <div class="itinerary-card">
       <div class="itinerary-info-card">
+        <% if itinerary.activities.first.photo.key.present?  %>
         <%= cl_image_tag itinerary.activities.first.photo.key, height: 420, width: 296, crop: :fill, style: :background, class: "activity-photo" %>
+        <% end %>
         <div class="itinerary-title-card">
           <h3> <strong> <%= link_to "#{itinerary.title}", itinerary_path(itinerary) %></strong> </h3>
           <%= link_to "See more", itinerary_path(itinerary), class: "submit-btn" %>
