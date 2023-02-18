@@ -4,7 +4,7 @@
     <h2> My account</h2>
     <p> <%= current_user.first_name %>
         <%= current_user.last_name %>
-        <%= image_tag "bella_hadid", width: 400, height: 400, crop: :fill %>
+        <%= cl_image_tag "bella_hadid", width: 400, height: 400, crop: :fill %>
     </p>
 <%= link_to "Create an itinerary", new_itinerary_path, class: "btn-itinerary-new" %>
   </div>
