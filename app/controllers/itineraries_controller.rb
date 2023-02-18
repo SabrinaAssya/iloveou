@@ -22,7 +22,7 @@ class ItinerariesController < ApplicationController
     @itinerary = Itinerary.new(itinerary_params)
     @itinerary.user = current_user
     if @itinerary.save!
-      redirect_to itineraries_path, notice: 'Itinerary was successfully created.'
+      redirect_to activities_new_path, notice: 'Itinerary was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
