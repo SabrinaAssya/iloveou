@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
-    <%= link_to "/", class: "navbar-brand" do %>
+    <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "logo_iloveou_v1" %>
     <% end %>
 
@@ -12,13 +12,10 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Itineraries", itineraries_path, class: "nav-link" %>
+            <i class="fa-solid fa-map-location-dot"></i> <%= link_to "Itineraries", itineraries_path, class: "nav-link-btn" %>
           </li>
           <li class="nav-item dropdown">
-            <%= image_tag "bella_hadid", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= cl_image_tag current_user.photo.key, width: 50, height: 50, gravity: :auto, crop: :fill, radius: :max, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Dashboard", "/dashboard", class: "dropdown-item" %>
               <%= link_to "Create an Itinerary", new_itinerary_path, class: "dropdown-item" %>
