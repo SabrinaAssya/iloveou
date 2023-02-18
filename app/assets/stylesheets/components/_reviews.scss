@@ -30,9 +30,7 @@ h2 {
   transition: 0.3s ease-in-out;
   width: 40%;
   border: none;
-  justify-content: center;
-  display: flex;
-  align-items: center;
+  margin: 0 auto;
   &:hover {
     color: #EE5885;
     background: transparent;
