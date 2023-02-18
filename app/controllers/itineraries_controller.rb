@@ -86,21 +86,8 @@ class ItinerariesController < ApplicationController
     end
     
     if params[:search].present? && params.dig(:search, :categories).present?
-      @categories = params.dig(:search, :categories)
-      
-      @categories.each do |category| 
-        if category == "restaurant" && !itineraries.where(restaurant: true).empty?
-           itineraries = itineraries.where(restaurant: true) 
-        elsif category == "culture" && !itineraries.where(culture: true).empty?
-          itineraries = itineraries.where(culture: true) 
-        elsif category == "drinks" && !itineraries.where(drinks: true).empty?
-          itineraries = itineraries.where(drinks: true)
-        elsif category == "outdoor" && !itineraries.where(outdoor: true).empty?
-          itineraries = itineraries.where(outdoor: true)
-        elsif category == "original" && !itineraries.where(original: true).empty?
-          itineraries = itineraries.where(original: true)
-        end
-      end
+      @categories = params.dig(:search, :categories).map {|element| "SELECT * FROM itineraries WHERE #{element} = true"}
+      itineraries = itineraries.where(id: ActiveRecord::Base.connection.execute(@categories.join(" UNION ")).map { |e| e["id"] })
     end
 
     if params[:search].present? && params.dig(:search, :price).present?
@@ -122,10 +109,3 @@ class ItinerariesController < ApplicationController
   return itineraries
   end
 end
-
-  # "station"=>"Trocadéro", 
-  # "weather"=>["sunny", "cloudy", "rainy"], 
-  # "price"=>["$", "$$", "$$$"], "duration"=>["1h-2h", "2h-4h", "More than 4h"], 
-  # "sort"=>"Populars", 
-  # "categories"=>["restaurant", "culture", "drinks", "outdoor", "original"]}, 
-  # "commit"=>"Search", 
