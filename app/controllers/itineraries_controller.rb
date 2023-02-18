@@ -19,8 +19,8 @@ class ItinerariesController < ApplicationController
 
     @markers = @activities.geocoded.map do |activity|
       {
-        lat: activity.latitude,
-        lng: activity.longitude
+        lng: activity.longitude,
+        lat: activity.latitude
         # info_Window_html: render_to_string(partial: "_info_window", locals: { activity: activity })
       }
     end
