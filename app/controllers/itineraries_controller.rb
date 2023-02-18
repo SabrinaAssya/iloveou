@@ -14,6 +14,7 @@ class ItinerariesController < ApplicationController
   end
 
   def show
+    @itinerary.user= current_user
   end
 
   def create
