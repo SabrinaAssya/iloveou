@@ -4,7 +4,7 @@
     <%= f.input :description, placeholder: "Describe your itinerary" %>
       <div class="form-check">
         <%= f.input :weather,
-          collection: Itinerary.weathers.keys,
+          collection: ["sunny", "cloudy", "rainy"],
           wrapper_html: {class: 'flex justify-center'},
           as: :radio_buttons
         %>
@@ -23,6 +23,6 @@
       </div>
         <%= f.association :station, placeholder: "Please choose the station", data: {controller: "tom-select", tom_select_options_value: {tags: true}}%>
         <%= f.submit class: "btn btn-primary" %>
-        
+
   <% end %>
 </div>

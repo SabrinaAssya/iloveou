@@ -22,18 +22,25 @@
           <p> Description : <%= itinerary.description %></p>
           <p> Duration : <%= itinerary.duration %></p>
         </div>
+        <%= link_to "Edit itinerary", edit_itinerary_path(itinerary), class: "btn-itinerary-edit" %>
       </div>
     <% end %>
   <% end %>
           <%= link_to "View more", itineraries_path, class: "btn btn-primary" %>
   <% if @itineraries.length == 0 %>
     <div class="no-itinerary-card">
-      <h3>No activities added... yet!</h3>
+      <h3>No itineraries added... yet!</h3>
       <p>It's time to go out and get ready for your next date.</p>
       <%= link_to "Start searching", itineraries_path, class: "btn-itinerary-index" %>
       </div>
   <% end %>
-  <h2> My favorites </h2>
-  <div class="itinerary-card">
-    </div>
+    <h2> My favorites </h2>
+      <div class="itinerary-card">
+        <% current_user.saved_itineraries.each do |itinerary|%>
+          <h3> <%= itinerary.title %> </h3>
+          <p> Price : <%= itinerary.price %></p>
+          <p> Description : <%= itinerary.description %></p>
+          <p> Duration : <%= itinerary.duration %></p>
+        <% end %>
+      </div>
 </div>

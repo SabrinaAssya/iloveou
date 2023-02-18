@@ -1,0 +1,28 @@
+.review-btn {
+  background: linear-gradient(45deg, #32A9E3, #0088CB);
+  border-radius: 5px;
+  border-color: #32A9E3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.review-card {
+  background-color: white;
+  border-color: white;
+  border-width: 5px;
+  border-radius: 5px;
+  overflow: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 70%;
+}
+
+
+.fa-star {
+  color:  #FFD700;
+}
+
+.review-rating {
+  cursor:    pointer;
+  font-size: 2rem;
+}
