@@ -1,0 +1,33 @@
+<div class="container m-5">
+  <div class="row mb-5">
+    <div class="col-8">
+      <div class="title">
+        <h4><strong>NO REVIEW HAS BEEN WRITTEN YET</strong></h4>
+        <h2>BE THE FIRST ONE TO COMMENT THIS ITINERARY</h2>
+      </div>
+      <div class="writereview-btn mt-4">Write the very first review</div>
+    </div>
+    <div class="col-4">
+       <%= image_tag "Customerreviews.png", class: "w-100", alt: "une image"%>
+    </div>
+  </div>
+</div>
+<div class="container m-5 d-flex justify-content-center mt-5">
+  <div class="review-card p-5 mt-5">
+    <h4 class="text-center mb-5"><strong>Write your review</strong></h4>
+      <p class="text-center mb-5">In order to guide other users, you can write your own opinion about this itinerary, and say what you liked and disliked.</p>
+        <div class="form">
+          <%= simple_form_for([@itinerary, @review]) do |f| %>
+          <%= f.input :content, placeholder: "What did you think?" %>
+           <%= f.input :rating, as: :hidden  %>
+            <div class="my-3 d-flex justify-content-center mt-5">
+              <% Review::AUTHORIZED_RATINGS.each do |index| %>
+                <i id="<%= index %>" class="review-rating far fa-star"></i>
+               <% end %>
+            </div>
+            <%= f.submit "Post Review", class: "review-btn d-flex justify-content-center"%>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>

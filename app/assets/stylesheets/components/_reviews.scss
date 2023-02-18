@@ -1,21 +1,39 @@
-.review-btn {
+
+h4 {
+  color: #EE5885;
+}
+
+.writereview-btn {
+  border-radius: 10px;
+  color:white;
   background: linear-gradient(45deg, #32A9E3, #0088CB);
-  border-radius: 5px;
-  border-color: #32A9E3;
+  height: 15%;
+  width: 35%;
   display: flex;
   justify-content: center;
   align-items: center;
-  color:white;
 }
 
 .review-card {
   background-color: white;
   border-color: white;
   border-width: 5px;
-  border-radius: 5px;
+  border-radius: 10px;
   overflow: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   width: 70%;
+}
+
+.review-btn {
+  background: #EE5885;
+  border-radius: 10px;
+  border-color:#EE5885;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:white;
+  width: 30%;
+  height: 50%;
 }
 
 
