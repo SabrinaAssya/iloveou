@@ -1,17 +1,20 @@
 <div class="card-slider">
   <% top_itineraries = Itinerary.all.order(rating: :desc) %>
   <% top_itineraries.each do |itinerary|%>
-    <div class="top-card">
-      <h2><%= itinerary.title %></h2>
-      <p><%= itinerary.user.first_name%> <%= itinerary.user.last_name%></p>
-      <p> <% if itinerary.rating == itinerary.rating.round %>
-        <%= itinerary.rating.round %>
-      <% else %>
-        <%= itinerary.rating %>
-      <% end %>
-      ● <%= itinerary.reviews.count %> reviews </p>
-      <%=  cl_image_tag itinerary.activities.first.photo.key, height: 420, width: 296, crop: :fill, style: :background, class: "activity-photo" %>
-      <%= cl_image_tag itinerary.user.photo.key, width: 50, height: 50, gravity: :auto, crop: :fill, radius: :max, class: "user-photo"  %>
+    <div class="top-card" style= "background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url('<%=  cl_image_path itinerary.activities.first.photo.key, height: 420, width: 296, crop: :fill %>')">
+        <h2><%= itinerary.title %></h2>
+        <div class="card-info">
+          <%= cl_image_tag itinerary.user.photo.key, width: 50, height: 50, gravity: :auto, crop: :fill, radius: :max, class: "user-photo"  %>
+          <div class="name-review">
+            <p><%= itinerary.user.first_name%> <%= itinerary.user.last_name%></p>
+            <p><% if itinerary.rating == itinerary.rating.round %>
+              <%= itinerary.rating.round %>
+            <% else %>
+              <%= itinerary.rating %>
+            <% end %>
+            ● <%= itinerary.reviews.count %> reviews </p>
+          </div>
+        </div>
     </div>
   <% end %>
 </div>
