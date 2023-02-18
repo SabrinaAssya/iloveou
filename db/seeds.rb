@@ -10,6 +10,7 @@ puts "Cleaning database ..."
 
 Review.delete_all
 Activity.delete_all
+Favorite.delete_all
 Itinerary.delete_all
 Station.delete_all
 User.delete_all
@@ -131,5 +132,12 @@ review_4 = Review.create!(itinerary_id: itinerary_4.id, user_id: user_2.id, rati
 
 puts "4 reviews created"
 
+puts "Creating 4 favorites"
+favorite_1 = Favorite.create!(itinerary_id: itinerary_1.id, user_id: user_1.id)
+favorite_2 = Favorite.create!(itinerary_id: itinerary_2.id, user_id: user_3.id)
+favorite_3 = Favorite.create!(itinerary_id: itinerary_3.id, user_id: user_4.id)
+favorite_4 = Favorite.create!(itinerary_id: itinerary_4.id, user_id: user_2.id)
+
+puts "4 favorites created"
 
 puts "Database created"
