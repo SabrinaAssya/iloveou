@@ -1,11 +1,10 @@
-
-<div class="i-header  mb-5">
+<div class="i-header mb-5">
   <div class="row">
     <div class="col-9">
-    <h2><%= @itinerary.title %></h2>
-    <p class= "mt-5"><%= @itinerary.description %></p>
+      <h2><%= @itinerary.title %></h2>
+      <p class= "mt-5"><%= @itinerary.description %></p>
       <div class="info-text d-flex">
-        <div class="info-text-station p-5">
+        <div class="info-text-station py-5">
           <p><i class="fa-solid fa-train-subway"></i>   <%= @itinerary.station.name %></p>
         </div>
         <div class="info-text-rating p-5">
@@ -19,6 +18,25 @@
           <%= @itinerary.user.first_name %>
         </div>
       </div>
+      <div class="categories">
+        <p>
+          <% if @itinerary.restaurant == true  %>
+            <i class="fa-solid fa-utensils"></i>
+          <% end  %>
+          <% if @itinerary.culture == true  %>
+            <i class="fa-solid fa-palette"></i>
+          <% end  %>
+          <% if @itinerary.drinks == true  %>
+            <i class="fa-solid fa-champagne-glasses"></i>
+          <% end  %>
+          <% if @itinerary.outdoor == true  %>
+            <i class="fa-solid fa-tree-city"></i>
+          <% end  %>
+          <% if @itinerary.original == true  %>
+            <i class="fa-solid fa-face-grin-stars"></i>
+          <% end  %>
+        </p>
+      </div>
     </div>
     <div class="col-3">
       <div class="info-box d-flex justify-content-center">
@@ -29,7 +47,7 @@
           <%= @itinerary.price %></p>
         </div>
         <div class="weather">
-         <p>
+        <p>
             <% if @itinerary.sunny == true  %>
               <i class="fa-solid fa-sun"></i>
             <% end  %>
@@ -42,6 +60,29 @@
           </p>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+<div class="i-path">
+<div class="container">
+  <% @itinerary.activities.each do|activity| %>
+    <div class="mb-5 d-flex w-80 justify-content-between">
+      <div>
+        <h4><%= activity.title %></h4>
+        <p><%= activity.description %></p>
+      </div>
+        <%= cl_image_tag activity.photo.key, width: 200, height: 150, class: "activity-img"%>
+    </div>
+    <% end  %>
+</div>
+<div class="container">
+  <div class="reviews mt-5">
+  <p>⭐⭐⭐⭐</p>
+  <h3><%= @itinerary.reviews.count%> reviews for <%= @itinerary.title%> </h3>
+    <% @itinerary.reviews.each do|review| %>
+    <div class="d-flex">
+      <p class><%= review.content %></p>
+      <% end  %>
     </div>
   </div>
 </div>
