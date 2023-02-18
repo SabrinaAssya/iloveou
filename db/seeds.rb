@@ -31,9 +31,29 @@ puts "4 stations created"
 puts "Creating 4 users"
 
 user_1 = User.create!(first_name: "John", last_name: "Doe", email: "johndoe@example.com", password: "password")
+user_1.photo.attach(
+  io: URI.open('https://expertphotography.b-cdn.net/wp-content/uploads/2020/08/social-media-profile-photos-8.jpg'),
+  filename: 'john-doe', # use the extension of the attached file here (found at the end of the url)
+  content_type: 'image/jpg' # use the mime type of the attached file here
+)
 user_2 = User.create!(first_name: "Jane", last_name: "Doe", email: "janedoe@example.com", password: "password")
+user_2.photo.attach(
+  io: URI.open('https://i.pinimg.com/736x/7d/5b/b8/7d5bb8420bd7c69711930dca90dcc5d0.jpg'),
+  filename: 'jane-doe', # use the extension of the attached file here (found at the end of the url)
+  content_type: 'image/jpg' # use the mime type of the attached file here
+)
 user_3 = User.create!(first_name: "Bob", last_name: "Smith", email: "bobsmith@example.com", password: "password")
+user_3.photo.attach(
+  io: URI.open('https://www.shutterstock.com/image-photo/close-photo-charming-guy-entrepreneur-260nw-1531460651.jpg'),
+  filename: 'bob-smith', # use the extension of the attached file here (found at the end of the url)
+  content_type: 'image/jpg' # use the mime type of the attached file here
+)
 user_4 = User.create!(first_name: "Alice", last_name: "Johnson", email: "alicejohnson@example.com", password: "password")
+user_4.photo.attach(
+  io: URI.open('https://img.freepik.com/free-photo/portrait-happy-young-woman-looking-camera_23-2147892777.jpg'),
+  filename: 'alice-johnson', # use the extension of the attached file here (found at the end of the url)
+  content_type: 'image/jpg' # use the mime type of the attached file here
+)
 
 
 puts "creating 4 itineraries ..."
@@ -52,17 +72,52 @@ puts "Creating 8 activities"
 
 activity_1 = Activity.create!(itinerary_id: itinerary_1.id, title: "Walk in the Forest", address: "Fontainebleau Forest", description: "Enjoy a peaceful walk in the Fontainebleau Forest.")
 activity_1.photo.attach(
-  io: URI.open('https://www.bienmagazine.co.uk/system/articles/images/000/000/222/large/randki36.jpg'),
-  filename: 'randki36.jpg', # use the extension of the attached file here (found at the end of the url)
+  io: URI.open('https://as1.ftcdn.net/v2/jpg/02/10/79/84/1000_F_210798479_ySMmN9y1Bqcc81PNk1g1dPcBzocw3TYr.jpg'),
+  filename: 'forest-walk', # use the extension of the attached file here (found at the end of the url)
   content_type: 'image/jpg' # use the mime type of the attached file here
 )
 activity_2 = Activity.create!(itinerary_id: itinerary_2.id, title: "Visit to Fontainebleau Castle", address: "Fontainebleau Castle", description: "Discover the history and architecture of the famous Fontainebleau Castle.")
+activity_2.photo.attach(
+  io: URI.open('https://chateaudeharoue.fr/wp-content/uploads/2020/10/Le-chateau-de-Fontainebleau.jpg'),
+  filename: 'fontainbleau-castle',
+  content_type: 'image/png'
+)
 activity_3 = Activity.create!(itinerary_id: itinerary_4.id, title: "Cruise on the Seine", address: "Quai de la Loire, Paris", description: "Embark on a cruise on the Seine and discover the famous monuments of Paris.")
+activity_3.photo.attach(
+  io: URI.open('https://media.ceetiz.com/activity/VEDPAR001/CroisiAre_Seine_Paris_Vedettes_Ceetiz-1.jpg'),
+  filename: 'cruise-seine',
+  content_type: 'image/png'
+)
 activity_4 = Activity.create!(itinerary_id: itinerary_3.id, title: "Visit to the Musée d'Orsay", address: "Musée d'Orsay, Paris", description: "Discover modern art and French culture at the Musée d'Orsay.")
+activity_4.photo.attach(
+  io: URI.open('https://media.vogue.fr/photos/5c8ade98488cdc9b81df7a62/3:4/w_2598,h_3464,c_limit/GettyImages-541442952.jpg'),
+  filename: 'museum-orsay',
+  content_type: 'image/png'
+)
 activity_5 = Activity.create!(itinerary_id: itinerary_1.id, title: "Hiking in the mountains", address: "Alps", description: "Go on an adventure in the snow-capped mountains of the Alps.")
+activity_5.photo.attach(
+  io: URI.open('https://www.meetmindful.com/wp-content/uploads/2015/05/hiking-couple-nature-climbing.jpg'),
+  filename: 'mountains-hiking',
+  content_type: 'image/png'
+)
 activity_6 = Activity.create!(itinerary_id: itinerary_3.id, title: "Visit to the Alpine shelter", address: "Alpine shelter in the Alps", description: "Discover the life of mountaineers in a typical Alpine shelter.")
+activity_6.photo.attach(
+  io: URI.open('https://www.guardianglass.com/content/dam/guardianindustriesholdings/project/europe/SN7037_SLO_SkutaMontain_AlpineShelter_limittedRight%20%2022.jpg.transform/rendition-1280-keep/img.jpg'),
+  filename: 'alpine-shelter',
+  content_type: 'image/png'
+)
 activity_7 = Activity.create!(itinerary_id: itinerary_4.id, title: "Visit to the old port", address: "Old port, Marseille", description: "Explore the old port of Marseille and discover its maritime history.")
+activity_7.photo.attach(
+  io: URI.open('https://planetofhotels.com/guide/sites/default/files/styles/paragraph__hero_banner__hb_image__1880bp/public/hero_banner/Old_port_of_Marseille.jpg'),
+  filename: 'old-port',
+  content_type: 'image/png'
+)
 activity_8 = Activity.create!(itinerary_id: itinerary_1.id, title: "Visit to Notre-Dame de la Garde Basilica", address: "Notre-Dame de la Garde Basilica, Marseille", description: "Admire the panoramic view of Marseille from Notre-Dame de la Garde Basilica.")
+activity_8.photo.attach(
+  io: URI.open('https://i.ytimg.com/vi/1VgqhTdZcdI/maxresdefault.jpg'),
+  filename: 'notre-dame',
+  content_type: 'image/png'
+)
 
 puts "8 activities created ..."
 

@@ -1,2 +1,44 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="home">
+  <div class="header">
+    <div class="left-side">
+      <h1><strong>RIDE TO ROMANCE,<br></strong> NATURALLY</h1>
+      <p>Discover the perfect date itinerary! Say goodbye to the hassle of planning, and let us guide you through the best subway stations for a memorable experience. </p>
+      <p>Start your journey to a unforgettable date today!</p>
+      <div class="call-to-action">
+        <%= link_to "Explore now", new_user_session_path, class: "btn-blue" %>
+      </div>
+    </div>
+
+    <div class="right-side">
+      <%= image_tag "Date", class: "header-img" %>
+    </div>
+  </div>
+
+  <div class="app-features">
+    <h2>What we provide</h2>
+    <h1>BRINGING YOU THE BEST DATE EXPERIENCES!</h1>
+    <div class="features-card">
+      <div class="first-card">
+        <%= image_tag "road_icon", class: "card-img" %>
+        <h3>Optimize Your Date</h3>
+        <p>Perfect for your next dates and saving time on planning it!</p>
+      </div>
+      <div class="second-card">
+        <%= image_tag "love_paperplane_icon", class: "card-img" %>
+        <h3>Share Your Experiences</h3>
+        <p>You’ll probably help create a new couple, who knows?</p>
+      </div>
+      <div class="third-card">
+        <%= image_tag "review_icon", class: "card-img" %>
+        <h3>Leave A Review</h3>
+        <p>Did you love your date or was it a disaster? Help people to find the best itinerary for their date.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="top-itineraries">
+    <h1>FIND YOUR PERFECT DATE ITINERARY</h1>
+    <p>Discover romantic destinations through subway station - with insider tips and recommendations from our community. <span>So what's your next date?</span></p>
+    <%= render "shared/top_itinerary_card" %>
+  </div>
+</div>
