@@ -14,6 +14,7 @@ class ItinerariesController < ApplicationController
   end
 
   def show
+    @itinerary.user= current_user
   end
 
   def create
@@ -78,13 +79,13 @@ class ItinerariesController < ApplicationController
   end
 
   def results_filters(itineraries, params)
-  
-    
+
+
     if params[:search].present? && params.dig(:search, :weather).present?
       @weather = params.dig(:search, :weather).map {|element| "SELECT * FROM itineraries WHERE #{element} = true"}
       itineraries = itineraries.where(id: ActiveRecord::Base.connection.execute(@weather.join(" UNION ")).map { |e| e["id"] })
     end
-    
+
     if params[:search].present? && params.dig(:search, :categories).present?
       @categories = params.dig(:search, :categories).map {|element| "SELECT * FROM itineraries WHERE #{element} = true"}
       itineraries = itineraries.where(id: ActiveRecord::Base.connection.execute(@categories.join(" UNION ")).map { |e| e["id"] })
