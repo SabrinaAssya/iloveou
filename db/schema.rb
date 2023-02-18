@@ -26,7 +26,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_14_190135) do
 
   create_table "active_storage_blobs", force: :cascade do |t|
     t.string "key", null: false
-    t.string "filename", null: false
+    t.string "filename", null: falPse
     t.string "content_type"
     t.text "metadata"
     t.string "service_name", null: false
