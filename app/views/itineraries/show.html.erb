@@ -9,6 +9,8 @@
   <p><%= @itinerary.duration %></p>
   </div>
   <p><%= @itinerary.description %></p>
+  <div id="map" data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-map-markers-value="<%= @markers.to_json %>">
+  </div>
   <div class="activities-card">
     <% @itinerary.activities.each do |activity| %>
     <div class="activity-info">

@@ -13,7 +13,7 @@
   <p> Price : <%= itinerary.price %></p>
   <p> Duration : <%= itinerary.duration %></p>
 
-  <p> weather : 
+  <p> weather :
     <% if itinerary.sunny == true  %>
       <i class="fa-solid fa-sun"></i>
     <% end  %>
@@ -25,7 +25,7 @@
     <% end  %>
   </p>
 
-  <p> Categories : 
+  <p> Categories :
     <% if itinerary.restaurant == true  %>
       <i class="fa-solid fa-utensils"></i>
     <% end  %>
@@ -41,6 +41,13 @@
     <% if itinerary.original == true  %>
       <i class="fa-solid fa-face-grin-stars"></i>
     <% end  %>
+  </p>
+
+  <p> Map :
+  <! -- ajout map -->
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js"></script>
+  <! -- ajout map -->
   </p>
 
 <% end %>

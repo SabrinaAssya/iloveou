@@ -13,6 +13,16 @@ class ItinerariesController < ApplicationController
   end
 
   def show
+    @itinerary = Itinerary.find(params[:id])
+    @activities = @itinerary.activities
+
+    @markers = @activities.geocoded.map do |activity|
+      {
+        lat: activity.latitude,
+        lng: activity.longitude
+        # info_Window_html: render_to_string(partial: "_info_window", locals: { activity: activity })
+      }
+    end
   end
 
   def create
@@ -77,7 +87,7 @@ class ItinerariesController < ApplicationController
   end
 
   def results_filters(itineraries, params)
-  
+
     if params[:search].present? && params.dig(:search, :price).present?
       @prices = params.dig(:search, :price)
       itineraries = itineraries.where(price: @prices)
@@ -90,11 +100,11 @@ class ItinerariesController < ApplicationController
 
     if params[:search].present? && params.dig(:search, :weather).present?
       @weather = params.dig(:search, :weather)
-      @weather.each do |weather| 
+      @weather.each do |weather|
         if weather == "sunny"
-           itineraries = itineraries.where(sunny: true) 
+           itineraries = itineraries.where(sunny: true)
         elsif weather == "cloudy"
-          itineraries = itineraries.where(cloudy: true) 
+          itineraries = itineraries.where(cloudy: true)
         elsif weather == "rainy"
           itineraries = itineraries.where(rainy: true)
         end
@@ -103,11 +113,11 @@ class ItinerariesController < ApplicationController
 
     if params[:search].present? && params.dig(:search, :categories).present?
       @categories = params.dig(:search, :categories)
-      @categories.each do |category| 
+      @categories.each do |category|
         if category == "restaurant"
-           itineraries = itineraries.where(restaurant: true) 
+           itineraries = itineraries.where(restaurant: true)
         elsif category == "culture"
-          itineraries = itineraries.where(culture: true) 
+          itineraries = itineraries.where(culture: true)
         elsif category == "drinks"
           itineraries = itineraries.where(drinks: true)
         elsif category == "outdoor"
@@ -128,4 +138,3 @@ class ItinerariesController < ApplicationController
   return itineraries
   end
 end
-

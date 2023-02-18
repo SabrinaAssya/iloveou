@@ -71,7 +71,7 @@ puts " 4 itineraries created"
 
 puts "Creating 8 activities"
 
-activity_1 = Activity.create!(itinerary_id: itinerary_1.id, title: "Walk in the Forest", address: "Fontainebleau Forest", description: "Enjoy a peaceful walk in the Fontainebleau Forest.")
+activity_1 = Activity.create!(itinerary_id: itinerary_1.id, title: "Walk in the Forest", address: "2 cité paradis, paris", description: "Enjoy a peaceful walk in the Fontainebleau Forest.")
 activity_1.photo.attach(
   io: URI.open('https://as1.ftcdn.net/v2/jpg/02/10/79/84/1000_F_210798479_ySMmN9y1Bqcc81PNk1g1dPcBzocw3TYr.jpg'),
   filename: 'forest-walk', # use the extension of the attached file here (found at the end of the url)
