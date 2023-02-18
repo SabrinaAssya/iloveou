@@ -15,14 +15,13 @@ class ItinerariesController < ApplicationController
 
   def show
     @itinerary.user= current_user
-
   end
 
   def create
     @itinerary = Itinerary.new(itinerary_params)
     @itinerary.user = current_user
     if @itinerary.save!
-      redirect_to activities_new_path, notice: 'Itinerary was successfully created.'
+      redirect_to new_itinerary_activity_path(@itinerary), notice: 'Itinerary was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
