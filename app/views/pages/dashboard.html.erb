@@ -9,8 +9,6 @@
 <%= link_to "Create an itinerary", new_itinerary_path, class: "btn-itinerary-new" %>
   </div>
 
-
-
   <h2> My itineraries</h2>
   <% @itineraries.each do |itinerary| %>
     <% if itinerary.user_id == current_user.id %>
