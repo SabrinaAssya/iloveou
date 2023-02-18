@@ -1,3 +1,33 @@
 .card-slider {
+  display: flex;
   margin-top: 7rem;
+
+}
+
+.top-card {
+  background-size: cover;
+  color: white;
+  margin-right: 3rem;
+  border-radius: 15px;
+  width: 296.3px;
+  height: 420px;
+  h2 {
+    font-weight: bold;
+    color: white;
+    text-align: left;
+  }
+}
+
+.card-info {
+  display: flex;
+  justify-content: left;
+  align-items: left;
+}
+
+.name-review {
+  p {
+    padding: 0px;
+    margin: 0px;
+    text-align: start;
+  }
 }
