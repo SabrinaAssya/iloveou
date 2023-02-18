@@ -3,26 +3,23 @@
     <%= f.input :title, placeholder: "Choose a title for your itinerary" %>
     <%= f.input :description, placeholder: "Describe your itinerary" %>
       <div class="form-check">
-        <%= f.input :weather,
-          collection: ["sunny", "cloudy", "rainy"],
-          wrapper_html: {class: 'flex justify-center'},
-          as: :radio_buttons
-        %>
+        <%= f.input :sunny %>
+        <%= f.input :cloudy %>
+        <%= f.input :rainy %>
       </div>
       <div class="form-check">
         <%= f.input :price,
-          collection: Itinerary.prices.keys,
+          collection: ["$","$$","$$$"],
           as: :radio_buttons
         %>
         </div>
       <div class="form-check">
         <%= f.input :duration,
-          collection: Itinerary.durations.keys,
+          collection: ["<1h","1h<d<2h",">2h"],
           as: :radio_buttons
         %>
       </div>
         <%= f.association :station, placeholder: "Please choose the station", data: {controller: "tom-select", tom_select_options_value: {tags: true}}%>
         <%= f.submit class: "btn btn-primary" %>
-
   <% end %>
 </div>
