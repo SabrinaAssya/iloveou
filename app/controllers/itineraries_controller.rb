@@ -6,7 +6,7 @@ class ItinerariesController < ApplicationController
     @itineraries = station_results(@itineraries, params)
     @itineraries = results_filters(@itineraries, params)
     @itineraries = sort_results(@itineraries, params)
-
+    @number_results = @itineraries.count
   end
 
   def new
@@ -31,7 +31,7 @@ class ItinerariesController < ApplicationController
     @itinerary = Itinerary.new(itinerary_params)
     @itinerary.user = current_user
     if @itinerary.save!
-      redirect_to itineraries_path, notice: 'Itinerary was successfully created.'
+      redirect_to new_itinerary_activity_path(@itinerary), notice: 'Itinerary was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end

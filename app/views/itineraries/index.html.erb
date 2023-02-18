@@ -1,11 +1,18 @@
-<%= render "shared/normal_search" %>
+<%= render "shared/form_normal_search" %>
+<p><%= @number_results %> itineraries to discover !</p>
 
 <h1>All itineraries</h1>
 <div class="itineraries-card">
   <% @itineraries.each do |itinerary| %>
     <div class="itinerary-card">
       <div class="itinerary-info-card">
-        <%= cl_image_tag itinerary.activities.first.photo.key, height: 420, width: 296, crop: :fill, style: :background, class: "activity-photo" %>
+
+        <% if itinerary.activities.present? %>
+          <% if itinerary.activities.first.photo.key.present? %>
+            <%= cl_image_tag itinerary.activities.first.photo.key, height: 420, width: 296, crop: :fill, style: :background, class: "activity-photo" %>
+          <% end %>
+        <% end %>
+
         <div class="itinerary-title-card">
           <h3> <strong> <%= link_to "#{itinerary.title}", itinerary_path(itinerary) %></strong> </h3>
           <%= link_to "See more", itinerary_path(itinerary), class: "submit-btn" %>
@@ -16,7 +23,6 @@
         <p> Description : <%= itinerary.description %></p>
         <p> Price : <%= itinerary.price %></p>
         <p> Duration : <%= itinerary.duration %></p>
-
         <p> weather :
           <% if itinerary.sunny == true  %>
             <i class="fa-solid fa-sun"></i>
