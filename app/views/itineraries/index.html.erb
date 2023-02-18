@@ -7,8 +7,9 @@
       <div class="itinerary-info-card">
         <%= cl_image_tag itinerary.activities.first.photo.key, height: 420, width: 296, crop: :fill, style: :background, class: "activity-photo" %>
         <div class="itinerary-title-card">
-          <h5> <strong> <%= link_to "#{itinerary.title}", itinerary_path(itinerary) %></strong> </h5>
+          <h3> <strong> <%= link_to "#{itinerary.title}", itinerary_path(itinerary) %></strong> </h3>
           <%= link_to "See more", itinerary_path(itinerary), class: "submit-btn" %>
+          <%= link_to "Add to favorites", itinerary_favorites_path(itinerary), data: { turbo_method: :post, turbo_confirm: "Are you sure?" }, class: "submit-btn" %>
         </div>
         <p>Station : <%= itinerary.station.name %></p>
         <p> Rating : <%= itinerary.rating %></p>
