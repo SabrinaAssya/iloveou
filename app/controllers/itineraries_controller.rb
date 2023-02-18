@@ -6,6 +6,7 @@ class ItinerariesController < ApplicationController
     @itineraries = station_results(@itineraries, params)
     @itineraries = results_filters(@itineraries, params)
     @itineraries = sort_results(@itineraries, params)
+
   end
 
   def new
@@ -78,6 +79,17 @@ class ItinerariesController < ApplicationController
 
   def results_filters(itineraries, params)
   
+    
+    if params[:search].present? && params.dig(:search, :weather).present?
+      @weather = params.dig(:search, :weather).map {|element| "SELECT * FROM itineraries WHERE #{element} = true"}
+      itineraries = itineraries.where(id: ActiveRecord::Base.connection.execute(@weather.join(" UNION ")).map { |e| e["id"] })
+    end
+    
+    if params[:search].present? && params.dig(:search, :categories).present?
+      @categories = params.dig(:search, :categories).map {|element| "SELECT * FROM itineraries WHERE #{element} = true"}
+      itineraries = itineraries.where(id: ActiveRecord::Base.connection.execute(@categories.join(" UNION ")).map { |e| e["id"] })
+    end
+
     if params[:search].present? && params.dig(:search, :price).present?
       @prices = params.dig(:search, :price)
       itineraries = itineraries.where(price: @prices)
@@ -87,38 +99,7 @@ class ItinerariesController < ApplicationController
       @duration = params.dig(:search, :duration)
       itineraries = itineraries.where(duration: @duration)
     end
-
-    if params[:search].present? && params.dig(:search, :weather).present?
-      @weather = params.dig(:search, :weather)
-      @weather.each do |weather| 
-        if weather == "sunny"
-           itineraries = itineraries.where(sunny: true) 
-        elsif weather == "cloudy"
-          itineraries = itineraries.where(cloudy: true) 
-        elsif weather == "rainy"
-          itineraries = itineraries.where(rainy: true)
-        end
-      end
-    end
-
-    if params[:search].present? && params.dig(:search, :categories).present?
-      @categories = params.dig(:search, :categories)
-      @categories.each do |category| 
-        if category == "restaurant"
-           itineraries = itineraries.where(restaurant: true) 
-        elsif category == "culture"
-          itineraries = itineraries.where(culture: true) 
-        elsif category == "drinks"
-          itineraries = itineraries.where(drinks: true)
-        elsif category == "outdoor"
-          itineraries = itineraries.where(outdoor: true)
-        elsif category == "original"
-          itineraries = itineraries.where(original: true)
-        end
-      end
-    end
-
-  return itineraries
+    return itineraries
   end
 
   def station_results(itineraries, params)
@@ -128,4 +109,3 @@ class ItinerariesController < ApplicationController
   return itineraries
   end
 end
-
