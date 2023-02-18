@@ -3,7 +3,11 @@
   border-radius: 20px;
 }
 
-.checkboxes-inline label {
+.checkboxes-inline {
   display: flex;
   align-items: center;
+}
+
+.checkboxes-inline legend {
+  display: none;
 }

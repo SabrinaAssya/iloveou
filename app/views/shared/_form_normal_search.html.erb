@@ -46,7 +46,8 @@
 
   </div>
   <%= f.input :categories,
-              class: "checkboxes-inline",
+              wrapper_html: {
+                class: "checkboxes-inline"},
               as: :check_boxes,
               checked: params.dig(:search, :categories),
               collection: ["restaurant", "culture", "drinks","outdoor","original"],
