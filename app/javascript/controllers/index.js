@@ -10,8 +10,8 @@ application.register("hello", HelloController)
 import OpenreviewformController from "./openreviewform_controller"
 application.register("openreviewform", OpenreviewformController)
 
-import StarsController from "./stars_controller"
-application.register("stars", StarsController)
+import HeartsController from "./hearts_controller"
+application.register("hearts", HeartsController)
 
 import TomSelectController from "./tom_select_controller"
 application.register("tom-select", TomSelectController)
