@@ -50,16 +50,7 @@
   display:block;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   width: 90%;
-  visibility: hidden;
-  transform: translateY(-20px);
-  transition: visibility 0.5s ease, transform 0.5s ease;
 }
-
-.review-card.show {
-  visibility: visible;
-  transform: translateY(0);
-}
-
 
 .hearts i {
   color: #e6e6e6;

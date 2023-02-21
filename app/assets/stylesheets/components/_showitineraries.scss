@@ -35,3 +35,17 @@
   padding-left: 20px;
   padding-right: 20px;
 }
+
+.review-comment {
+  background-color: white;
+  border-color: white;
+  border-width: 5px;
+  border-radius: 10px;
+  overflow: 10px;
+  display:block;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 90%;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: visibility 0.5s ease, transform 0.5s ease;
+}

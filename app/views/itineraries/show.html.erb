@@ -79,10 +79,8 @@
 </div>
 <div class="container">
   <div class="reviews mt-5">
-  <p>⭐⭐⭐⭐</p>
-  <h3><%= @itinerary.reviews.count%> reviews for <%= @itinerary.title%> </h3>
     <% @itinerary.reviews.each do|review| %>
-    <div class="d-flex">
+    <div class="d-flex review-comment">
       <p class><%= review.content %></p>
       <% end  %>
     </div>

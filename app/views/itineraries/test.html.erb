@@ -23,3 +23,14 @@
   <%= link_to "Add to favorites", itinerary_favorites_path(@itinerary), data: { turbo_method: :post }, class: "btn-blue" %>
   <%= link_to "Add a review", new_itinerary_review_path(@itinerary), class: "btn-blue" %>
 </div>
+<div class="container">
+  <div class="reviews mt-5">
+  <p>⭐⭐⭐⭐</p>
+  <h3><%= @itinerary.reviews.count%> reviews for <%= @itinerary.title%> </h3>
+    <% @itinerary.reviews.each do|review| %>
+    <div class="d-flex">
+      <p class><%= review.content %></p>
+      <% end  %>
+    </div>
+  </div>
+</div>
