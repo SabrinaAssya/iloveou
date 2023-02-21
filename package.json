@@ -6,8 +6,18 @@
     "@hotwired/turbo-rails": "^7.2.5",
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.3",
+<<<<<<< HEAD
+<<<<<<< HEAD
+    "jquery": "^3.6.3",
+    "mapbox-gl": "^2.12.1",
+    "popper.js": "^1.16.1",
+    "tom-select": "^2.2.2",
+=======
+=======
     "stimulus-carousel": "^5.0.1",
+>>>>>>> 0422a3a4c8b9e2eae7bfd8aa1904d96df66131e5
     "tom-select": "2.1.0",
+>>>>>>> 124e2337c2f782e0cd30e3b05a5ef0b411e6a6e9
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1"
   },

@@ -80,7 +80,11 @@ puts "8 itineraries created"
 
 puts "Creating activities"
 
+<<<<<<< HEAD
+activity_1 = Activity.create!(itinerary_id: itinerary_1.id, title: "Walk in the Forest", address: "2 cité paradis, paris", description: "Enjoy a peaceful walk in the Fontainebleau Forest.")
+=======
 activity_1 = Activity.create!(itinerary_id: itinerary_1.id, title: "Fashionista Shopping Spree", address: "Galeries Lafayette, 40 Boulevard Haussmann, 75009 Paris", description: "Explore the latest fashion trends at Galeries Lafayette, a world-famous department store with high-end fashion, cosmetics, and accessories.")
+>>>>>>> 124e2337c2f782e0cd30e3b05a5ef0b411e6a6e9
 activity_1.photo.attach(
   io: URI.open('https://cdn.sortiraparis.com/images/80/96242/703334-inauguration-vitrines-et-sapin-des-galeries-lafayettes-2021.jpg'),
   filename: 'galeries-lafayettes',

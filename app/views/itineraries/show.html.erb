@@ -14,6 +14,8 @@
         <div class="info-text-review p-5">
           <p><i class="fa-solid fa-comment"></i> <%= @itinerary.reviews.count%> reviews </p>
         </div>
+        <div id="map" data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-map-markers-value="<%= @markers.to_json %>">
+        </div>
         <div class="username p-5">
           <%= @itinerary.user.first_name %>
         </div>
