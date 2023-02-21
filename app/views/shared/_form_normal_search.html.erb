@@ -1,30 +1,30 @@
-<div>
+<div class = "mt-3 mb-3">
   <%= simple_form_for :search, url: itineraries_path, method: "GET" do |f| %>
-    <div class="d-flex align-items-center">
+    <div class="d-inline-flex">
 
-      <%= f.input :station,
-                  wrapper_html: {
-                  class: "search-input station"},
-                  collection: Station.all, 
-                  selected: params.dig(:search, :station), 
-                  value_method: :name, 
-                  prompt: "Type a station name", 
-                  input_html: {
-                    data: {
-                      controller: "tom-select", 
-                      tom_select_options_value: {tags: true}
-                    }
-                  }%>
+        <%= f.input :station,
+                    wrapper_html: {
+                    class: "search-input station",
+                    },
+                    collection: Station.all, 
+                    selected: params.dig(:search, :station), 
+                    value_method: :name, 
+                    prompt: "Type a station name", 
+                    input_html: {
+                      data: {
+                        controller: "tom-select", 
+                        tom_select_options_value: {tags: true}
+                      }, 
+                    }%>
 
-       
       <div class="dropdown">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          weather
+        <a class="form-select select single" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Weather
         </a>
         <ul class="dropdown-menu">
           <%= f.input :weather,
                       wrapper_html: {
-                      class: "search-input"}, 
+                      class: "search-input",}, 
                       as: :check_boxes,
                       checked: params.dig(:search, :weather),
                       collection: ["sunny", "cloudy", "rainy"],
@@ -39,7 +39,7 @@
       </div>
 
       <div class="dropdown">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <a class="form-select select single" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           Price
         </a>
         <ul class="dropdown-menu">
@@ -49,7 +49,8 @@
                       as: :check_boxes,
                       checked: params.dig(:search, :price),
                       collection: ["$", "$$", "$$$"],
-                      input_html: { multiple: true },
+                      input_html: { multiple: true, class: "tag-selector" },
+                      item_wrapper_class: 'tag-item',
                       include_blank: false,
                       include_hidden: false,  
                       item_wrapper_tag: 'li',
@@ -59,7 +60,7 @@
       </div>
   
       <div class="dropdown">
-        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <a class="form-select select single" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           Duration
         </a>
         <ul class="dropdown-menu">
@@ -69,27 +70,40 @@
                       as: :check_boxes,
                       checked: params.dig(:search, :duration),
                       collection: ["1h-2h", "2h-4h", "More than 4h"],
-                      input_html: { multiple: true },
+                      input_html: { multiple: true,  class: "tag-selector" },
+                      item_wrapper_class: 'tag-item',
                       include_blank: false,
                       include_hidden: false,  
                       item_wrapper_tag: 'li',
                       collection_wrapper_class: 'dropdown-menu',
                       item_wrapper_class: 'dropdown-item' %>
         </ul>
-    </div>
-      
-      <%= f.input :sort,
-                  wrapper_html: {
-                  class: "search-input sort"},
-                  as: :select,
-                  checked: params.dig(:search, :sort),
-                  collection: ["Populars", "Newests", "Oldests", "Random"],
-                  include_blank: false,
-                  include_hidden: false %> 
+      </div>
+
+
+      <div class="dropdown">
+        <a class="form-select select single" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Sort by 
+        </a>
+        <ul class="dropdown-menu">
+          <%= f.input :sort,
+                      wrapper_html: {
+                      class: "search-input"},
+                      as: :radio_buttons,
+                      checked: params.dig(:search, :sort),
+                      collection: ["Populars", "Newests", "Oldests", "Random"],
+                      include_blank: false,
+                      include_hidden: false,  
+                      item_wrapper_tag: 'li',
+                      collection_wrapper_class: 'dropdown-menu',
+                      item_wrapper_class: 'dropdown-item' %>
+        </ul>
+      </div>
 
       <%= f.button :button do %>
         <i class="fa-solid fa-magnifying-glass"></i>
       <% end %>
+
     </div>
 
     <div>
@@ -103,8 +117,6 @@
                   include_blank: false,
                   include_hidden: false %> 
     </div>
-
-
     
   <% end %>
 </div>
