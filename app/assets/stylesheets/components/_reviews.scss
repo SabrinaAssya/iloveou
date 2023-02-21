@@ -47,15 +47,31 @@
   border-width: 5px;
   border-radius: 10px;
   overflow: 10px;
+  display:block;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   width: 90%;
+  visibility: hidden;
+  transform: translateY(-20px);
+  transition: visibility 0.5s ease, transform 0.5s ease;
 }
 
-.fa-star {
-  color:  #FFD700;
+.review-card.show {
+  visibility: visible;
+  transform: translateY(0);
+}
+
+
+.hearts i {
+  color: #e6e6e6;
+  font-size: 35px;
+  cursor: pointer;
 }
 
 .review-rating {
   cursor: pointer;
   font-size: 2rem;
+}
+
+.fa-heart.active {
+  color: #EE5885;
 }
