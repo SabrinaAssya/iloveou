@@ -4,7 +4,7 @@
 
       <%= f.input :station,
                   wrapper_html: {
-                  class: "search-input"},
+                  class: "search-input station"},
                   collection: Station.all, 
                   selected: params.dig(:search, :station), 
                   value_method: :name, 
@@ -16,40 +16,72 @@
                     }
                   }%>
 
-      <%= f.input :weather,
-                  wrapper_html: {
-                  class: "search-input"},
-                  as: :check_boxes, 
-                  checked: params.dig(:search, :weather),
-                  collection: ["sunny", "cloudy", "rainy"],
-                  input_html: { multiple: true }, 
-                  include_blank: false, 
-                  include_hidden: false %> 
+       
+      <div class="dropdown">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          weather
+        </a>
+        <ul class="dropdown-menu">
+          <%= f.input :weather,
+                      wrapper_html: {
+                      class: "search-input"}, 
+                      as: :check_boxes,
+                      checked: params.dig(:search, :weather),
+                      collection: ["sunny", "cloudy", "rainy"],
+                      input_html: { multiple: true, class: "tag-selector"}, 
+                      item_wrapper_class: 'tag-item',
+                      include_blank: false, 
+                      include_hidden: false,  
+                      item_wrapper_tag: 'li',
+                      collection_wrapper_class: 'dropdown-menu',
+                      item_wrapper_class: 'dropdown-item' %>
+          </ul>
+      </div>
 
-      <%= f.input :price,
-                  wrapper_html: {
-                  class: "search-input"},
-                  as: :check_boxes,
-                  checked: params.dig(:search, :price),
-                  collection: ["$", "$$", "$$$"],
-                  input_html: { multiple: true },
-                  include_blank: false,
-                  include_hidden: false  %> 
-
-      <%= f.input :duration,
-                  wrapper_html: {
-                  class: "search-input"},
-                  as: :check_boxes, 
-                  checked: params.dig(:search, :duration),
-                  collection: ["1h-2h", "2h-4h", "More than 4h"],
-                  input_html: { multiple: true },
-                  include_blank: false,
-                  include_hidden: false %> 
-
+      <div class="dropdown">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Price
+        </a>
+        <ul class="dropdown-menu">
+          <%= f.input :price,
+                      wrapper_html: {
+                      class: "search-input"},
+                      as: :check_boxes,
+                      checked: params.dig(:search, :price),
+                      collection: ["$", "$$", "$$$"],
+                      input_html: { multiple: true },
+                      include_blank: false,
+                      include_hidden: false,  
+                      item_wrapper_tag: 'li',
+                      collection_wrapper_class: 'dropdown-menu',
+                      item_wrapper_class: 'dropdown-item' %>
+        </ul>
+      </div>
+  
+      <div class="dropdown">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Duration
+        </a>
+        <ul class="dropdown-menu">
+          <%= f.input :duration,
+                      wrapper_html: {
+                      class: "search-input"},
+                      as: :check_boxes,
+                      checked: params.dig(:search, :duration),
+                      collection: ["1h-2h", "2h-4h", "More than 4h"],
+                      input_html: { multiple: true },
+                      include_blank: false,
+                      include_hidden: false,  
+                      item_wrapper_tag: 'li',
+                      collection_wrapper_class: 'dropdown-menu',
+                      item_wrapper_class: 'dropdown-item' %>
+        </ul>
+    </div>
+      
       <%= f.input :sort,
                   wrapper_html: {
-                  class: "search-input"},
-                  as: :radio_buttons,
+                  class: "search-input sort"},
+                  as: :select,
                   checked: params.dig(:search, :sort),
                   collection: ["Populars", "Newests", "Oldests", "Random"],
                   include_blank: false,
@@ -58,8 +90,8 @@
       <%= f.button :button do %>
         <i class="fa-solid fa-magnifying-glass"></i>
       <% end %>
-
     </div>
+
     <div>
       <%= f.input :categories,
                   wrapper_html: {
@@ -71,5 +103,9 @@
                   include_blank: false,
                   include_hidden: false %> 
     </div>
+
+
+    
   <% end %>
 </div>
+

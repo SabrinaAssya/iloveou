@@ -80,7 +80,6 @@ class ItinerariesController < ApplicationController
 
   def results_filters(itineraries, params)
 
-
     if params[:search].present? && params.dig(:search, :weather).present?
       @weather = params.dig(:search, :weather).map {|element| "SELECT * FROM itineraries WHERE #{element} = true"}
       itineraries = itineraries.where(id: ActiveRecord::Base.connection.execute(@weather.join(" UNION ")).map { |e| e["id"] })

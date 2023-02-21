@@ -1,7 +1,15 @@
-.search-input {
-    margin-right: 20px;
+.search-input legend {
+    display: none;
 }
 
-.search-input abbr {
+.station {
+    width: 300px;
+}
+
+.station label {
+    display: none;
+}
+
+.sort label {
     display: none;
 }
