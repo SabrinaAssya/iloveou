@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <% top_itineraries = Itinerary.all.order(rating: :desc).first(6) %>
+  <% top_itineraries = Itinerary.all.order(rating: :desc).first(3) %>
   <% top_itineraries.each do |itinerary|%>
     <div class="card-slider" style= "background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url('<%=  cl_image_path itinerary.activities.first.photo.key, height: 420, width: 296, crop: :fill %>')">
         <div class="card-info">
