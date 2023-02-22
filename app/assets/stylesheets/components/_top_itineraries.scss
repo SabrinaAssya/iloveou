@@ -1,8 +1,37 @@
 .wrapper {
-  display: flex;
-  margin-top: 7rem;
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
+  .fa-solid {
+ /*    top: 50%; */
+    font-weight: bolder;
+    font-size: 1.2rem;
+    background: #EE5885;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    transform: translateY(-6.5rem);
+    z-index: 1;
+    &:first-child {
+      left: 1.5rem;
+    }
+    &:last-child {
+      right: 2.5rem;
+    }
+  }
+  .carousel {
+    white-space: nowrap;
+    display: -webkit-inline-box;
+    margin-top: 7rem;
+    cursor: pointer;
+    overflow: hidden;
+    max-width: 1000px;
+  }
 }
 
 .card-slider {
@@ -26,7 +55,7 @@
 .card-info {
   margin: 1rem;
   margin-bottom: 2rem;
-  .itinerary-info {
+  .itinerary-user {
     display: flex;
     justify-content: left;
     align-items: left;
@@ -49,5 +78,21 @@
     padding: 0px;
     margin: 0px;
     text-align: start;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .carousel {
+    .card-slider {
+      width: calc(100% / 2);
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .carousel {
+    .card-slider {
+      width: calc(100%);
+    }
   }
 }

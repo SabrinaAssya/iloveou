@@ -12,3 +12,6 @@ application.register("openreviewform", OpenreviewformController)
 
 import TomSelectController from "./tom_select_controller"
 application.register("tom-select", TomSelectController)
+
+import CarouselController from "./carousel_controller"
+application.register("carousel", CarouselController)
