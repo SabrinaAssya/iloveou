@@ -14,6 +14,16 @@ class ItinerariesController < ApplicationController
   end
 
   def show
+    @itinerary = Itinerary.find(params[:id])
+    @activities = @itinerary.activities
+
+    @markers = @activities.geocoded.map do |activity|
+      {
+        lng: activity.longitude,
+        lat: activity.latitude
+        # info_Window_html: render_to_string(partial: "_info_window", locals: { activity: activity })
+      }
+    end
     @itinerary.user= current_user
   end
 
