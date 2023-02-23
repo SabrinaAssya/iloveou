@@ -5,28 +5,40 @@ export default class extends Controller {
   static targets = ["card", "carousel"]
   connect() {
     console.log("hello from carousel controller stimulus");
-    console.log(this.element);
-    console.log(this.carouselTarget);
-    console.log(this.cardTarget);
-    console.log(this.element.clientWidth)
-
-    const arrowIcons = this.element.querySelectorAll("i")
-    const firstCard = this.carouselTarget.querySelectorAll("card-slider")[0];
-    let firstCardWidth = firstCard.this.element.clientWidth + 50;
-    arrowIcons.forEach(icon => {
-      icon.addEventListener("click", () => {
-        this.carouselTarget.scrollLeft += icon.id == "left" ? -firstCardWidth : firstCardWidth;
-      })
-    });
+    console.log("lala")
   }
 
-  /* scroll() {
-    const arrowIcons = this.element.querySelectorAll("i")
-    arrowIcons.forEach(icon => {
-      icon.addEventListener("click", () => {
-        console.log(icon)
-      })
-    });
+  left() {
+    const firstCard = this.carouselTarget.querySelectorAll(".card-slider")[0];
+    let firstCardWidth = firstCard.clientWidth + 50;
+    this.carouselTarget.scrollLeft -= firstCardWidth
+    const firstIcon = this.element.childNodes[1]
+    const secondIcon = this.element.childNodes[5]
+    console.log(this.carouselTarget.scrollLeft + "left")
+    if(this.carouselTarget.scrollLeft <= 346) {
+      firstIcon.setAttribute("style", "display: none;")
+    }
 
-  } */
+    if(this.carouselTarget.scrollLeft >=346 ) {
+      secondIcon.setAttribute("style", "display: inline-block;")
+    }
+  }
+
+  right() {
+    const firstCard = this.carouselTarget.querySelectorAll(".card-slider")[0];
+    let firstCardWidth = firstCard.clientWidth + 50;
+    this.carouselTarget.scrollLeft += firstCardWidth
+    const secondIcon = this.element.childNodes[5]
+    const firstIcon = this.element.childNodes[1]
+    console.log(this.carouselTarget.scrollLeft + "right")
+    if(this.carouselTarget.scrollLeft == 692) {
+      secondIcon.setAttribute("style", "display: none;")
+    }
+
+    if(this.carouselTarget.scrollLeft === null) {
+      firstIcon.setAttribute("style", "display: none;")
+    } else {
+      firstIcon.setAttribute("style", "display: inline-table;")
+    }
+  }
 }

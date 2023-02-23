@@ -17,12 +17,13 @@
     position: relative;
     transform: translateY(-6.5rem);
     z-index: 1;
-    &:first-child {
-      left: 1.5rem;
-    }
-    &:last-child {
-      right: 2.5rem;
-    }
+  }
+  .fa-arrow-left {
+    left: 1.7rem;
+    display: none;
+  }
+  .fa-arrow-right {
+    right: 2.5rem;
   }
   .carousel {
     white-space: nowrap;
@@ -31,19 +32,26 @@
     cursor: pointer;
     overflow: hidden;
     max-width: 1000px;
+    scroll-behavior: smooth;
   }
 }
 
 .card-slider {
   background-size: cover;
   color: white;
-  margin-right: 50px;
+  margin-left: 50px;
   border-radius: 50px;
   width: 296.3px;
   height: 420px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  &:first-child {
+    margin-left: 0px;
+  }
+  &:last-child {
+    margin-right: 50px;
+  }
   h2 {
     font-weight: bold;
     color: white;
