@@ -16,7 +16,7 @@
     </div>
 
     <div class="app-features">
-      <h2>What we provide</h2>
+      <h2>What We Provide</h2>
       <h1>BRINGING YOU THE BEST DATE EXPERIENCES!</h1>
       <div class="features-card">
         <div class="first-card">
@@ -44,7 +44,22 @@
       </div>
       <%= render "shared/top_itinerary_card" %>
       <div class="text-btn">
-        <p>Have a unique date idea?</p>
+        <p>Have a unique date idea? <br> Share it with others and inspire their next adventure.</p>
+        <%= link_to "Write your own itinerary", new_itinerary_path, class: "btn-pink-sabrina" %>
       </div>
+  </div>
+
+  <div class="end-page">
+    <div class="left-side">
+      <h2>Time To PLan It</h2>
+      <h1>READY FOR AN UNFORGETTABLE DATE?</h1>
+      <div class="end-page-btn">
+        <%= link_to "Start dating", itineraries_path, class: "btn-blue" %>
+        <%= link_to "Sign up", user_session_path, class: "btn-pink-bordered" %>
+      </div>
+    </div>
+    <div class="right-side">
+      <%= image_tag "love_message", class: "side-img" %>
+    </div>
   </div>
 </div>

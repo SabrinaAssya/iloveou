@@ -21,8 +21,19 @@
 
 .nav-item {
   a.btn-blue {
-    padding: 15px;
-    font-size: 18px;
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(90deg, #32A9E3, #0088CB);
+  padding: 13px;
+  border-radius: 13px;
+  font-size: 16px;
+  /* transition: 0.3s ease-in-out; */
+    &:hover {
+      color: #32A9E3;
+      background: transparent;
+      border: 2px solid #32A9E3;
+      margin-right: -0.3rem;
+    }
   }
 }
 
