@@ -12,6 +12,8 @@
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   margin: 1rem;
   padding: 10px;
+  width: 350px;
+  height: 300px;
   .itinerary-photo {
     display: flex;
     align-items: center;
@@ -37,6 +39,7 @@ a.itinerary-title {
   align-items: center;
   justify-content: space-between;
   padding-right: 30px;
+  padding-top: 10px;
   .itinerary-btn {
     a.btn-blue {
       text-decoration: none;
@@ -56,5 +59,40 @@ a.itinerary-title {
      .fa-heart::before {
       color: #FF002B;
     }
+  }
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .itineraries-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .itineraries-card {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .itineraries-card {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .itineraries-card{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .itineraries-card {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }

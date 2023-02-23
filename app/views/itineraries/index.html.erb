@@ -10,8 +10,8 @@
       <div class= "itinerary-photo">
         <% if itinerary.activities.present? %>
           <% if itinerary.activities.first.photo.key.present? %>
-            <%= cl_image_tag itinerary.activities.first.photo.key, width: 221, height: 190, crop: :fill, class: "activity-photo picture-left" %>
-            <%= cl_image_tag itinerary.activities.second.photo.key, width: 221, height: 190, crop: :fill, class: "activity-photo picture-right" %>
+            <%= cl_image_tag itinerary.activities.first.photo.key, width: 160, height: 150, crop: :fill, class: "activity-photo picture-left" %>
+            <%= cl_image_tag itinerary.activities.second.photo.key, width: 160, height: 150, crop: :fill, class: "activity-photo picture-right" %>
           <% end %>
         <% end %>
       </div>
