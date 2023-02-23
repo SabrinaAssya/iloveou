@@ -88,7 +88,7 @@ itinerary_2 = Itinerary.create!(title: "Art Lovers' Dream",
   duration: "2h-4h", 
   station_id: Station.all.sample.id, 
   user_id: user_2.id,
-   rating: 4.2)
+  rating: 4.2)
 
 sleep(1)
 
