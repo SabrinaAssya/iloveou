@@ -1,36 +1,29 @@
 
-  <h1><%= @itinerary.title %></h1>
-  <div class="itinerary-info">
-    <p><%= @itinerary.station.name %></p>
-    <p><%= @itinerary.rating %></p>
-    <p> Created by <%= @itinerary.user.first_name %> </p>
-  <p><%= @itinerary.price %></p>
-  <p><%= @itinerary.duration %></p>
-  <p><%= @itinerary.duration %></p>
-  </div>
-  <p><%= @itinerary.description %></p>
-  <div class="activities-card">
-    <% @itinerary.activities.each do |activity| %>
-    <div class="activity-info">
-        <p> <strong> <%= activity.title %> </strong> </p>
-        <p><%= activity.address %> </p>
-        <p> <%= activity.description %> </p>
+<div class="activities">
+  <% @itinerary.activities.each do|activity| %>
+    <div class="mb-5 d-flex w-80 justify-content-between">
+      <div>
+        <h4><%= activity.title %></h4>
+        <p><%= activity.description %></p>
+      </div>
+      <%= cl_image_tag activity.photo.key, width: 200, height: 150, class: "activity-img"%>
     </div>
-    <% end %>
-  </div>
-  <%= link_to "Edit", edit_itinerary_path(@itinerary), class: "btn-blue" %>
-  <%= link_to "Destroy", itinerary_path(@itinerary), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn-blue" %>
-  <%= link_to "Add to favorites", itinerary_favorites_path(@itinerary), data: { turbo_method: :post }, class: "btn-blue" %>
-  <%= link_to "Add a review", new_itinerary_review_path(@itinerary), class: "btn-blue" %>
+    <% end  %>
 </div>
 <div class="container">
   <div class="reviews mt-5">
-  <p>⭐⭐⭐⭐</p>
-  <h3><%= @itinerary.reviews.count%> reviews for <%= @itinerary.title%> </h3>
     <% @itinerary.reviews.each do|review| %>
-    <div class="d-flex">
+    <div class="d-flex review-comment">
       <p class><%= review.content %></p>
       <% end  %>
     </div>
+  </div>
+  <div id="map" data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-map-markers-value="<%= @markers.to_json %>"></div>
+</div>
+<div class="reviews mt-5">
+  <% @itinerary.reviews.each do|review| %>
+  <div class="d-flex review-comment">
+    <p class><%= review.content %></p>
+    <% end  %>
   </div>
 </div>

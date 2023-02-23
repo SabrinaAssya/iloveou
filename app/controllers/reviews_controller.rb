@@ -16,7 +16,9 @@ class ReviewsController < ApplicationController
     @itinerary = Itinerary.find(params[:itinerary_id]) # mandatory de tout renseigner pour un path complet
     @review.itinerary_id = @itinerary.id # mandatory de tout renseigner pour récupérer l'info complète
     @review.user_id = current_user.id # mandatory de tout renseigner pour récupérer l'info complète
+
     if @review.save
+      @itinerary.touch
       redirect_to itinerary_path(@itinerary.id)
     else
       render :new, status: :see_other
