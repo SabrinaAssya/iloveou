@@ -1,5 +1,5 @@
 class Review < ApplicationRecord
-  belongs_to :itinerary
+  belongs_to :itinerary, touch: true
   belongs_to :user
   validates :content, length: { minimum: 4 }, presence: true
   AUTHORIZED_RATINGS = (1..5)
