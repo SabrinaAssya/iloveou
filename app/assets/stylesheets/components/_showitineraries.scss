@@ -8,16 +8,37 @@
 }
 
 .info-box {
-  background-color: #32A9E3;
-  text-decoration: none;
-  color: white;
-  padding: 10px;
-  border-radius: 15px;
-  font-size: 20px;
-  transition: 0.3s ease-in-out;
-  width: 100%;
+background-color: #32A9E3;
+text-decoration: none;
+color: white;
+/* padding-top: 10px; */
+border-radius: 15px;
+font-size: 20px;
+transition: 0.3s ease-in-out;
+width: 80%;
+margin: auto;
+padding-top: 10px;
+padding-bottom: 10px;
+padding-left: 0;
 }
 
+.fa-location-dot {
+  margin-right: 10px;
+  color:#EE5885P
+
+}
+
+.hour p {
+  margin-top: 10px;
+}
+
+.price p {
+  margin-top: 10px;
+}
+
+.weather p {
+  margin-top: 10px;
+}
 
 .review-count {
   color:#EE5885;
@@ -34,4 +55,65 @@
   margin-right: 10px ;
   padding-left: 20px;
   padding-right: 20px;
+}
+
+.review-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+
+.reviews-grade {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.review-comment {
+  background-color: white;
+  border-color: white;
+  border-width: 5px;
+  border-radius: 10px;
+  overflow: 10px;
+  display: block;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  width: 90%;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+.review-title i {
+  color: #EE5885;
+  font-size: 30px;
+  margin-right: 10px;
+}
+
+.review-title {
+  display: flex;
+  margin-bottom: 60px;
+  margin-left: 100px;
+}
+
+.review-title h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.review-count {
+  position: absolute;
+  top: -8px;
+  right: -5px;
+  background-color: pink;
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+}
+
+.review-text p {
+  display: block;
 }
