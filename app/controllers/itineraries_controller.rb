@@ -21,7 +21,7 @@ class ItinerariesController < ApplicationController
       {
         lng: activity.longitude,
         lat: activity.latitude
-        # info_Window_html: render_to_string(partial: "_info_window", locals: { activity: activity })
+        #info_Window_html: render_to_string(partial: "_info_window", locals: { activity: activity })
       }
     end
     @itinerary.user= current_user
@@ -116,6 +116,6 @@ class ItinerariesController < ApplicationController
     if params[:search].present? && params.dig(:search, :station).present?
       itineraries = itineraries.joins(:station).where("stations.name ILIKE ?", "#{params.dig(:search, :station)}%")
     end
-  return itineraries
+    return itineraries
   end
 end

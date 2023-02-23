@@ -14,8 +14,6 @@
         <div class="info-text-review p-5">
           <p><i class="fa-solid fa-comment"></i> <%= @itinerary.reviews.count%> reviews </p>
         </div>
-        <div id="map" data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-map-markers-value="<%= @markers.to_json %>">
-        </div>
         <div class="username p-5">
           <%= @itinerary.user.first_name %>
         </div>
@@ -29,13 +27,13 @@
             <i class="fa-solid fa-palette"></i>
           <% end  %>
           <% if @itinerary.drinks == true  %>
-            <i class="fa-solid fa-champagne-glasses"></i>
+            <i class="fa-solid fa-champagne-glasses fa-5x"></i>
           <% end  %>
           <% if @itinerary.outdoor == true  %>
-            <i class="fa-solid fa-tree-city"></i>
+            <i class="fa-solid fa-tree-city fa-2x"></i>
           <% end  %>
           <% if @itinerary.original == true  %>
-            <i class="fa-solid fa-face-grin-stars"></i>
+            <i class="fa-solid fa-face-grin-stars fa-2x"></i>
           <% end  %>
         </p>
       </div>
@@ -46,7 +44,7 @@
           <p><i class="fa-solid fa-clock"></i> <%= @itinerary.duration %></p>
         </div>
         <div class="price">
-          <%= @itinerary.price %></p>
+          <p><%= @itinerary.price %></p>
         </div>
         <div class="weather">
         <p>
@@ -65,26 +63,41 @@
     </div>
   </div>
 </div>
-<div class="i-path">
-<div class="container">
+<div class="container activities">
   <% @itinerary.activities.each do|activity| %>
     <div class="mb-5 d-flex w-80 justify-content-between">
       <div>
         <h4><%= activity.title %></h4>
+        <div class="activity-address d-flex">
+          <i class="fa-solid fa-location-dot"></i>
+          <p><%= activity.address %></p>
+        </div>
         <p><%= activity.description %></p>
       </div>
       <%= cl_image_tag activity.photo.key, width: 200, height: 150, class: "activity-img"%>
     </div>
-    <% end  %>
+    <% end %>
 </div>
 <div class="container">
-  <div class="reviews mt-5">
-  <p>⭐⭐⭐⭐</p>
-  <h3><%= @itinerary.reviews.count%> reviews for <%= @itinerary.title%> </h3>
-    <% @itinerary.reviews.each do|review| %>
-    <div class="d-flex">
-      <p class><%= review.content %></p>
-      <% end  %>
+  <div class="review-title d-flex align-items-center">
+    <div class="heart-font">
+      <% @itinerary.reviews.count %>
+      <i class="fa fa-heart fa-2x"></i>
+    </div>
+    <div class="review-text">
+      <h2 class="ml-2"><%= @itinerary.title %></h2>
+      <p><%= @itinerary.reviews.count %> reviews</p>
     </div>
   </div>
+  </div>
+  <div class="container review-container">
+    <% if @itinerary.reviews.count > 0  %>
+      <div class="reviews-grade d-flex justify-content-center">
+        <% @itinerary.reviews.each do|review| %>
+          <div class="review-comment">
+            <p class><%= review.content %></p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
 </div>
