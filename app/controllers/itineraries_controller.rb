@@ -20,11 +20,12 @@ class ItinerariesController < ApplicationController
     @markers = @activities.geocoded.map do |activity|
       {
         lng: activity.longitude,
-        lat: activity.latitude
-        #info_Window_html: render_to_string(partial: "_info_window", locals: { activity: activity })
+        lat: activity.latitude,
+        info_window: render_to_string(partial: "info_window", locals: { activity: activity }),
+        marker: render_to_string(partial: "marker", locals: { activity: activity })
       }
     end
-    @itinerary.user= current_user
+    @itinerary.user = current_user
   end
 
   def create

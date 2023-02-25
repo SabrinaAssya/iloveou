@@ -4,7 +4,11 @@
   <div class="card">
     <p> Details : <%= @activity.description %></p>
   </div>
-  <div id="map" data-controller="maps" data-maps-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-maps-markers-value="<%= raw @markers.to_json %>">
+  <div style="width: 100%; height: 600px;"
+  id="map"
+  data-controller="map"
+  data-maps-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+  data-maps-markers-value="<%= raw @markers.to_json %>">
   </div>
 <%= link_to "Back to my itineraries", itineraries_path, class: "btn btn-primary" %>
 </div>
