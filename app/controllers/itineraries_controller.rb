@@ -20,16 +20,18 @@ class ItinerariesController < ApplicationController
     @markers = @activities.geocoded.map do |activity|
       {
         lng: activity.longitude,
-        lat: activity.latitude
-        #info_Window_html: render_to_string(partial: "_info_window", locals: { activity: activity })
+        lat: activity.latitude,
+        info_window: render_to_string(partial: "info_window", locals: { activity: activity }),
+        marker: render_to_string(partial: "marker", locals: { activity: activity })
       }
     end
-    @itinerary.user= current_user
+    @itinerary.user = current_user
   end
 
   def create
     @itinerary = Itinerary.new(itinerary_params)
     @itinerary.user = current_user
+    @itinerary.rating = 0
     if @itinerary.save!
       redirect_to new_itinerary_activity_path(@itinerary), notice: 'Itinerary was successfully created.'
     else
@@ -66,15 +68,11 @@ class ItinerariesController < ApplicationController
   def sort_results(itineraries, params)
 
     if params[:search].present? && params.dig(:search, :sort) == "Populars"
-      itineraries = itineraries.order(rating: :desc)
-    end
-
-    if params[:search].present? && params.dig(:search, :sort) == "Populars"
-      itineraries = itineraries.order(rating: :desc)
+      itineraries = itineraries.order(rating: :asc)
     end
 
     if params[:search].present? && params.dig(:search, :sort) == "Newests"
-      itineraries = itineraries.order(created_at: :asc)
+      itineraries = itineraries.order(created_at: :desc)
     end
 
     if params[:search].present? && params.dig(:search, :sort) == "Oldests"

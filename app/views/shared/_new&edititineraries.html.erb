@@ -15,10 +15,11 @@
       </div>
       <div class="form-check">
         <%= f.input :duration,
-          collection: ["<1h","1h<d<2h",">2h"],
+          collection: ["1h-2h", "2h-4h", "More than 4h"],
           as: :radio_buttons
         %>
       </div>
+
       <div class="form-check">
         <%= f.input :restaurant %>
         <%= f.input :culture %>

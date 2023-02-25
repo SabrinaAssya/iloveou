@@ -17,17 +17,10 @@ export default class extends Controller {
       style: "mapbox://styles/mapbox/streets-v10"
     })
 
-    this.addMarkers()
+    this.addMarkersToMap()
     this.fitMapToMarkers()
-    }
-
-  addMarkers() {
-    this.markersValue.forEach(marker => {
-      new mapboxgl.Marker()
-        .setLngLat([marker.lng, marker.lat])
-        .addTo(this.map)
-    })
   }
+
 
   fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
@@ -35,13 +28,16 @@ export default class extends Controller {
     this.map.fitBounds(bounds, { padding: 10, maxZoom: 50, duration: 0 })
   }
 
-/*   addMarkersToMap() {
+  addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-      const popup = new mapboxgl.Popup().setHTML(marker.info_window_html) // Add this
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window)
+      console.log(marker.info_window)
+
+      // Pass the element as an argument to the new marker
       new mapboxgl.Marker()
-        .setLngLat([ marker.lng, marker.lat ])
-        .setPopup(popup) // Add this
+        .setLngLat([marker.lng, marker.lat])
+        .setPopup(popup)
         .addTo(this.map)
-    });
-  } */
+    })
+  }
 }
