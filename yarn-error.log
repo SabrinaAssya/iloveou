@@ -1,3 +1,10 @@
+<<<<<<< HEAD
+Arguments: 
+  /home/sabrina/.nvm/versions/node/v16.15.1/bin/node /home/sabrina/.nvm/versions/node/v16.15.1/bin/yarn build --watch
+
+PATH: 
+  ./bin:./node_modules/.bin:/home/sabrina/.nvm/versions/node/v16.15.1/bin:/home/sabrina/.rbenv/shims:/home/sabrina/.rbenv/bin:/home/sabrina/.pyenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Common Files/Intel/Shared Libraries/redist/intel64/compiler:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Users/User/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/User/AppData/Local/Programs/Microsoft VS Code/bin:/usr/local/sbin
+=======
 Arguments:
   /root/.nvm/versions/node/v16.15.1/bin/node /root/.nvm/versions/node/v16.15.1/bin/yarn build --watch
 
@@ -7,6 +14,7 @@ PATH:
 =======
   /root/.rbenv/versions/3.1.2/bin:/root/.rbenv/libexec:/root/.rbenv/plugins/ruby-build/bin:./bin:./node_modules/.bin:/root/.nvm/versions/node/v16.15.1/bin:/root/.rbenv/shims:/root/.rbenv/bin:/root/.pyenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Razer Chroma SDK/bin:/mnt/c/Program Files/Razer Chroma SDK/bin:/mnt/c/Program Files (x86)/Razer/ChromaBroadcast/bin:/mnt/c/Program Files/Razer/ChromaBroadcast/bin:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/WINDOWS/system32/config/systemprofile/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files/Git/cmd:/mnt/c/Ruby31-x64/bin:/mnt/c/Users/bapti/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/bapti/AppData/Local/Programs/Microsoft VS Code/bin:/usr/local/sbin
 >>>>>>> 9db77d68b46f211a8e1f20ac35b3a6f0e2153000
+>>>>>>> e91696aab4f8a22a127182e1a7d80682133d3251
 
 Yarn version:
   1.22.19
@@ -17,13 +25,18 @@ Node version:
 Platform:
   linux x64
 
+<<<<<<< HEAD
+Trace: 
+  SyntaxError: /home/sabrina/code/SabrinaAssya/iloveou/package.json: Unexpected token < in JSON at position 195
+=======
 Trace:
   SyntaxError: /root/code/SabrinaAssya/iloveou/package.json: Unexpected token < in JSON at position 195
+>>>>>>> e91696aab4f8a22a127182e1a7d80682133d3251
       at JSON.parse (<anonymous>)
-      at /root/.nvm/versions/node/v16.15.1/lib/node_modules/yarn/lib/cli.js:1629:59
+      at /home/sabrina/.nvm/versions/node/v16.15.1/lib/node_modules/yarn/lib/cli.js:1629:59
       at Generator.next (<anonymous>)
-      at step (/root/.nvm/versions/node/v16.15.1/lib/node_modules/yarn/lib/cli.js:310:30)
-      at /root/.nvm/versions/node/v16.15.1/lib/node_modules/yarn/lib/cli.js:321:13
+      at step (/home/sabrina/.nvm/versions/node/v16.15.1/lib/node_modules/yarn/lib/cli.js:310:30)
+      at /home/sabrina/.nvm/versions/node/v16.15.1/lib/node_modules/yarn/lib/cli.js:321:13
 
 npm manifest:
   {

@@ -16,5 +16,8 @@ application.register("hearts", HeartsController)
 import TomSelectController from "./tom_select_controller"
 application.register("tom-select", TomSelectController)
 
+import CarouselController from "./carousel_controller"
+application.register("carousel", CarouselController)
+
 import MapController from "./map_controller"
 application.register("map", MapController)

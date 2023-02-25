@@ -1,32 +1,71 @@
-.card-slider {
-  display: flex;
-  margin-top: 7rem;
+.wrapper {
+  /* display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
+  margin-left: 5rem;
+  margin-right: 3rem;
+  .fa-solid {
+ /*    top: 50%; */
+    font-weight: bolder;
+    font-size: 1.2rem;
+    background: #EE5885;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    transform: translateY(-6.5rem);
+    z-index: 1;
+  }
+  .fa-arrow-left {
+    left: 1.7rem;
+    display: none;
+  }
+  .fa-arrow-right {
+    right: 2.5rem;
+  }
+  .carousel {
+    white-space: nowrap;
+    display: -webkit-inline-box;
+    margin-top: 7rem;
+    cursor: pointer;
+    overflow: hidden;
+    max-width: 1000px;
+    scroll-behavior: smooth;
+  }
 }
 
-.top-card {
+.card-slider {
   background-size: cover;
   color: white;
-  margin-right: 3rem;
-  border-radius: 15px;
+  margin-left: 50px;
+  border-radius: 50px;
   width: 296.3px;
   height: 420px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  &:first-child {
+    margin-left: 0px;
+  }
+  &:last-child {
+    margin-right: 50px;
+  }
   h2 {
     font-weight: bold;
     color: white;
     text-align: left;
-    font-size: 25px;
+    font-size: 30px;
   }
 }
 
 .card-info {
   margin: 1rem;
   margin-bottom: 2rem;
-  .itinerary-info {
+  .itinerary-user {
     display: flex;
     justify-content: left;
     align-items: left;
@@ -49,5 +88,21 @@
     padding: 0px;
     margin: 0px;
     text-align: start;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .carousel {
+    .card-slider {
+      width: calc(100% / 2);
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .carousel {
+    .card-slider {
+      width: calc(100%);
+    }
   }
 }

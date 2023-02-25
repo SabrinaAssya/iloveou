@@ -1,46 +1,65 @@
-<div class="home">
-  <div class="header">
+<div class="body">
+  <div class="home">
+    <div class="header">
+      <div class="left-side">
+        <h1><strong>RIDE TO ROMANCE,<br></strong> NATURALLY</h1>
+        <p>Discover the perfect date itinerary! Say goodbye to the hassle of planning, and let us guide you through the best subway stations for a memorable experience. </p>
+        <p>Start your journey to a unforgettable date today!</p>
+        <div class="call-to-action">
+          <%= link_to "Explore now", itineraries_path, class: "btn-blue" %>
+        </div>
+      </div>
+
+      <div class="right-side">
+        <%= image_tag "Date", class: "header-img" %>
+      </div>
+    </div>
+
+    <div class="app-features">
+      <h2>What We Provide</h2>
+      <h1>BRINGING YOU THE BEST DATE EXPERIENCES!</h1>
+      <div class="features-card">
+        <div class="first-card">
+          <%= image_tag "road_icon", class: "card-img" %>
+          <h3>Optimize Your Date</h3>
+          <p>Perfect for your next dates and saving time on planning it!</p>
+        </div>
+        <div class="second-card">
+          <%= image_tag "love_paperplane_icon", class: "card-img" %>
+          <h3>Share Your Experiences</h3>
+          <p>You’ll probably help create a new couple, who knows?</p>
+        </div>
+        <div class="third-card">
+          <%= image_tag "review_icon", class: "card-img" %>
+          <h3>Leave A Review</h3>
+          <p>Did you love your date or was it a disaster? Help people to find the best itinerary for their date.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="top-itineraries">
+      <div class="title">
+        <h1>FIND YOUR PERFECT DATE ITINERARY</h1>
+        <p>Discover romantic destinations through subway station - with insider tips and recommendations from our community. <span>So what's your next date?</span></p>
+      </div>
+      <%= render "shared/top_itinerary_card" %>
+      <div class="text-btn">
+        <p>Have a unique date idea? <br> Share it with others and inspire their next adventure.</p>
+        <%= link_to "Write your own itinerary", new_itinerary_path, class: "btn-pink-sabrina" %>
+      </div>
+  </div>
+
+  <div class="end-page">
     <div class="left-side">
-      <h1><strong>RIDE TO ROMANCE,<br></strong> NATURALLY</h1>
-      <p>Discover the perfect date itinerary! Say goodbye to the hassle of planning, and let us guide you through the best subway stations for a memorable experience. </p>
-      <p>Start your journey to a unforgettable date today!</p>
-      <div class="call-to-action">
-        <%= link_to "Explore now", new_user_session_path, class: "btn-blue" %>
+      <h2>Time To PLan It</h2>
+      <h1>READY FOR AN UNFORGETTABLE DATE?</h1>
+      <div class="end-page-btn">
+        <%= link_to "Start dating", itineraries_path, class: "btn-blue" %>
+        <%= link_to "Sign up", user_session_path, class: "btn-pink-bordered" %>
       </div>
     </div>
-
     <div class="right-side">
-      <%= image_tag "Date", class: "header-img" %>
+      <%= image_tag "love_message", class: "side-img" %>
     </div>
-  </div>
-
-  <div class="app-features">
-    <h2>What we provide</h2>
-    <h1>BRINGING YOU THE BEST DATE EXPERIENCES!</h1>
-    <div class="features-card">
-      <div class="first-card">
-        <%= image_tag "road_icon", class: "card-img" %>
-        <h3>Optimize Your Date</h3>
-        <p>Perfect for your next dates and saving time on planning it!</p>
-      </div>
-      <div class="second-card">
-        <%= image_tag "love_paperplane_icon", class: "card-img" %>
-        <h3>Share Your Experiences</h3>
-        <p>You’ll probably help create a new couple, who knows?</p>
-      </div>
-      <div class="third-card">
-        <%= image_tag "review_icon", class: "card-img" %>
-        <h3>Leave A Review</h3>
-        <p>Did you love your date or was it a disaster? Help people to find the best itinerary for their date.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="top-itineraries">
-    <div class="title">
-      <h1>FIND YOUR PERFECT DATE ITINERARY</h1>
-      <p>Discover romantic destinations through subway station - with insider tips and recommendations from our community. <span>So what's your next date?</span></p>
-    </div>
-    <%= render "shared/top_itinerary_card" %>
   </div>
 </div>
