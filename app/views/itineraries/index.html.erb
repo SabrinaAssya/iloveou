@@ -2,57 +2,89 @@
 <%= render "shared/form_normal_search" %>
 
 <div class="itineraries-card">
-  <% @itineraries.each do |itinerary| %>
-    <div class="itinerary-card">
-      <div class="itinerary-info-card">
 
+  <% @itineraries.each do |itinerary| %>
+
+    <div class="itinerary-card">
+      <div class= "itinerary-photo">
         <% if itinerary.activities.present? %>
           <% if itinerary.activities.first.photo.key.present? %>
-            <%= cl_image_tag itinerary.activities.first.photo.key, height: 420, width: 296, crop: :fill, style: :background, class: "activity-photo" %>
+            <%= cl_image_tag itinerary.activities.first.photo.key, width: 170, height: 150, crop: :fill, class: "activity-photo picture-left" %>
+            <%= cl_image_tag itinerary.activities.second.photo.key, width: 170, height: 150, crop: :fill, class: "activity-photo picture-right" %>
           <% end %>
         <% end %>
-
-        <div class="itinerary-title-card">
-          <h3> <strong> <%= link_to "#{itinerary.title}", itinerary_path(itinerary) %></strong> </h3>
-          <%= link_to "See more", itinerary_path(itinerary), class: "submit-btn" %>
-          <%= link_to "Add to favorites", itinerary_favorites_path(itinerary), data: { turbo_method: :post, turbo_confirm: "Are you sure?" }, class: "submit-btn" %>
-        </div>
-        <p>Station : <%= itinerary.station.name %></p>
-        <p> Rating : <%= itinerary.rating %></p>
-        <p> Description : <%= itinerary.description %></p>
-        <p> Price : <%= itinerary.price %></p>
-        <p> Duration : <%= itinerary.duration %></p>
-        <p> weather :
-          <% if itinerary.sunny == true  %>
-            <i class="fa-solid fa-sun"></i>
-          <% end  %>
-          <% if itinerary.rainy == true  %>
-            <i class="fa-solid fa-cloud-rain"></i>
-          <% end  %>
-          <% if itinerary.cloudy == true  %>
-            <i class="fa-solid fa-cloud-sun"></i>
-          <% end  %>
-        </p>
-
-        <p> Categories :
-          <% if itinerary.restaurant == true  %>
-            <i class="fa-solid fa-utensils"></i>
-          <% end  %>
-          <% if itinerary.culture == true  %>
-            <i class="fa-solid fa-palette"></i>
-          <% end  %>
-          <% if itinerary.drinks == true  %>
-            <i class="fa-solid fa-champagne-glasses"></i>
-          <% end  %>
-          <% if itinerary.outdoor == true  %>
-            <i class="fa-solid fa-tree-city"></i>
-          <% end  %>
-          <% if itinerary.original == true  %>
-            <i class="fa-solid fa-face-grin-stars"></i>
-          <% end  %>
-        </p>
       </div>
-    </div>
+      <div class="itinerary-card-info">
+        <div class="itinerary-header-card" data-controller="favorite-heart">
+          <%= link_to "#{itinerary.title}", itinerary_path(itinerary), class: "itinerary-title" %>
+          <div class="itinerary-btn">
+            <%= link_to "See more", itinerary_path(itinerary), class: "btn-blue" %>
+            <% if current_user.saved_itineraries.include?(itinerary) %>
+              <i class="fa-solid fa-heart" data-fav=<%= itinerary.favorites.find_by_user_id(current_user).id %> data-favorite-heart-target="fav" data-itinerary=<%= itinerary.id %> data-user=<%= current_user.id %> data-action="click->favorite-heart#updateFav"></i>
+            <% else %>
+                <i class="far fa-heart" data-favorite-heart-target="fav" data-itinerary=<%= itinerary.id %> data-user=<%= current_user.id %> data-action="click->favorite-heart#updateFav"></i>
+            <% end %>
+          </div>
+        </div>
+        <div class="itinerary-description-card">
+            <h5>
+              <i class="fa-solid fa-train"></i>
+              <%= itinerary.station.name %>
+            </h5>
+            <p>
+              <%= itinerary.rating %>
+              <% if itinerary.rating.round == 1 %>
+                <i class="fa-solid fa-heart"></i>
+                <i class="far fa-heart"></i>
+                <i class="far fa-heart"></i>
+                <i class="far fa-heart"></i>
+                <i class="far fa-heart"></i>
+                <% elsif itinerary.rating.round == 2 %>
+                  <i class="fa-solid fa-heart"></i>
+                  <i class="fa-solid fa-heart"></i>
+                  <i class="far fa-heart"></i>
+                  <i class="far fa-heart"></i>
+                  <i class="far fa-heart"></i>
+                <% elsif itinerary.rating.round == 3 %>
+                  <i class="fa-solid fa-heart"></i>
+                  <i class="fa-solid fa-heart"></i>
+                  <i class="fa-solid fa-heart"></i>
+                  <i class="far fa-heart"></i>
+                  <i class="far fa-heart"></i>
+                <% elsif itinerary.rating.round == 4 %>
+                  <i class="fa-solid fa-heart"></i>
+                  <i class="fa-solid fa-heart"></i>
+                  <i class="fa-solid fa-heart"></i>
+                  <i class="fa-solid fa-heart"></i>
+                  <i class="far fa-heart"></i>
+                <% elsif itinerary.rating.round == 5 %>
+                  <i class="fa-solid fa-heart"></i>
+                  <i class="fa-solid fa-heart"></i>
+                  <i class="fa-solid fa-heart"></i>
+                  <i class="fa-solid fa-heart"></i>
+                  <i class="fa-solid fa-heart"></i>
+              <% end %>
+                <%# <i class="fa-solid fa-comment"></i> %>
+                <%= itinerary.reviews.count %> Reviews
+            </p>
+            <p>
+              <i class="fa-solid fa-clock"></i>
+              <%= itinerary.duration %>
+              <%= itinerary.price %>.
+              <% if itinerary.sunny == true  %>
+                <i class="fa-solid fa-sun"></i>
+              <% end  %>
+              <% if itinerary.rainy == true  %>
+                <i class="fa-solid fa-cloud-rain"></i>
+              <% end  %>
+              <% if itinerary.cloudy == true  %>
+                <i class="fa-solid fa-cloud-sun"></i>
+              <% end  %>
+
+            </p>
+        </div> <%# itinerary-description-card %>
+      </div> <%# itinerary-card-info %>
+    </div> <%# itinerary-card %>
   <% end %>
 
 </div>
