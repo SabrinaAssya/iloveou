@@ -1,0 +1,27 @@
+<div class="wrapper-user" data-controller= "carousel">
+  <% @itineraries = Itinerary.where(user_id: current_user.id) %>
+
+  <i id="left" class="fa-solid fa-arrow-left arrows" data-action="click->carousel#left"></i>
+  <div class="carousel" data-carousel-target="carousel">
+
+    <% @itineraries.each do |itinerary| %>
+    <div class="card-slider" data-carousel-target="card" style= "background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url('<%=  cl_image_path itinerary.activities.first.photo.key %>')">
+      <div class="card-info-user">
+        <h2><%= itinerary.title %></h2>
+        <div class="itinerary-user">
+          <div class="name-review">
+            <p><span><i class="fa-solid fa-heart"></i></span>
+            <% if itinerary.rating == itinerary.rating.round %>
+              <%= itinerary.rating.round %>
+            <% else %>
+              <%= itinerary.rating %>
+            <% end %>
+            ● <span><%= itinerary.reviews.count %></span> reviews </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <i id="right" class="fa-solid fa-arrow-right arrows" data-action="click->carousel#right"></i>
+</div>

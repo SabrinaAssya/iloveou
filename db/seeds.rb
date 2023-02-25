@@ -361,9 +361,9 @@ puts "16 reviews created"
 
 puts "Creating favorites..."
 favorite_1 = Favorite.create!(itinerary_id: itinerary_1.id, user_id: user_1.id)
-favorite_2 = Favorite.create!(itinerary_id: itinerary_2.id, user_id: user_3.id)
-favorite_3 = Favorite.create!(itinerary_id: itinerary_3.id, user_id: user_4.id)
-favorite_4 = Favorite.create!(itinerary_id: itinerary_4.id, user_id: user_2.id)
+favorite_2 = Favorite.create!(itinerary_id: itinerary_2.id, user_id: user_1.id)
+favorite_3 = Favorite.create!(itinerary_id: itinerary_3.id, user_id: user_1.id)
+favorite_4 = Favorite.create!(itinerary_id: itinerary_4.id, user_id: user_1.id)
 
 puts "4 favorites created"
 
