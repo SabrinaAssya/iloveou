@@ -68,15 +68,11 @@ class ItinerariesController < ApplicationController
   def sort_results(itineraries, params)
 
     if params[:search].present? && params.dig(:search, :sort) == "Populars"
-      itineraries = itineraries.order(rating: :desc)
-    end
-
-    if params[:search].present? && params.dig(:search, :sort) == "Populars"
-      itineraries = itineraries.order(rating: :desc)
+      itineraries = itineraries.order(rating: :asc)
     end
 
     if params[:search].present? && params.dig(:search, :sort) == "Newests"
-      itineraries = itineraries.order(created_at: :asc)
+      itineraries = itineraries.order(created_at: :desc)
     end
 
     if params[:search].present? && params.dig(:search, :sort) == "Oldests"
