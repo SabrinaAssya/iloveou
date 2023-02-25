@@ -1,7 +1,9 @@
 .itineraries-card {
-  display: grid;
+  display: inline-grid;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+  margin-left: 160px;
   align-items: center;
   justify-content: center;
 }

@@ -9,8 +9,8 @@
       <div class= "itinerary-photo">
         <% if itinerary.activities.present? %>
           <% if itinerary.activities.first.photo.key.present? %>
-            <%= cl_image_tag itinerary.activities.first.photo.key, width: 160, height: 150, crop: :fill, class: "activity-photo picture-left" %>
-            <%= cl_image_tag itinerary.activities.second.photo.key, width: 160, height: 150, crop: :fill, class: "activity-photo picture-right" %>
+            <%= cl_image_tag itinerary.activities.first.photo.key, width: 170, height: 150, crop: :fill, class: "activity-photo picture-left" %>
+            <%= cl_image_tag itinerary.activities.second.photo.key, width: 170, height: 150, crop: :fill, class: "activity-photo picture-right" %>
           <% end %>
         <% end %>
       </div>
@@ -30,10 +30,13 @@
               <%= itinerary.station.name %>
             </p>
             <p>
+              <i class="fa-solid fa-star"></i>
               <%= itinerary.rating %>
+              <i class="fa-solid fa-comment"></i>
               <%= itinerary.reviews.count %> Reviews
             </p>
             <p>
+              <i class="fa-solid fa-clock"></i>
               <%= itinerary.duration %>
               <%= itinerary.price %>.
               <% if itinerary.sunny == true  %>
