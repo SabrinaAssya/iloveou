@@ -58,9 +58,19 @@ a.itinerary-title {
       }
 
      }
-     .fa-heart::before {
+     .fa-heart {
       color: #FF002B;
     }
+  }
+}
+
+.itinerary-description-card {
+  .fa-heart {
+    color: #EE5885;
+  }
+  h5 {
+    color: #32A9E3;
+    font-size: 16px;
   }
 }
 

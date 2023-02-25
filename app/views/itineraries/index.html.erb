@@ -27,15 +27,45 @@
           </div>
         </div>
         <div class="itinerary-description-card">
-            <p>
+            <h5>
               <i class="fa-solid fa-train"></i>
               <%= itinerary.station.name %>
-            </p>
+            </h5>
             <p>
-              <i class="fa-solid fa-star"></i>
               <%= itinerary.rating %>
-              <i class="fa-solid fa-comment"></i>
-              <%= itinerary.reviews.count %> Reviews
+              <% if itinerary.rating.round == 1 %>
+                <i class="fa-solid fa-heart"></i>
+                <i class="far fa-heart"></i>
+                <i class="far fa-heart"></i>
+                <i class="far fa-heart"></i>
+                <i class="far fa-heart"></i>
+                <% elsif itinerary.rating.round == 2 %>
+                  <i class="fa-solid fa-heart"></i>
+                  <i class="fa-solid fa-heart"></i>
+                  <i class="far fa-heart"></i>
+                  <i class="far fa-heart"></i>
+                  <i class="far fa-heart"></i>
+                <% elsif itinerary.rating.round == 3 %>
+                  <i class="fa-solid fa-heart"></i>
+                  <i class="fa-solid fa-heart"></i>
+                  <i class="fa-solid fa-heart"></i>
+                  <i class="far fa-heart"></i>
+                  <i class="far fa-heart"></i>
+                <% elsif itinerary.rating.round == 4 %>
+                  <i class="fa-solid fa-heart"></i>
+                  <i class="fa-solid fa-heart"></i>
+                  <i class="fa-solid fa-heart"></i>
+                  <i class="fa-solid fa-heart"></i>
+                  <i class="far fa-heart"></i>
+                <% elsif itinerary.rating.round == 5 %>
+                  <i class="fa-solid fa-heart"></i>
+                  <i class="fa-solid fa-heart"></i>
+                  <i class="fa-solid fa-heart"></i>
+                  <i class="fa-solid fa-heart"></i>
+                  <i class="fa-solid fa-heart"></i>
+              <% end %>
+                <%# <i class="fa-solid fa-comment"></i> %>
+                <%= itinerary.reviews.count %> Reviews
             </p>
             <p>
               <i class="fa-solid fa-clock"></i>
