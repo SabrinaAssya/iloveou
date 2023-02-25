@@ -1,45 +1,162 @@
 <div class="container">
-    <h1>My Dashboard</h1>
-  <div class="user-card">
-    <h2> My account</h2>
-    <p> <%= current_user.first_name %>
-        <%= current_user.last_name %>
-        <%#= cl_image_tag "bella_hadid", width: 400, height: 400, crop: :fill %>
-    </p>
-    <%= link_to "Create an itinerary", new_itinerary_path, class: "btn-itinerary-new" %>
-  </div>
 
-  <h2> My itineraries</h2>
-  <% @itineraries.each do |itinerary| %>
-    <% if itinerary.user == current_user %>
-      <div class="itinerary-card">
-          <%= cl_image_tag itinerary.activities.first.photo.key,  width: 400, height: 300, crop: :fill%>
-        <div class="itinerary-info">
-          <h3> <%= itinerary.title %> </h3>
-          <p> Price : <%= itinerary.price %></p>
-          <p> Description : <%= itinerary.description %></p>
-          <p> Duration : <%= itinerary.duration %></p>
-        </div>
-        <%= link_to "Edit itinerary", edit_itinerary_path(itinerary), class: "btn-itinerary-edit" %>
-      </div>
-    <% end %>
-  <% end %>
-          <%= link_to "View more", itineraries_path, class: "btn btn-primary" %>
-  <% if @itineraries.length == 0 %>
-    <div class="no-itinerary-card">
-      <h3>No itineraries added... yet!</h3>
-      <p>It's time to go out and get ready for your next date.</p>
-      <%= link_to "Start searching", itineraries_path, class: "btn-itinerary-index" %>
-    </div>
-  <% end %>
-  <h2> My favorites </h2>
-      <div class="itinerary-card">
-        <% current_user.saved_itineraries.each do |itinerary|%>
-          <%= cl_image_tag itinerary.activities.first.photo.key,  width: 400, height: 300, crop: :fill%>
-          <h3> <%= itinerary.title %> </h3>
-          <p> Price : <%= itinerary.price %></p>
-          <p> Description : <%= itinerary.description %></p>
-          <p> Duration : <%= itinerary.duration %></p>
+  <% @itineraries = Itinerary.where(user_id: current_user.id) %>
+  <% @favorites = Favorite.where(user_id: current_user.id)%>
+
+  <div>
+    <%= cl_image_tag current_user.photo.key, 
+    width: 50, 
+    height: 50, 
+    gravity: :auto, 
+    crop: :fill, 
+    radius: :max, 
+    class: "avatar dropdown-toggle", 
+    id: "navbarDropdown", 
+    data: { bs_toggle: "dropdown" }, 
+    'aria-haspopup': true, 
+    'aria-expanded': false %>
+
+    <p><%= current_user.first_name %> <%= current_user.last_name %></p>
+
+    <div>
+      <div>
+        <p><%= @itineraries.count %></p>
+        <% if @itineraries.count == 1%>
+          <p>Itinerary</p>
+        <% else %>
+          <p>Itineraries</p>
         <% end %>
       </div>
+
+      <div>
+        <p><%= @favorites.count %></p>
+        <% if @favorites.count == 1%>
+          <p>Favorite</p>
+        <% else %>
+          <p>Favorites</p>
+        <% end %>
+
+      </div>
+    </div>
+
+    <%= link_to "New itinerary", new_itinerary_path, class: "btn-pink" %>
+  </div>
+
+  <div>
+    <h2> My favorites </h2>
+    <%= render "shared/user_itineraries" %>
+  </div>
+
+  <div>
+    <h2> My itineraries</h2>
+
+    <% if @itineraries.length != 0 %>
+      
+      <div class="itineraries-card">
+
+        <% @itineraries.each do |itinerary| %>
+
+          <div class="itinerary-card">
+
+            <div class= "itinerary-photo">
+              <% if itinerary.activities.present? %>
+                <% if itinerary.activities.first.photo.key.present? %>
+                  <%= cl_image_tag itinerary.activities.first.photo.key, width: 170, height: 150, crop: :fill, class: "activity-photo picture-left" %>
+                  <%= cl_image_tag itinerary.activities.second.photo.key, width: 170, height: 150, crop: :fill, class: "activity-photo picture-right" %>
+                <% end %>
+              <% end %>
+            </div>
+
+            <div class="itinerary-card-info">
+
+              <div class="itinerary-header-card" data-controller="favorite-heart">
+                <%= link_to "#{itinerary.title}", itinerary_path(itinerary), class: "itinerary-title" %>
+                <div class="itinerary-btn">
+                  <%= link_to "See more", itinerary_path(itinerary), class: "btn-blue" %>
+                  <% if current_user.saved_itineraries.include?(itinerary) %>
+                    <i class="fa-solid fa-heart" data-fav=<%= itinerary.favorites.find_by_user_id(current_user).id %> data-favorite-heart-target="fav" data-itinerary=<%= itinerary.id %> data-user=<%= current_user.id %> data-action="click->favorite-heart#updateFav"></i>
+                  <% else %>
+                      <i class="far fa-heart" data-favorite-heart-target="fav" data-itinerary=<%= itinerary.id %> data-user=<%= current_user.id %> data-action="click->favorite-heart#updateFav"></i>
+                  <% end %>
+                </div>
+              </div>
+
+              <div class="itinerary-description-card">
+
+                <h5>
+                  <i class="fa-solid fa-train"></i>
+                  <%= itinerary.station.name %>
+                </h5>
+
+                <p>
+
+                  <%= itinerary.rating %>
+
+                  <% if itinerary.rating.round == 1 %>
+                      <i class="fa-solid fa-heart"></i>
+                      <i class="far fa-heart"></i>
+                      <i class="far fa-heart"></i>
+                      <i class="far fa-heart"></i>
+                      <i class="far fa-heart"></i>
+                    <% elsif itinerary.rating.round == 2 %>
+                      <i class="fa-solid fa-heart"></i>
+                      <i class="fa-solid fa-heart"></i>
+                      <i class="far fa-heart"></i>
+                      <i class="far fa-heart"></i>
+                      <i class="far fa-heart"></i>
+                    <% elsif itinerary.rating.round == 3 %>
+                      <i class="fa-solid fa-heart"></i>
+                      <i class="fa-solid fa-heart"></i>
+                      <i class="fa-solid fa-heart"></i>
+                      <i class="far fa-heart"></i>
+                      <i class="far fa-heart"></i>
+                    <% elsif itinerary.rating.round == 4 %>
+                      <i class="fa-solid fa-heart"></i>
+                      <i class="fa-solid fa-heart"></i>
+                      <i class="fa-solid fa-heart"></i>
+                      <i class="fa-solid fa-heart"></i>
+                      <i class="far fa-heart"></i>
+                    <% elsif itinerary.rating.round == 5 %>
+                      <i class="fa-solid fa-heart"></i>
+                      <i class="fa-solid fa-heart"></i>
+                      <i class="fa-solid fa-heart"></i>
+                      <i class="fa-solid fa-heart"></i>
+                      <i class="fa-solid fa-heart"></i>
+                  <% end %>
+
+                  <%= itinerary.reviews.count %> Reviews
+                </p>
+
+                <p>
+                  <i class="fa-solid fa-clock"></i>
+                  <%= itinerary.duration %>
+                  <%= itinerary.price %>.
+                  <% if itinerary.sunny == true  %>
+                    <i class="fa-solid fa-sun"></i>
+                  <% end  %>
+                  <% if itinerary.rainy == true  %>
+                    <i class="fa-solid fa-cloud-rain"></i>
+                  <% end  %>
+                  <% if itinerary.cloudy == true  %>
+                    <i class="fa-solid fa-cloud-sun"></i>
+                  <% end  %>
+                </p>
+              </div> 
+            </div>      
+          </div> 
+        <% end %>
+      </div>
+  
+    <% else %>
+
+      <div class="no-itinerary-card">
+        <h3>No itineraries added... yet!</h3>
+        <p>It's time to go out and get ready for your next date.</p>
+        <%= link_to "Start searching", itineraries_path, class: "btn-itinerary-index" %>
+      </div>
+
+    <% end %>
+
+  </div>
+
 </div>
