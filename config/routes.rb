@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :reviews
   end
   resources :activities, except: [:new, :create, :index, :show, :delete]
-  resources :favorites, only: [:delete]
+  resources :favorites, only: [:destroy]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/")
   # root "articles#index"

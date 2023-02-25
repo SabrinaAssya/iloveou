@@ -15,13 +15,15 @@
         <% end %>
       </div>
       <div class="itinerary-card-info">
-        <div class="itinerary-header-card">
+        <div class="itinerary-header-card" data-controller="favorite-heart">
           <%= link_to "#{itinerary.title}", itinerary_path(itinerary), class: "itinerary-title" %>
           <div class="itinerary-btn">
             <%= link_to "See more", itinerary_path(itinerary), class: "btn-blue" %>
-            <%= link_to itinerary_favorites_path(itinerary), data: { turbo_method: :post, turbo_confirm: "Are you sure?" } do %>
-              <i class="fa-solid fa-heart"></i>
-            <% end  %>
+            <% if current_user.saved_itineraries.include?(itinerary) %>
+              <i class="fa-solid fa-heart" data-fav=<%= itinerary.favorites.find_by_user_id(current_user).id %> data-favorite-heart-target="fav" data-itinerary=<%= itinerary.id %> data-user=<%= current_user.id %> data-action="click->favorite-heart#updateFav"></i>
+            <% else %>
+                <i class="far fa-heart" data-favorite-heart-target="fav" data-itinerary=<%= itinerary.id %> data-user=<%= current_user.id %> data-action="click->favorite-heart#updateFav"></i>
+            <% end %>
           </div>
         </div>
         <div class="itinerary-description-card">
