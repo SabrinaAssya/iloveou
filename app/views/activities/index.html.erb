@@ -1,14 +1,17 @@
 <div class="container">
   <h1>All my activities</h1>
-  <% @activities.each do |activity| %>
-      <%= activity.title %>
-      <%= activity.description %>
-      <%= activity.address %>
-      <p>
-        <%= link_to "Show this activity", activity_path(activity), class: "btn btn-primary" %>
-        <%= link_to "Edit", edit_activity_url(activity), class: "btn btn-primary" %>
-        <%= link_to "Delete", activity_path(activity), class: "btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-      </p>
+  <% @activities.each do|activity| %>
+    <h4><%= activity.title %></h4>
+    <i class="fa-solid fa-location-dot"></i>
+    <p><%= activity.address %></p>
+    <p><%= activity.description %></p>
+    <%= cl_image_tag activity.photo.key, width: 200, height: 150, class: "activity-img"%>
+    <p>
+      <%= link_to "Show this activity", activity_path(activity), class: "btn btn-primary" %>
+      <%= link_to "Edit", edit_activity_url(activity), class: "btn btn-primary" %>
+      <%= link_to "Delete", activity_path(activity), class: "btn btn-primary", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    </p>
+  <% end %>
 
   <div style="width: 100%; height: 600px;"
     data-controller="map"
@@ -18,5 +21,4 @@
 
 <script src="/assets/map.js"></script>
 
-  <% end %>
 </div>
