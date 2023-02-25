@@ -9,12 +9,20 @@ class Itinerary < ApplicationRecord
 
   after_touch :set_average_rating
 
-  private 
+  private
 
   def set_average_rating
-    ratings = self.reviews.pluck(:rating)
-    sum = ratings.sum
-    average = sum / ratings.length
+    #ratings = self.reviews.pluck(:rating)
+    #sum = ratings.sum
+    #average = sum / ratings.length
+    #self.update(rating: average)
+
+    ratings = []
+    self.reviews.each do |review|
+      ratings << review.rating
+    end
+    average = ratings.sum.fdiv(ratings.size)
     self.update(rating: average)
   end
+
 end

@@ -29,12 +29,12 @@
   .category-item {
     flex: 0 0 0;
   }
-  
+
   .category-selector {
     position: absolute;
     transform: scale(0);
   }
-  
+
   .category-selector + label {
     display: block;
     cursor: pointer;
@@ -44,11 +44,10 @@
     text-align: left;
     padding: 10px 10px 30px 10px;
     border: 1px solid #EAEAEA;
-    border-radius: 4px;
     background-color: white;
     margin: 0%;
   }
-  
+
   .category-selector:checked + label {
     // color: white !important;
     border: 1px solid black;

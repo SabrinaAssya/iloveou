@@ -11,8 +11,12 @@
       </div>
 
       <div class="right-side">
-        <%= image_tag "Date", class: "header-img" %>
+        <%= cl_image_tag("date.jpg"), class: "header-img" %>
       </div>
+    </div>
+
+    <div class="home-search">
+      <%= render "shared/home_search" %>
     </div>
 
     <div class="app-features">
@@ -20,17 +24,17 @@
       <h1>BRINGING YOU THE BEST DATE EXPERIENCES!</h1>
       <div class="features-card">
         <div class="first-card">
-          <%= image_tag "road_icon", class: "card-img" %>
+          <%= cl_image_tag("road_icon.png"), class: "card-img" %>
           <h3>Optimize Your Date</h3>
           <p>Perfect for your next dates and saving time on planning it!</p>
         </div>
         <div class="second-card">
-          <%= image_tag "love_paperplane_icon", class: "card-img" %>
+          <%= cl_image_tag("love_message.png"), class: "card-img" %>
           <h3>Share Your Experiences</h3>
           <p>You’ll probably help create a new couple, who knows?</p>
         </div>
         <div class="third-card">
-          <%= image_tag "review_icon", class: "card-img" %>
+          <%= cl_image_tag("review_icon.png"), class: "card-img" %>
           <h3>Leave A Review</h3>
           <p>Did you love your date or was it a disaster? Help people to find the best itinerary for their date.</p>
         </div>
@@ -59,7 +63,7 @@
       </div>
     </div>
     <div class="right-side">
-      <%= image_tag "love_message", class: "side-img" %>
+      <%= cl_image_tag("love_message.png"), class: "side-img" %>
     </div>
   </div>
 </div>
