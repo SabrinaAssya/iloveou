@@ -62,128 +62,128 @@ puts "4 users created"
 puts "creating itineraries..."
 
 itinerary_1 = Itinerary.create!(title: "The Parisian Chic",
-   description: "Start your day with a croissant and coffee at a typical Parisian café, then explore the latest fashion trends at Galeries Lafayette. 
-   Have a delicious lunch at a trendy restaurant, and end your day with a cocktail at a rooftop bar overlooking the city.", 
-   price: "$$$", 
-   sunny: true, 
-   culture: true, 
-   restaurant: true, 
-   drinks: true, 
-   outdoor: true, 
-   duration: "1h-2h", 
-   station_id: Station.all.sample.id, 
-   user_id: user_1.id, 
+   description: "Start your day with a croissant and coffee at a typical Parisian café, then explore the latest fashion trends at Galeries Lafayette.
+   Have a delicious lunch at a trendy restaurant, and end your day with a cocktail at a rooftop bar overlooking the city.",
+   price: "$$$",
+   sunny: true,
+   culture: true,
+   restaurant: true,
+   drinks: true,
+   outdoor: true,
+   duration: "1h-2h",
+   station_id: Station.all.sample.id,
+   user_id: user_1.id,
    rating: 4.5)
 
 sleep(1)
 
-itinerary_2 = Itinerary.create!(title: "Art Lovers' Dream", 
-  description: "Visit the Louvre museum and admire the world-famous Mona Lisa. Have a quick lunch at a nearby café, then explore the Centre Pompidou and its modern art exhibitions. 
-  End your day with a visit to the Montmartre neighborhood and its famous street art.", 
-  price: "$", 
-  cloudy: true, 
-  restaurant: true, 
-  culture: true, 
-  outdoor: true, 
-  duration: "2h-4h", 
-  station_id: Station.all.sample.id, 
+itinerary_2 = Itinerary.create!(title: "Art Lovers' Dream",
+  description: "Visit the Louvre museum and admire the world-famous Mona Lisa. Have a quick lunch at a nearby café, then explore the Centre Pompidou and its modern art exhibitions.
+  End your day with a visit to the Montmartre neighborhood and its famous street art.",
+  price: "$",
+  cloudy: true,
+  restaurant: true,
+  culture: true,
+  outdoor: true,
+  duration: "2h-4h",
+  station_id: Station.all.sample.id,
   user_id: user_2.id,
   rating: 4.2)
 
 sleep(1)
 
-itinerary_3 = Itinerary.create!(title: "Romantic Paris", 
-  description: "Enjoy a romantic stroll along the Seine river and watch the sunset. Have a candlelit dinner at a traditional French restaurant, then take a tour of the city's most romantic spots, 
-  including the Eiffel Tower and the Pont des Arts.", 
-  price: "$$", 
-  sunny: true, 
-  culture: true, 
-  restaurant: true, 
-  outdoor: true, 
-  duration: "2h-4h", 
-  station_id: Station.all.sample.id, 
-  user_id: user_3.id, 
+itinerary_3 = Itinerary.create!(title: "Romantic Paris",
+  description: "Enjoy a romantic stroll along the Seine river and watch the sunset. Have a candlelit dinner at a traditional French restaurant, then take a tour of the city's most romantic spots,
+  including the Eiffel Tower and the Pont des Arts.",
+  price: "$$",
+  sunny: true,
+  culture: true,
+  restaurant: true,
+  outdoor: true,
+  duration: "2h-4h",
+  station_id: Station.all.sample.id,
+  user_id: user_3.id,
   rating: 4.8)
 
-sleep(1) 
+sleep(1)
 
-itinerary_4 = Itinerary.create!(title: "Off-the-Beaten-Path", 
-  description: "Explore the lesser-known parts of Paris with a visit to the Butte-aux-Cailles neighborhood and its street art, trendy boutiques, and cozy bars. 
-  Enjoy a French picnic at the Parc des Buttes Chaumont, then discover the local music scene at a nearby jazz club.", 
-  price: "$", 
-  sunny: true, 
-  cloudy: true, 
-  original: true, 
-  restaurant: true, 
-  drinks: true, 
-  outdoor: true, 
-  duration: "2h-4h", 
-  station_id: Station.all.sample.id, 
-  user_id: user_4.id, 
+itinerary_4 = Itinerary.create!(title: "Off-the-Beaten-Path",
+  description: "Explore the lesser-known parts of Paris with a visit to the Butte-aux-Cailles neighborhood and its street art, trendy boutiques, and cozy bars.
+  Enjoy a French picnic at the Parc des Buttes Chaumont, then discover the local music scene at a nearby jazz club.",
+  price: "$",
+  sunny: true,
+  cloudy: true,
+  original: true,
+  restaurant: true,
+  drinks: true,
+  outdoor: true,
+  duration: "2h-4h",
+  station_id: Station.all.sample.id,
+  user_id: user_4.id,
   rating: 4.1)
 
 sleep(1)
 
-itinerary_5 = Itinerary.create!(title: "Family Fun Day", 
-  description: "Start your day with a delicious brunch at a family-friendly restaurant, then visit the Cité des Enfants at the Science Museum for interactive and educational exhibits. 
-  Have a picnic at the Jardin du Luxembourg, then take a ride on the Paris Ferris Wheel.", 
-  price: "$$", 
-  sunny: true, 
-  rainy: true, 
-  culture: true, 
-  restaurant: true, 
-  outdoor: true, 
-  duration: "More than 4h", 
-  station_id: Station.all.sample.id, 
-  user_id: user_1.id, 
+itinerary_5 = Itinerary.create!(title: "Family Fun Day",
+  description: "Start your day with a delicious brunch at a family-friendly restaurant, then visit the Cité des Enfants at the Science Museum for interactive and educational exhibits.
+  Have a picnic at the Jardin du Luxembourg, then take a ride on the Paris Ferris Wheel.",
+  price: "$$",
+  sunny: true,
+  rainy: true,
+  culture: true,
+  restaurant: true,
+  outdoor: true,
+  duration: "More than 4h",
+  station_id: Station.all.sample.id,
+  user_id: user_1.id,
   rating: 4.3)
 
 sleep(1)
 
-itinerary_6 = Itinerary.create!(title: "Historic Paris", 
-  description: "Discover Paris' rich history with a visit to the Palace of Versailles and its stunning gardens. 
-  Have a quick lunch at a nearby café, then explore the Musée de l'Armée and its exhibits on French military history. 
-  End your day with a visit to the Arc de Triomphe and the Champs-Elysées.", 
-  price: "$$", 
-  sunny: true, 
-  culture: true, 
-  restaurant: true, 
-  outdoor: true, 
-  duration: "More than 4h", 
-  station_id: Station.all.sample.id, 
-  user_id: user_2.id, 
+itinerary_6 = Itinerary.create!(title: "Historic Paris",
+  description: "Discover Paris' rich history with a visit to the Palace of Versailles and its stunning gardens.
+  Have a quick lunch at a nearby café, then explore the Musée de l'Armée and its exhibits on French military history.
+  End your day with a visit to the Arc de Triomphe and the Champs-Elysées.",
+  price: "$$",
+  sunny: true,
+  culture: true,
+  restaurant: true,
+  outdoor: true,
+  duration: "More than 4h",
+  station_id: Station.all.sample.id,
+  user_id: user_2.id,
   rating: 4.6)
 
 sleep(1)
 
 itinerary_7 = Itinerary.create!(title: "Gourmet Paris",
    description: "Indulge in a gourmet food tour of the city with stops at a traditional French market, a cheese shop, and a chocolate boutique.
-   Have a delicious lunch at a Michelin-starred restaurant, then take a wine tasting class at a nearby cellar. 
-   End your day with a cooking class and learn to make your own French desserts.", 
-   price: "$$$", 
-   sunny: true, 
-   cloudy: true, 
-   restaurant: true, 
-   original: true, 
-   drinks: true, 
-   duration: "More than 4h", 
-   station_id: Station.all.sample.id, 
-   user_id: user_3.id, 
+   Have a delicious lunch at a Michelin-starred restaurant, then take a wine tasting class at a nearby cellar.
+   End your day with a cooking class and learn to make your own French desserts.",
+   price: "$$$",
+   sunny: true,
+   cloudy: true,
+   restaurant: true,
+   original: true,
+   drinks: true,
+   duration: "More than 4h",
+   station_id: Station.all.sample.id,
+   user_id: user_3.id,
    rating: 4.7)
 
 sleep(1)
 
-itinerary_8 = Itinerary.create!(title: "Sporty Paris", 
-  description: "Start your day with a morning run along the Seine river. Rent a bike and explore the city's parks and gardens, 
-  including the Bois de Boulogne and the Jardin des Tuileries. Have a healthy lunch at a vegetarian restaurant, then take a yoga class at a nearby studio.", 
-  price: "$$", 
-  sunny: true, 
-  outdoor: true, 
-  restaurant: true, 
-  original: true, 
-  duration: "More than 4h", 
-  station_id: Station.all.sample.id, 
-  user_id: user_4.id, 
+itinerary_8 = Itinerary.create!(title: "Sporty Paris",
+  description: "Start your day with a morning run along the Seine river. Rent a bike and explore the city's parks and gardens,
+  including the Bois de Boulogne and the Jardin des Tuileries. Have a healthy lunch at a vegetarian restaurant, then take a yoga class at a nearby studio.",
+  price: "$$",
+  sunny: true,
+  outdoor: true,
+  restaurant: true,
+  original: true,
+  duration: "More than 4h",
+  station_id: Station.all.sample.id,
+  user_id: user_4.id,
   rating: 4.4)
 
 puts "8 itineraries created"
@@ -361,9 +361,9 @@ puts "16 reviews created"
 
 puts "Creating favorites..."
 favorite_1 = Favorite.create!(itinerary_id: itinerary_1.id, user_id: user_1.id)
-favorite_2 = Favorite.create!(itinerary_id: itinerary_2.id, user_id: user_3.id)
-favorite_3 = Favorite.create!(itinerary_id: itinerary_3.id, user_id: user_4.id)
-favorite_4 = Favorite.create!(itinerary_id: itinerary_4.id, user_id: user_2.id)
+favorite_2 = Favorite.create!(itinerary_id: itinerary_2.id, user_id: user_1.id)
+favorite_3 = Favorite.create!(itinerary_id: itinerary_3.id, user_id: user_1.id)
+favorite_4 = Favorite.create!(itinerary_id: itinerary_4.id, user_id: user_1.id)
 
 puts "4 favorites created"
 

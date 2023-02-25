@@ -9,7 +9,7 @@
     "jquery": "^3.6.3",
     "mapbox-gl": "^2.12.1",
     "popper.js": "^1.16.1",
-    "tom-select": "^2.2.2",
+    "sortablejs": "^1.15.0",
     "stimulus-carousel": "^5.0.1",
     "tom-select": "2.1.0",
     "webpack": "^5.75.0",

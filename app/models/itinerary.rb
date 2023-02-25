@@ -18,3 +18,4 @@ class Itinerary < ApplicationRecord
     self.update(rating: average)
   end
 end
+

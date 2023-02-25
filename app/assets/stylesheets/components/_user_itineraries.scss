@@ -1,0 +1,60 @@
+.wrapper-user {
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    margin-left: 5rem;
+    margin-right: 3rem;
+    .arrows {
+   /*    top: 50%; */
+    font-weight: bolder;
+    font-size: 1.2rem;
+    background: #EE5885;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    position: relative;
+    transform: translateY(-6.5rem);
+    z-index: 1;
+    }
+    .fa-arrow-left {
+      left: 1.7rem;
+      display: none;
+    }
+    .fa-arrow-right {
+      right: 2.5rem;
+    }
+    .carousel {
+      white-space: nowrap;
+      display: -webkit-inline-box;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      cursor: pointer;
+      overflow: hidden;
+      max-width: 1000px;
+      scroll-behavior: smooth;
+    }
+  }
+
+  .card-info-user {
+    margin: 1rem;
+    margin-bottom: 2rem;
+    .itinerary-user {
+      display: flex;
+      justify-content: left;
+      align-items: left;
+      .user-photo {
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        object-fit: cover;
+      }
+      .name-review {
+        font-weight: bold;
+        font-size: 15px;
+      }
+    }
+  }
