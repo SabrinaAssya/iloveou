@@ -8,10 +8,14 @@
     <div class="itinerary-card">
       <div class= "itinerary-photo">
         <% if itinerary.activities.present? %>
-          <% if itinerary.activities.first.photo.key.present? %>
+
+          <% if itinerary.activities.count > 1 %>
             <%= cl_image_tag itinerary.activities.first.photo.key, width: 170, height: 150, crop: :fill, class: "activity-photo picture-left" %>
             <%= cl_image_tag itinerary.activities.second.photo.key, width: 170, height: 150, crop: :fill, class: "activity-photo picture-right" %>
+          <% else %>
+            <%= cl_image_tag itinerary.activities.first.photo.key, width: 340, height: 150, crop: :fill, class: "activity-photo  mono-picture" %>
           <% end %>
+
         <% end %>
       </div>
       <div class="itinerary-card-info">

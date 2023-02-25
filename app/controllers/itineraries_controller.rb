@@ -31,6 +31,7 @@ class ItinerariesController < ApplicationController
   def create
     @itinerary = Itinerary.new(itinerary_params)
     @itinerary.user = current_user
+    @itinerary.rating = 0
     if @itinerary.save!
       redirect_to new_itinerary_activity_path(@itinerary), notice: 'Itinerary was successfully created.'
     else
