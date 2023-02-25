@@ -9,11 +9,30 @@
 }
 
 .container-fluid {
-  margin-right: 2rem;
-  margin-left: 2rem;
+  margin-right: 5rem;
+  margin-left: 5rem;
+  padding: 10px;
   .navbar-brand {
     img {
       width: 60px;
+    }
+  }
+}
+
+.nav-item {
+  a.btn-blue {
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(90deg, #32A9E3, #0088CB);
+  padding: 13px;
+  border-radius: 13px;
+  font-size: 16px;
+  /* transition: 0.3s ease-in-out; */
+    &:hover {
+      color: #32A9E3;
+      background: transparent;
+      border: 2px solid #32A9E3;
+      margin-right: -0.3rem;
     }
   }
 }
@@ -31,12 +50,13 @@ li.nav-item.active {
 li.nav-item.active {
   text-decoration: none;
   color: black;
-  background-image: linear-gradient(to right,#EE5885,#EF396F 50%,#000 50%);
+  background-image: linear-gradient(to right,#32A9E3, #0088CB 50%,#000 50%);
   background-size: 200% 100%;
   background-position: -100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: all 0.3s ease-in-out;
+  font-size: 20px;
   /* &:before {
     content: '';
     background: #54b3d6;
@@ -59,4 +79,10 @@ li.nav-item.active {
   border-radius: 15px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border: none;
+}
+
+img#navbarDropdown {
+  width: 55px;
+  height: 55px;
+  border-radius: 100%;
 }
