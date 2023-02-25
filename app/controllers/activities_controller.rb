@@ -2,7 +2,6 @@ class ActivitiesController < ApplicationController
 
   def index
     @activities = Activity.where(itinerary: Itinerary.find(params[:itinerary_id]))
-    @activities = Activity.all
     # The `geocoded` scope filters only flats with coordinates
   end
 
