@@ -10,6 +10,11 @@
                     collection_wrapper_tag: 'div',
                     collection_wrapper_class: 'itinerary-categories',
                     item_wrapper_class: 'category-item-home',
+                    label_method: ->(cat) {
+                      content_tag('div') do
+                        "<i class=\"fa-solid #{category_fa_class(cat)}\"></i><p>#{cat}</p>".html_safe
+                      end
+                    },
                     input_html: {
                       class: 'category-selector-home', multiple: true
                     },
