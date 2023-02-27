@@ -16,6 +16,7 @@ class ItinerariesController < ApplicationController
   def show
     @itinerary = Itinerary.find(params[:id])
     @activities = @itinerary.activities
+   
 
     @markers = @activities.geocoded.map do |activity|
       {

@@ -11,10 +11,23 @@
   margin-top: 1rem;
 }
 
+.fav-btn-show {
+  background-color: #EE5885;
+  border-radius: 10px;
+  font-size: 15px;
+  color:white;
+  width: 20%;
+  text-align: center;
+  padding: 5px;
+}
+
+.itinerary-description {
+  margin-top: 30px;
+}
+
 .border-activities{
   border-left: dashed 2px #EE5885;
   height: calc(100% - 2rem);
-
 }
 
 
@@ -29,7 +42,7 @@
 
 
 .fa-train-subway{
-  color:#EE5885;
+  color: #32A9E3;
 }
 
 .little-heart{
