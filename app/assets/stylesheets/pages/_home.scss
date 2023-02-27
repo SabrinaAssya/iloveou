@@ -24,6 +24,7 @@
       margin-top: 50px;
       a.btn-blue {
         text-decoration: none;
+        border: 2px solid transparent;
         color: white;
         background: linear-gradient(90deg, #32A9E3, #0088CB);
         padding: 15px;
@@ -166,6 +167,7 @@
       padding: 15px;
       padding-right: 25px;
       padding-left: 25px;
+      border: 2px solid transparent;
       border-radius: 15px;
       font-size: 18px;
       /* transition: 0.3s ease-in-out; */
@@ -205,12 +207,12 @@
       padding: 15px;
       border-radius: 15px;
       font-size: 18px;
+      border: 2px solid transparent;
       /* transition: 0.3s ease-in-out; */
         &:hover {
           color: #32A9E3;
           background: transparent;
           border: 2px solid #32A9E3;
-          margin-right: -0.3rem;
         }
       }
       .btn-pink-bordered {
