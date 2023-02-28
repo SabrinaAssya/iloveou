@@ -1,50 +1,45 @@
-<div class="container">
+<% @itineraries = Itinerary.where(user_id: current_user.id) %>
+<% @favorites = Favorite.where(user_id: current_user.id)%>
 
-  <% @itineraries = Itinerary.where(user_id: current_user.id) %>
-  <% @favorites = Favorite.where(user_id: current_user.id)%>
-
-  <div>
-    <%= cl_image_tag current_user.photo.key, 
-    width: 50, 
-    height: 50, 
-    gravity: :auto, 
-    crop: :fill, 
-    radius: :max, 
-    class: "avatar dropdown-toggle", 
-    id: "navbarDropdown", 
-    data: { bs_toggle: "dropdown" }, 
-    'aria-haspopup': true, 
-    'aria-expanded': false %>
-
-    <p><%= current_user.first_name %> <%= current_user.last_name %></p>
-
+<div>
+  <div class="user-card">
     <div>
-      <div>
-        <p><%= @itineraries.count %></p>
-        <% if @itineraries.count == 1%>
-          <p>Itinerary</p>
-        <% else %>
-          <p>Itineraries</p>
-        <% end %>
-      </div>
-
-      <div>
-        <p><%= @favorites.count %></p>
-        <% if @favorites.count == 1%>
-          <p>Favorite</p>
-        <% else %>
-          <p>Favorites</p>
-        <% end %>
-
-      </div>
+      <%= cl_image_tag current_user.photo.key, 
+      width: 140, 
+      height: 140, 
+      gravity: :auto, 
+      crop: :fill, 
+      radius: :max, 
+      class: "avatar-dashboard",
+      data: { bs_toggle: "dropdown" }, 
+      'aria-haspopup': true, 
+      'aria-expanded': false %>
+      <p class="user-name"><%= current_user.first_name %> <%= current_user.last_name %></p>
     </div>
 
-    <%= link_to "New itinerary", new_itinerary_path, class: "btn-pink" %>
-  </div>
+    <div class="itineraries-numbers">
+      <div class="left-number">
+        <p class="number"><%= @itineraries.count %></p>
+        <% if @itineraries.count == 1%>
+          <p class="text-number">Itinerary</p>
+        <% else %>
+          <p class="text-number">Itineraries</p>
+        <% end %>
+      </div>
 
-  <div>
-    <h2> My favorites </h2>
-    <%= render "shared/user_itineraries" %>
+      <div>
+        <p class="number"><%= @favorites.count %></p>
+        <% if @favorites.count == 1%>
+          <p class="text-number">Favorite</p>
+        <% else %>
+          <p class="text-number">Favorites</p>
+        <% end %>
+      </div>
+    
+    </div>
+    <div class ="button-dashboard">
+      <%= link_to "New itinerary", new_itinerary_path, class: "btn-blue-dashboard" %>
+    </div>
   </div>
 
   <div>

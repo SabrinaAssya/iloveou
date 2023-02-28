@@ -1,0 +1,62 @@
+.user-card {
+    text-align: center;
+    margin-left: 50rem;
+    margin-right: 50rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    border: 1px solid black;
+    border-radius: 30px;
+  }
+
+
+.itineraries-numbers{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.number {
+    margin-bottom: 0.2rem;
+    color: #EE5885;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.left-number{
+    margin-right: 2rem;
+}
+
+.avatar-dashboard{
+    margin-bottom: 1.2rem;
+    margin-top: 2rem;
+}
+
+.btn-blue-dashboard {
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(90deg, #32A9E3, #0088CB);
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 20px;
+    transition: 0.3s ease-in-out;
+    width: 40%;
+    &:hover {
+      color: #32A9E3;
+      background: transparent;
+      border: 2px solid #32A9E3;
+    }
+  }
+
+.button-dashboard {
+    margin-bottom: 3rem;
+}
+
+.user-name{
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.text-number{
+    font-size: 20px;
+    font-weight: 650;
+}
