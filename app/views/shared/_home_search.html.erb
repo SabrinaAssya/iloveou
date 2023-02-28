@@ -10,6 +10,11 @@
                     collection_wrapper_tag: 'div',
                     collection_wrapper_class: 'itinerary-categories',
                     item_wrapper_class: 'category-item-home',
+                    label_method: ->(cat) {
+                      content_tag('div') do
+                        "<i class=\"fa-solid #{category_fa_class(cat)}\"></i><p>#{cat}</p>".html_safe
+                      end
+                    },
                     input_html: {
                       class: 'category-selector-home', multiple: true
                     },
@@ -43,19 +48,19 @@
           </a>
           <ul class="dropdown-menu">
               <%= f.input :weather,
-                          wrapper_html: {
-                          class: "search-input",},
-                          as: :check_boxes,
-                          checked: params.dig(:search, :weather),
-                          collection: ["sunny", "cloudy", "rainy"],
-                          input_html: { multiple: true, class: "tag-selector"},
-                          item_wrapper_class: 'tag-item',
-                          include_blank: false,
-                          include_hidden: false,
-                          item_wrapper_tag: 'li',
-                          collection_wrapper_class: 'dropdown-menu',
-                          item_wrapper_class: 'dropdown-item' %>
-              </ul>
+                      wrapper_html: {
+                      class: "search-input",},
+                      as: :check_boxes,
+                      checked: params.dig(:search, :weather),
+                      collection: ["sunny", "cloudy", "rainy"],
+                      input_html: { multiple: true, class: "tag-selector"},
+                      item_wrapper_class: 'tag-item',
+                      include_blank: false,
+                      include_hidden: false,
+                      item_wrapper_tag: 'li',
+                      collection_wrapper_class: 'dropdown-menu',
+                      item_wrapper_class: 'dropdown-item' %>
+          </ul>
         </div>
         <div class="budget-dropdown">
             <p>Budget</p>

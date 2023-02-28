@@ -7,4 +7,7 @@ class PagesController < ApplicationController
   def dashboard
     @itineraries = Itinerary.where(user_id: current_user.id)
   end
+
+  def search
+  end
 end

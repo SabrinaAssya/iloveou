@@ -10,6 +10,9 @@
     align-items: baseline;
     .station-search {
       margin-right: 3rem;
+      .station {
+        width: 20rem;
+      }
     }
     .wheather-dropdown {
       margin-right: 3rem;
@@ -33,7 +36,7 @@
       padding-left: 25px;
       border-radius: 15px;
       font-size: 18px;
-      border: none;
+      border: 2px solid transparent;
       /* transition: 0.3s ease-in-out; */
       box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
       &:hover {
@@ -60,15 +63,32 @@
   .category-item-home {
     flex: 1 0 0;
     text-align: center;
+    transition: all ease 0.3s;
+    color: black;
+    &:first-child {
+      border-top-left-radius: 30px;
+    }
+    &:last-child {
+      border-top-right-radius: 30px;
+    }
     &:hover {
-      background-color: #EE5885;
+      background-color: rgba(238, 88, 133, 0.8);
       color: white;
+      .fa-solid {
+        color: white;
+      }
       &:first-child {
         border-top-left-radius: 30px;
       }
       &:last-child {
         border-top-right-radius: 30px;
       }
+    }
+    p {
+      margin-bottom: 0px;
+    }
+    .fa-solid {
+      color: black;
     }
   }
   .category-selector-home + label {
@@ -77,16 +97,58 @@
     border: none;
     padding: 15px;
   }
+  .category-selector-home:checked + label {
+    background-color: #EE5885;
+    color: white;
+    width: 100%;
+    .fa-solid {
+      color: white;
+    }
+  }
+
+  #search_categories_restaurant:checked + label {
+    background-color: #EE5885;
+    color: white;
+    width: 100%;
+    border-top-left-radius: 30px;
+  }
+
+  #search_categories_original:checked + label {
+    background-color: #EE5885;
+    color: white;
+    width: 100%;
+    border-top-right-radius: 30px;
+  }
 }
 
-.category-selector-home:checked + label {
-  background-color: #EE5885;
-  color: white;
+.wheather-dropdown {
+  /* .form-check-input:checked {
+    background: #EE5885;
+    border-color: #EE5885;
+  } */
+  li.dropdown-item {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
 }
 
-.category-item-home:checked {
+.dropdown-menu {
+--bs-dropdown-link-active-bg: none;
+}
+
+.form-check-input[type="checkbox"] {
+  border-radius: 0.25em;
+  margin-right: 0.5rem;
+  &:checked {
+    background-image: url("check.png");
+    background-size: 80%;
+  }
+}
+
+.form-check-input:checked {
   background-color: #EE5885;
-  color: white;
+  border: none;
 }
 
 .mb-3 {
@@ -96,8 +158,13 @@
 a.form-select.select.single {
   color: grey;
   border-radius: 5px;
+  text-decoration: none;
+  border: none;
+  width: 10rem;
+  text-align: left;
 }
 
 .ts-wrapper.form-select.select.single {
   border-radius: 5px;
+  border: none;
 }
