@@ -1,7 +1,4 @@
 
-.i-header {
-  margin:40px;
-}
 
 .activity-img {
   border-radius: 10px;
@@ -28,6 +25,7 @@
 .border-activities{
   border-left: dashed 2px #EE5885;
   height: calc(100% - 2rem);
+  margin-right: 50px;
 }
 
 
@@ -40,6 +38,11 @@
   margin-bottom: 20px;
 }
 
+.activities-path{
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .fa-train-subway{
   color: #32A9E3;
@@ -209,6 +212,8 @@
 }
 
 
+
+
 .heart-font {
   position: relative;
   // .fa-heart-count {
@@ -222,6 +227,7 @@
 .activity-number {
   font-size: 40px;
   color: #EE5885;
+  margin-right: 50px;
 }
 
 .review-text {
