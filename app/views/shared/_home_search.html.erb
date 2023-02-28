@@ -48,19 +48,18 @@
           </a>
           <ul class="dropdown-menu">
               <%= f.input :weather,
-                          wrapper_html: {
-                          class: "search-input mb-0"
-                          },
-                          as: :check_boxes,
-                          checked: params.dig(:search, :weather),
-                          collection_wrapper_tag: 'div',
-                          collection_wrapper_class: 'itinerary-weather',
-                          item_wrapper_class: 'weather-item-home',
-                          input_html: { multiple: true, class: "weather-selector-home"},
-                          collection: ["Sunny", "Cloudy", "Rainy"],
-                          item_wrapper_class: 'tag-item',
-                          include_blank: false,
-                          include_hidden: false %>
+                      wrapper_html: {
+                      class: "search-input",},
+                      as: :check_boxes,
+                      checked: params.dig(:search, :weather),
+                      collection: ["sunny", "cloudy", "rainy"],
+                      input_html: { multiple: true, class: "tag-selector"},
+                      item_wrapper_class: 'tag-item',
+                      include_blank: false,
+                      include_hidden: false,
+                      item_wrapper_tag: 'li',
+                      collection_wrapper_class: 'dropdown-menu',
+                      item_wrapper_class: 'dropdown-item' %>
           </ul>
         </div>
         <div class="budget-dropdown">

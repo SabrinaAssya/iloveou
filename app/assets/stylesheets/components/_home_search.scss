@@ -10,6 +10,9 @@
     align-items: baseline;
     .station-search {
       margin-right: 3rem;
+      .station {
+        width: 20rem;
+      }
     }
     .wheather-dropdown {
       margin-right: 3rem;
@@ -119,38 +122,33 @@
 }
 
 .wheather-dropdown {
-  .dropdown-menu.show {
-    display: block;
-    border: none;
-    border-radius: 0.5rem;
+  /* .form-check-input:checked {
+    background: #EE5885;
+    border-color: #EE5885;
+  } */
+  li.dropdown-item {
+    display: flex;
+    justify-content: left;
+    align-items: center;
   }
 }
 
-.itinerary-weather {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 1rem;
-  .tag-item {
-    margin-right: 1rem;
-    &:last-child {
-      margin-right: 0px;
-    }
+.dropdown-menu {
+--bs-dropdown-link-active-bg: none;
+}
+
+.form-check-input[type="checkbox"] {
+  border-radius: 0.25em;
+  margin-right: 0.5rem;
+  &:checked {
+    background-image: url("check.png");
+    background-size: 80%;
   }
-  .weather-selector-home {
-    display: none;
-    & + label {
-      cursor: pointer;
-      padding: 0.5rem;
-      border: 1px solid grey;
-      border-radius: 0.5rem;
-      color: grey;
-      &:hover {
-        color: black;
-        border: 1px solid black;
-      }
-    }
-  }
+}
+
+.form-check-input:checked {
+  background-color: #EE5885;
+  border: none;
 }
 
 .mb-3 {
@@ -162,6 +160,8 @@ a.form-select.select.single {
   border-radius: 5px;
   text-decoration: none;
   border: none;
+  width: 10rem;
+  text-align: left;
 }
 
 .ts-wrapper.form-select.select.single {
