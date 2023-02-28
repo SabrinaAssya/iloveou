@@ -1,13 +1,4 @@
-.submit-btn {
-  border-radius: 5px;
-  background: linear-gradient(45deg, #32A9E3, #0088CB);
-  border-color: linear-gradient(45deg, #32A9E3, #0088CB);
-  padding: 7px;
-  text-decoration: none;
-  color: white;
-}
-
-.btn-create-itinerary {
+.btn-create-activity {
     text-decoration: none;
     color: white;
     background: linear-gradient(90deg,#EE5885,#EF396F);
@@ -23,8 +14,4 @@
       background: transparent;
       border: 2px solid #EE5885;
   }
-}
-
-.weather-title, .category-title {
-  margin-top:20px;
 }
