@@ -39,6 +39,8 @@
   margin: 0 auto;
   display: flex;
   justify-content: center;
+  border: solid 2px transparent;
+  background-origin: border-box;
   &:hover {
     color: #EE5885;
     background: transparent;

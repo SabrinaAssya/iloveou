@@ -199,6 +199,8 @@
   font-size: 20px;
   transition: 0.3s ease-in-out;
   width: 40%;
+  border: 2px solid transparent;;
+  background-origin: border-box;
   &:hover {
     color: #32A9E3;
     background: transparent;
@@ -250,6 +252,7 @@
   margin-left: auto;
   text-align: center;
   border: 2px solid transparent;
+  background-origin: border-box;
   user-select: none;
   cursor: pointer;
   &:hover {
