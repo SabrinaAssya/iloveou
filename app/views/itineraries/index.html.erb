@@ -10,8 +10,8 @@
         <% if itinerary.activities.present? %>
 
           <% if itinerary.activities.count > 1 %>
-            <%= cl_image_tag itinerary.activities.first.photo.key, width: 170, height: 150, crop: :fill, class: "activity-photo picture-left" %>
-            <%= cl_image_tag itinerary.activities.second.photo.key, width: 170, height: 150, crop: :fill, class: "activity-photo picture-right" %>
+            <%= cl_image_tag itinerary.activities.first.photo.key, height: 150, crop: :fill, class: "activity-photo picture-left" %>
+            <%= cl_image_tag itinerary.activities.second.photo.key, height: 150, crop: :fill, class: "activity-photo picture-right" %>
           <% else %>
             <%= cl_image_tag itinerary.activities.first.photo.key, width: 340, height: 150, crop: :fill, class: "activity-photo  mono-picture" %>
           <% end %>
@@ -68,24 +68,25 @@
                   <i class="fa-solid fa-heart"></i>
                   <i class="fa-solid fa-heart"></i>
               <% end %>
-                <i class="fa-solid fa-circle"></i>
-                <%# <i class="fa-solid fa-comment"></i> %>
+            </p>
+            <p>
+                <i class="fa-solid fa-comment"></i>
                 <%= itinerary.reviews.count %> Reviews
             </p>
             <p>
               <i class="fa-solid fa-clock"></i>
-              <%= itinerary.duration %>
-              <%= itinerary.price %>.
+              <%= itinerary.duration %> |
+              <%= itinerary.price %> Price |
               <% if itinerary.sunny == true  %>
                 <i class="fa-solid fa-sun"></i>
               <% end  %>
-              <% if itinerary.rainy == true  %>
+              <% if itinerary.rainy == true  %> |
                 <i class="fa-solid fa-cloud-rain"></i>
               <% end  %>
-              <% if itinerary.cloudy == true  %>
+              <% if itinerary.cloudy == true  %> |
                 <i class="fa-solid fa-cloud-sun"></i>
               <% end  %>
-
+            Weather
             </p>
         </div> <%# itinerary-description-card %>
       </div> <%# itinerary-card-info %>
