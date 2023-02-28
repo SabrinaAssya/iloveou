@@ -71,7 +71,7 @@ itinerary_1 = Itinerary.create!(title: "The Parisian Chic",
    drinks: true,
    outdoor: true,
    duration: "1h-2h",
-   station_id: Station.all.sample.id,
+   station_id: Station.where(name: "Chaussée d'Antin - La Fayette").ids.first,
    user_id: user_1.id,
    rating: 4.5)
 
@@ -86,7 +86,7 @@ itinerary_2 = Itinerary.create!(title: "Art Lovers' Dream",
   culture: true,
   outdoor: true,
   duration: "2h-4h",
-  station_id: Station.all.sample.id,
+  station_id: Station.where(name: "Palais Royal - Musée du Louvre").ids.first,
   user_id: user_2.id,
   rating: 4.2)
 
@@ -101,7 +101,7 @@ itinerary_3 = Itinerary.create!(title: "Romantic Paris",
   restaurant: true,
   outdoor: true,
   duration: "2h-4h",
-  station_id: Station.all.sample.id,
+  station_id: Station.where(name: "Bir-Hakeim").ids.first,
   user_id: user_3.id,
   rating: 4.8)
 
@@ -118,7 +118,7 @@ itinerary_4 = Itinerary.create!(title: "Off-the-Beaten-Path",
   drinks: true,
   outdoor: true,
   duration: "2h-4h",
-  station_id: Station.all.sample.id,
+  station_id: Station.where(name: "Corvisart").ids.first,
   user_id: user_4.id,
   rating: 4.1)
 
@@ -134,7 +134,7 @@ itinerary_5 = Itinerary.create!(title: "Family Fun Day",
   restaurant: true,
   outdoor: true,
   duration: "More than 4h",
-  station_id: Station.all.sample.id,
+  station_id: Station.where(name: "Jussieu").ids.first,
   user_id: user_1.id,
   rating: 4.3)
 
@@ -150,7 +150,7 @@ itinerary_6 = Itinerary.create!(title: "Historic Paris",
   restaurant: true,
   outdoor: true,
   duration: "More than 4h",
-  station_id: Station.all.sample.id,
+  station_id: Station.where(name: "Versailles Château").ids.first,
   user_id: user_2.id,
   rating: 4.6)
 
@@ -167,7 +167,7 @@ itinerary_7 = Itinerary.create!(title: "Gourmet Paris",
    original: true,
    drinks: true,
    duration: "More than 4h",
-   station_id: Station.all.sample.id,
+   station_id: Station.where(name: "Rambuteau").ids.first,
    user_id: user_3.id,
    rating: 4.7)
 
@@ -182,7 +182,7 @@ itinerary_8 = Itinerary.create!(title: "Sporty Paris",
   restaurant: true,
   original: true,
   duration: "More than 4h",
-  station_id: Station.all.sample.id,
+  station_id: Station.where(name: "Javel - André Citroën").ids.first,
   user_id: user_4.id,
   rating: 4.4)
 
