@@ -147,9 +147,9 @@
   overflow: 10px;
   display: block;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  width: 90%;
   padding: 20px;
   margin-bottom: 50px;
+  width: 100%;
 }
 .review-title i {
   color: #EE5885;
@@ -159,8 +159,8 @@
 
 .review-title {
   display: flex;
-  margin-bottom: 10px;
-  margin-left: 100px;
+  // margin-bottom: 10px;
+  // margin-left: 100px;
 }
 
 .review-title h2 {
@@ -209,12 +209,12 @@
 
 .heart-font {
   position: relative;
-  .fa-heart-count {
-        position: absolute;
-        top: 20%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
+  // .fa-heart-count {
+  //       position: absolute;
+  //       top: 20%;
+  //       left: 50%;
+  //       transform: translate(-50%, -50%);
+  //     }
 }
 
 .activity-number {
@@ -223,7 +223,7 @@
 }
 
 .review-text {
-  margin-left: 20px;
+  margin-left: 0.5rem;
 }
 
 .comment-heart {
@@ -239,21 +239,23 @@
 }
 
 .btn-blue-review-exist {
-    text-decoration: none;
-    color: white;
-    background: linear-gradient(90deg, #32A9E3, #0088CB);
-    padding: 15px;
-    border-radius: 15px;
-    font-size: 15px;
-    transition: 0.3s ease-in-out;
-    width: 15%;
-    margin-bottom: 60px;
-    margin-left: 890px;
-    text-align: center;
-    &:hover {
-      color: #32A9E3;
-      background: transparent;
-      border: 2px solid #32A9E3;
+  text-decoration: none;
+  color: white;
+  background: linear-gradient(90deg, #32A9E3, #0088CB);
+  padding: 15px;
+  border-radius: 15px;
+  font-size: 15px;
+  transition: 0.3s ease-in-out;
+  width: 15%;
+  margin-left: auto;
+  text-align: center;
+  border: 2px solid transparent;
+  user-select: none;
+  cursor: pointer;
+  &:hover {
+    color: #32A9E3;
+    background: transparent;
+    border: 2px solid #32A9E3;
   }
 }
 
