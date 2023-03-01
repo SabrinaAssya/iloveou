@@ -61,45 +61,47 @@ puts "4 users created"
 
 puts "creating itineraries..."
 
-itinerary_1 = Itinerary.create!(title: "The Parisian Chic",
-   description: "Start your day with a croissant and coffee at a typical Parisian café, then explore the latest fashion trends at Galeries Lafayette.
-   Have a delicious lunch at a trendy restaurant, and end your day with a cocktail at a rooftop bar overlooking the city.",
-   price: "$$$",
+itinerary_1 = Itinerary.create!(title: "A Taste of authentic parisian culture",
+   description: "Immerse yourself in the best of Parisian culture with this itinerary that combines three unique experiences.
+   This itinerary offers a perfect blend of culture, cuisine, and relaxation that is sure to make for a memorable day in Paris",
+   price: "$$",
    sunny: true,
+   cloudy: true,
    culture: true,
    restaurant: true,
-   drinks: true,
    outdoor: true,
-   duration: "1h-2h",
-   station_id: Station.where(name: "Chaussée d'Antin - La Fayette").ids.first,
+   duration: "2h-4h",
+   station_id: Station.where(name: "Châtelet- Les Halles").ids.first,
    user_id: user_1.id,
    rating: 4.5)
 
 sleep(1)
 
-itinerary_2 = Itinerary.create!(title: "Art Lovers' Dream",
-  description: "Visit the Louvre museum and admire the world-famous Mona Lisa. Have a quick lunch at a nearby café, then explore the Centre Pompidou and its modern art exhibitions.
-  End your day with a visit to the Montmartre neighborhood and its famous street art.",
-  price: "$",
+itinerary_2 = Itinerary.create!(title: "A Fancy night out in Paris",
+  description: "Spend a memorable evening exploring some of Paris's most iconic attractions with this itinerary.
+  It is perfect for a date night or a fun evening out with friends, and offers a perfect blend of culture, cocktails, and scenery.",
+  price: "$$$",
   cloudy: true,
-  restaurant: true,
+  sunny: true,
+  drinks: true,
   culture: true,
   outdoor: true,
   duration: "2h-4h",
-  station_id: Station.where(name: "Palais Royal - Musée du Louvre").ids.first,
+  station_id: Station.where(name: "Poissonnière").ids.first,
   user_id: user_2.id,
   rating: 4.2)
 
 sleep(1)
 
-itinerary_3 = Itinerary.create!(title: "Romantic Paris",
-  description: "Enjoy a romantic stroll along the Seine river and watch the sunset. Have a candlelit dinner at a traditional French restaurant, then take a tour of the city's most romantic spots,
-  including the Eiffel Tower and the Pont des Arts.",
-  price: "$$",
+itinerary_3 = Itinerary.create!(title: "",
+  description: "Discover the sophisticated side of Paris with this itinerary that takes you to some of the city's most refined locations.
+  It is perfect for those who appreciate the finer things in life and want to experience the best of Paris's gastronomy and culture.",
+  price: "$$$",
   sunny: true,
-  culture: true,
-  restaurant: true,
+  cloudy: true,
   outdoor: true,
+  restaurant: true,
+  drinks: true,
   duration: "2h-4h",
   station_id: Station.where(name: "Bir-Hakeim").ids.first,
   user_id: user_3.id,
@@ -190,59 +192,59 @@ puts "8 itineraries created"
 
 puts "Creating activities..."
 
-activity_1 = Activity.create!(itinerary_id: itinerary_1.id, title: "Fashionista Shopping Spree", address: "Galeries Lafayette, 40 Boulevard Haussmann, 75009 Paris", description: "Explore the latest fashion trends at Galeries Lafayette, a world-famous department store with high-end fashion, cosmetics, and accessories.")
+activity_1 = Activity.create!(itinerary_id: itinerary_1.id, title: "Basque Getaway", address: " Chez Gladines, 11 bis rue des Halles, 75001, Paris", description: "Time to go to Gladines to taste a tasty and authentic Basque cuisine.")
 
 activity_1.photo.attach(
-  io: URI.open('https://cdn.sortiraparis.com/images/80/96242/703334-inauguration-vitrines-et-sapin-des-galeries-lafayettes-2021.jpg'),
-  filename: 'galeries-lafayettes',
-  content_type: 'image/jpg'
+  io: URI.open('https://uniiti.com/images/shops/slides/3bf51c72af8b71aa6244d648be00a95c21c13f9f.jpeg'),
+  filename: 'gladines',
+  content_type: 'image/jpeg'
 )
-activity_2 = Activity.create!(itinerary_id: itinerary_1.id, title: "Rooftop Cocktails with a View", address: "Terrasse Hôtel, 12-14 Rue Joseph de Maistre, 75018 Paris", description: "End your day with a cocktail at Terrass'' Hôtel, a trendy rooftop bar with stunning views of the city.")
+activity_2 = Activity.create!(itinerary_id: itinerary_1.id, title: "Visit in the confines of history", address: "La Conciergerie, 2 Bd du Palais, 75001, Paris", description: "Explore this former prison transformed into a museum offering exhibitions on the history of Paris and France.")
 activity_2.photo.attach(
-  io: URI.open('https://assets.hotelaparis.com/uploads/pictures/000/038/036/_19A4556_md.jpg'),
-  filename: 'rooftop',
+  io: URI.open('https://media.timeout.com/images/100004325/image.jpg'),
+  filename: 'conciergerie',
   content_type: 'image/jpg'
 )
-activity_3 = Activity.create!(itinerary_id: itinerary_1.id, title: "Breakfast at a Typical Parisian Café", address: "Café de Flore, 172 Boulevard Saint-Germain, 75006 Paris", description: "Start your day with a classic French breakfast at Café de Flore, a historic café frequented by writers, artists, and intellectuals.")
+activity_3 = Activity.create!(itinerary_id: itinerary_1.id, title: "A royal walk", address: "Jardins du Palais Royal, 172 Boulevard Saint-Germain, 75006 Paris", description: "A beautiful public garden with fountains, sculptures, benches to relax to end your day in the most romantic way")
 activity_3.photo.attach(
-  io: URI.open('https://www.pariszigzag.fr/wp-content/uploads/2020/12/Cafe%CC%81-de-flore-zigzag-2.jpg'),
-  filename: 'cafe-flore',
+  io: URI.open('https://media.fashionnetwork.com/m/23d0/cbc5/778f/4787/731f/ca09/cdda/1db1/9b8c/1a77/1a77.jpg'),
+  filename: 'jardin-palais-royal',
   content_type: 'image/jpg'
 )
-activity_4 = Activity.create!(itinerary_id: itinerary_2.id, title: "Mona Lisa at the Louvre", address: "Musée du Louvre, Rue de Rivoli, 75001 Paris", description: "Visit the Louvre museum and admire the world-famous Mona Lisa.")
+activity_4 = Activity.create!(itinerary_id: itinerary_2.id, title: "A walk along the canal", address: "Le Grand Rex, 1 Bd Poissonnière, 75002, Paris", description: "A historic cinema with an Art Deco interior, offering movies, concerts, and shows ... It is up to you to decie ! ")
 activity_4.photo.attach(
-  io: URI.open('https://unpointculture.com/wp-content/uploads/2022/07/musee-du-louvre.jpeg'),
-  filename: 'louvre',
-  content_type: 'image/jpeg'
+  io: URI.open('https://img.grouponcdn.com/deal/37g41rDqLHpH7rtp2SPWbJs3Pxa4/37-2048x1229/v1/t600x362.jpg'),
+  filename: 'grand-rex',
+  content_type: 'image/jpg'
 )
-activity_5 = Activity.create!(itinerary_id: itinerary_2.id, title: "Modern Art at Centre Pompidou", address: "Centre Pompidou, Place Georges-Pompidou, 75004 Paris", description: "Explore the Centre Pompidou and its modern art exhibitions.")
+activity_5 = Activity.create!(itinerary_id: itinerary_2.id, title: "Cinematographic getaway", address: "Canal Saint-Martin, 75010, Paris", description: "A historic cinema with an Art Deco interior, offering movies, concerts, and shows ... It is up to you to decie !")
 activity_5.photo.attach(
-  io: URI.open('https://explorez.com/wp-content/uploads/2022/04/Paris_Centre-Pompidou_EdNurg_AdobeStock_Editorial-Use-Only-scaled.jpeg'),
-  filename: 'pompidou',
+  io: URI.open('https://www.unjourdeplusaparis.com/wp-content/uploads/2013/05/canal-saint-martin-paris.jpg'),
+  filename: 'canal-saint-martin',
+  content_type: 'image/jpg'
+)
+activity_6 = Activity.create!(itinerary_id: itinerary_2.id, title: "Inventive cocktails", address: "Le Syndicat Cocktail Club, 51 Rue du Faubourg Saint-Denis, 75010, Paris", description: "A speakeasy-style bar, in a subdued atmosphere, with unique and inventive cocktails. Ideal for a date.")
+activity_6.photo.attach(
+  io: URI.open('https://media-cdn.tripadvisor.com/media/photo-s/11/71/b8/b2/interieur.jpg'),
+  filename: 'speakeasy',
+  content_type: 'image/jpg'
+)
+activity_7 = Activity.create!(itinerary_id: itinerary_3.id, title: "Restaurant with a typical parisian view", address: "Au Bon Accueil, 14 Rue de Monttessuy, 75007 Paris", description: "A refined restaurant with a view of the Eiffel Tower, offering traditional French cuisine. A typical French Restaurant")
+activity_7.photo.attach(
+  io: URI.open('https://foodetective-production.s3.amazonaws.com/uploads/picture/photo/41efd8c2-5234-4c0c-a08a-541bf3241940/d8063e58-bbc2-4ad7-be8c-3f3d78e5831f.jpeg'),
+  filename: 'bonaccueil',
   content_type: 'image/jpeg'
 )
-activity_6 = Activity.create!(itinerary_id: itinerary_2.id, title: "Street Art in Montmartre", address: "Montmartre neighborhood, 75018 Paris", description: "End your day with a visit to the Montmartre neighborhood and its famous street art.")
-activity_6.photo.attach(
-  io: URI.open('https://www.pariszigzag.fr/wp-content/uploads/2022/02/Fontaine_Chateau_Eau_Montmartre_Paris_2-Copie.jpg'),
-  filename: 'montmartre',
-  content_type: 'image/jpg'
-)
-activity_7 = Activity.create!(itinerary_id: itinerary_3.id, title: "Candlelit Dinner at a Traditional French Restaurant", address: "Le Jules Verne, Champ de Mars, 5 Avenue Anatole France, 75007 Paris", description: "Have a candlelit dinner with stunning views of the Eiffel Tower at Le Jules Verne, a Michelin-starred restaurant.")
-activity_7.photo.attach(
-  io: URI.open('https://www.parisinfo.com/var/otcp/sites/images/node_43/node_51/node_77884/node_77888/tour-eiffel-tour-eiffel-depuis-jardin-%7C-630x405-%7C-%C2%A9-sete-alexandre-nestora/21230464-1-fre-FR/Tour-Eiffel-Tour-Eiffel-depuis-Jardin-%7C-630x405-%7C-%C2%A9-SETE-Alexandre-Nestora.jpg'),
-  filename: 'jule-verne',
-  content_type: 'image/jpg'
-)
-activity_8 = Activity.create!(itinerary_id: itinerary_3.id, title: "Sunset Stroll along the Seine River", address: "Seine River", description: "Enjoy a romantic stroll along the Seine river and watch the sunset.")
+activity_8 = Activity.create!(itinerary_id: itinerary_3.id, title: "Meet the Iron Lady", address: "Champ de Mars, 75007, Paris ", description: "A large public park, probably the most popular in Paris. Here you're gonna be able to admire the Eiffel Tower.")
 activity_8.photo.attach(
-  io: URI.open('https://www.exp1.com/blog/wp-content/uploads/sites/7/2020/07/Boat-along-the-Seine-River.jpg'),
-  filename: 'seine',
+  io: URI.open('https://www.parisinfo.com/var/otcp/sites/images/node_43/node_51/node_230/champ-de-mars-le-mur-pour-la-paix-%7C-630x405-%7C-%C2%A9-otcp-david-lefranc-i-158-10/26625-4-fre-FR/Champ-de-Mars-Le-Mur-pour-la-Paix-%7C-630x405-%7C-%C2%A9-OTCP-David-Lefranc-I-158-10.jpg'),
+  filename: 'champdemars',
   content_type: 'image/jpg'
 )
-activity_9 = Activity.create!(itinerary_id: itinerary_3.id, title: "Tour of Romantic Paris Spots", address: "Eiffel Tower, Pont des Arts, and other romantic locations", description: "Take a tour of the city's most romantic spots, including the Eiffel Tower and the Pont des Arts.")
+activity_9 = Activity.create!(itinerary_id: itinerary_3.id, title: "Amazing rooftop", address: "Café de l'Homme, 17 Pl. du Trocadéro et du 11 Novembre, 75016 Paris", description: "A stylish bar and restaurant with a terrace overlooking the Eiffel Tower and the Seine, offering a wide selection of cocktails and wines.")
 activity_9.photo.attach(
-  io: URI.open('https://www.pariszigzag.fr/wp-content/uploads/2018/07/pont-des-arts-paris-zigzag-1.jpg'),
-  filename: 'pont-des-arts',
+  io: URI.open('https://media-cdn.tripadvisor.com/media/photo-s/1b/fb/96/e6/photo-de-la-terrasse.jpg'),
+  filename: 'caféhomme',
   content_type: 'image/jpg'
 )
 activity_10 = Activity.create!(itinerary_id: itinerary_4.id, title: "Street Art in Butte-aux-Cailles", address: "Butte-aux-Cailles neighborhood, 75013 Paris", description: "Explore the street art and trendy boutiques of the Butte-aux-Cailles neighborhood.")
