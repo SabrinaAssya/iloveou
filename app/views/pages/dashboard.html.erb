@@ -1,12 +1,19 @@
 <% @itineraries = Itinerary.where(user_id: current_user.id) %>
 <% @favorites = Favorite.where(user_id: current_user.id)%>
+<% @favorites_itineraries =[] %>
+
+<% @favorites.each do |favorite| %>
+    <% @itinerary = Itinerary.find(favorite.itinerary_id)  %>
+    <% @favorites_itineraries << @itinerary %>
+<% end %>
+
 
 <div>
   <div class="user-card">
     <div>
       <%= cl_image_tag current_user.photo.key, 
-      width: 140, 
-      height: 140, 
+      width: 120, 
+      height: 120, 
       gravity: :auto, 
       crop: :fill, 
       radius: :max, 
@@ -43,7 +50,7 @@
   </div>
 
   <div class="section">
-    <h2 class="section-title">My created itineraries</h2>
+    <p class="section-title">My itineraries</p>
 
     <% if @itineraries.length != 0 %>
       
@@ -150,13 +157,13 @@
   </div>
 
    <div class="section">
-    <h2 class="section-title">My favorites itineraries</h2>
+    <p class="section-title">My favorites itineraries</p>
 
-    <% if @itineraries.length != 0 %>
+    <% if @favorites_itineraries.length != 0 %>
       
       <div class="itineraries-card-dash">
 
-        <% @itineraries.each do |itinerary| %>
+        <% @favorites_itineraries.each do |itinerary| %>
 
           <div class="itinerary-card">
 
