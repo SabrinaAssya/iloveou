@@ -85,17 +85,16 @@
             <p>
               <i class="fa-solid fa-clock"></i>
               <%= itinerary.duration %> |
-              <%= itinerary.price %> Price |
+              <%= itinerary.price %> |
               <% if itinerary.sunny == true  %>
                 <i class="fa-solid fa-sun"></i>
               <% end  %>
-              <% if itinerary.rainy == true  %> |
+              <% if itinerary.rainy == true  %>
                 <i class="fa-solid fa-cloud-rain"></i>
               <% end  %>
-              <% if itinerary.cloudy == true  %> |
+              <% if itinerary.cloudy == true  %> 
                 <i class="fa-solid fa-cloud-sun"></i>
               <% end  %>
-            Weather
             </p>
         </div> <%# itinerary-description-card %>
       </div> <%# itinerary-card-info %>
