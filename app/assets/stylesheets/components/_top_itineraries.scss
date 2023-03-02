@@ -29,12 +29,15 @@
   }
   .carousel {
     white-space: nowrap;
-    display: -webkit-inline-box;
+    display: inline-flex;
     margin-top: 7rem;
     cursor: pointer;
     overflow: hidden;
     max-width: 1000px;
     scroll-behavior: smooth;
+    a {
+      text-decoration: none;
+    }
   }
 }
 
