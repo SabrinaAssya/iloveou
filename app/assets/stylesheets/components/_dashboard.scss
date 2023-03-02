@@ -4,8 +4,8 @@
     margin-right: 50rem;
     margin-top: 3rem;
     margin-bottom: 3rem;
-    border: 1px solid black;
-    border-radius: 30px;
+    // border: 1px solid black;
+    border-radius: 20px;
   }
 
 
@@ -60,3 +60,41 @@
     font-size: 20px;
     font-weight: 650;
 }
+
+.section-title {
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 3rem;
+}
+
+.section {
+    margin-left: 6rem;
+    margin-right: 6rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.itineraries-card-dash {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-top: 10px;
+  }
+  
+  .itinerary-card {
+    /* border: 1px solid red; */
+    border-radius: 30px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin: 1rem;
+    padding: 10px;
+    padding-top: 0;
+    padding-right: 0;
+    padding-left: 0;
+    width: 350px;
+    height: 300px;
+    .itinerary-photo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
