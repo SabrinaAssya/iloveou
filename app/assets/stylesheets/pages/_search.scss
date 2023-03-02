@@ -82,10 +82,11 @@
   }
 }
 
-.header {
+.search-header {
   display: flex;
   justify-content: flex-end;
   margin-left: 5rem;
+  margin-right: 3rem;
 }
 
 .search-card {
@@ -97,6 +98,7 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   left: 5rem;
   width: 33%;
+  margin-top: 4rem;
   h1 {
     margin-bottom: 1rem;
     font-size: 39px;
@@ -126,7 +128,7 @@
 
 
 .background-img {
-  width: 90%;
+  width: 88%;
   position: relative;
   border-radius: 3rem;
 }
