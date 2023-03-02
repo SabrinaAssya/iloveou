@@ -61,45 +61,47 @@ puts "4 users created"
 
 puts "creating itineraries..."
 
-itinerary_1 = Itinerary.create!(title: "The Parisian Chic",
-   description: "Start your day with a croissant and coffee at a typical Parisian café, then explore the latest fashion trends at Galeries Lafayette.
-   Have a delicious lunch at a trendy restaurant, and end your day with a cocktail at a rooftop bar overlooking the city.",
-   price: "$$$",
+itinerary_1 = Itinerary.create!(title: "A Taste of authentic parisian culture",
+   description: "Immerse yourself in the best of Parisian culture with this itinerary that combines three unique experiences.
+   It offers a perfect blend of culture, cuisine, and relaxation that is sure to make for a memorable day in Paris",
+   price: "$$",
    sunny: true,
+   cloudy: true,
    culture: true,
    restaurant: true,
-   drinks: true,
    outdoor: true,
-   duration: "1h-2h",
-   station_id: Station.where(name: "Chaussée d'Antin - La Fayette").ids.first,
+   duration: "2h-4h",
+   station_id: Station.where(name: "Châtelet-Les Halles").ids.first,
    user_id: user_1.id,
    rating: 4.5)
 
 sleep(1)
 
-itinerary_2 = Itinerary.create!(title: "Art Lovers' Dream",
-  description: "Visit the Louvre museum and admire the world-famous Mona Lisa. Have a quick lunch at a nearby café, then explore the Centre Pompidou and its modern art exhibitions.
-  End your day with a visit to the Montmartre neighborhood and its famous street art.",
-  price: "$",
+itinerary_2 = Itinerary.create!(title: "A Fancy night out in Paris",
+  description: "Spend a memorable evening exploring some of Paris's most iconic attractions with this itinerary.
+  It is perfect for a date night or a fun evening out with friends, and offers a perfect blend of culture, cocktails, and scenery.",
+  price: "$$$",
   cloudy: true,
-  restaurant: true,
+  sunny: true,
+  drinks: true,
   culture: true,
   outdoor: true,
   duration: "2h-4h",
-  station_id: Station.where(name: "Palais Royal - Musée du Louvre").ids.first,
+  station_id: Station.where(name: "Poissonnière").ids.first,
   user_id: user_2.id,
   rating: 4.2)
 
 sleep(1)
 
-itinerary_3 = Itinerary.create!(title: "Romantic Paris",
-  description: "Enjoy a romantic stroll along the Seine river and watch the sunset. Have a candlelit dinner at a traditional French restaurant, then take a tour of the city's most romantic spots,
-  including the Eiffel Tower and the Pont des Arts.",
-  price: "$$",
+itinerary_3 = Itinerary.create!(title: "A Taste of Parisian Elegance",
+  description: "Discover the sophisticated side of Paris with this itinerary that takes you to some of the city's most refined locations.
+  It is perfect for those who appreciate the finer things in life and want to experience the best of Paris's gastronomy and culture.",
+  price: "$$$",
   sunny: true,
-  culture: true,
-  restaurant: true,
+  cloudy: true,
   outdoor: true,
+  restaurant: true,
+  drinks: true,
   duration: "2h-4h",
   station_id: Station.where(name: "Bir-Hakeim").ids.first,
   user_id: user_3.id,
@@ -107,82 +109,84 @@ itinerary_3 = Itinerary.create!(title: "Romantic Paris",
 
 sleep(1)
 
-itinerary_4 = Itinerary.create!(title: "Off-the-Beaten-Path",
-  description: "Explore the lesser-known parts of Paris with a visit to the Butte-aux-Cailles neighborhood and its street art, trendy boutiques, and cozy bars.
-  Enjoy a French picnic at the Parc des Buttes Chaumont, then discover the local music scene at a nearby jazz club.",
-  price: "$",
+itinerary_4 = Itinerary.create!(title: "A Regal Day in Versailles",
+  description: "Discover a city full of history a few kilometers from Paris.
+  With its mix of history, nature, and culture, this itinerary is sure to provide a memorable day in Versailles.",
+  price: "$$$",
   sunny: true,
   cloudy: true,
   original: true,
   restaurant: true,
-  drinks: true,
   outdoor: true,
-  duration: "2h-4h",
-  station_id: Station.where(name: "Corvisart").ids.first,
+  duration: "More than 4h",
+  station_id: Station.where(name: "Versailles Château").ids.first,
   user_id: user_4.id,
   rating: 4.1)
 
 sleep(1)
 
-itinerary_5 = Itinerary.create!(title: "Family Fun Day",
-  description: "Start your day with a delicious brunch at a family-friendly restaurant, then visit the Cité des Enfants at the Science Museum for interactive and educational exhibits.
-  Have a picnic at the Jardin du Luxembourg, then take a ride on the Paris Ferris Wheel.",
-  price: "$$",
+itinerary_5 = Itinerary.create!(title: "A sustainable artistic tour",
+  description: "Join us on a unique tour of Paris that combines sustainability, gastronomy, and art.
+  This tour will not only leave you satisfied with delicious food and beautiful sights, but also with a sense of connection to sustainable living and artistic history.
+  ",
+  price: "$$$",
   sunny: true,
+  cloudy: true,
   rainy: true,
-  culture: true,
+  original: true,
   restaurant: true,
-  outdoor: true,
+  culture: true,
   duration: "More than 4h",
-  station_id: Station.where(name: "Jussieu").ids.first,
+  station_id: Station.where(name: "Abbesses").ids.first,
   user_id: user_1.id,
   rating: 4.3)
 
 sleep(1)
 
-itinerary_6 = Itinerary.create!(title: "Historic Paris",
-  description: "Discover Paris' rich history with a visit to the Palace of Versailles and its stunning gardens.
-  Have a quick lunch at a nearby café, then explore the Musée de l'Armée and its exhibits on French military history.
-  End your day with a visit to the Arc de Triomphe and the Champs-Elysées.",
-  price: "$$",
+itinerary_6 = Itinerary.create!(title: "A night at the Opera",
+  description: "Take advantage of this itinerary to visit three of the most luxurious and typical places in Paris.
+  This itinerary promises you a moment suspended in time and an unforgettable evening.",
+  price: "$$$",
   sunny: true,
-  culture: true,
+  cloudy: true,
+  rainy: true,
   restaurant: true,
-  outdoor: true,
+  culture: true,
+  drinks: true,
   duration: "More than 4h",
-  station_id: Station.where(name: "Versailles Château").ids.first,
+  station_id: Station.where(name: "Opéra").ids.first,
   user_id: user_2.id,
   rating: 4.6)
 
 sleep(1)
 
-itinerary_7 = Itinerary.create!(title: "Gourmet Paris",
-   description: "Indulge in a gourmet food tour of the city with stops at a traditional French market, a cheese shop, and a chocolate boutique.
-   Have a delicious lunch at a Michelin-starred restaurant, then take a wine tasting class at a nearby cellar.
-   End your day with a cooking class and learn to make your own French desserts.",
-   price: "$$$",
+itinerary_7 = Itinerary.create!(title: "Sporty Paris",
+   description: "Experience a perfect day in Paris with this itinerary that combines nature, food, and sports. Start your day by immersing yourself in the beauty of nature at Le Bois de Boulogne. After working up an appetite, head to Sushi Suki for a delicious sushi lunch.
+   Finally, end your day at Le Parc des Princes, the iconic football stadium that's home to Paris Saint-Germain to catch a game.",
+   price: "$$",
    sunny: true,
    cloudy: true,
    restaurant: true,
    original: true,
-   drinks: true,
+   outdoor: true,
    duration: "More than 4h",
-   station_id: Station.where(name: "Rambuteau").ids.first,
+   station_id: Station.where(name: "Boulogne - Jean Jaurès").ids.first,
    user_id: user_3.id,
    rating: 4.7)
 
 sleep(1)
 
-itinerary_8 = Itinerary.create!(title: "Sporty Paris",
-  description: "Start your day with a morning run along the Seine river. Rent a bike and explore the city's parks and gardens,
-  including the Bois de Boulogne and the Jardin des Tuileries. Have a healthy lunch at a vegetarian restaurant, then take a yoga class at a nearby studio.",
+itinerary_8 = Itinerary.create!(title: "The typical student Paris",
+  description: "Experience the rich history and culture of Paris with this itinerary that takes you on a journey through the Latin Quarter.
+  This itinerary is the perfect blend of history, culture, and fun, and is sure to make for a memorable day",
   price: "$$",
   sunny: true,
+  cloudy:true,
+  culture: true,
+  drinks: true,
   outdoor: true,
-  restaurant: true,
-  original: true,
-  duration: "More than 4h",
-  station_id: Station.where(name: "Javel - André Citroën").ids.first,
+  duration: "2h-4h",
+  station_id: Station.where(name: "Cardinal Lemoine").ids.first,
   user_id: user_4.id,
   rating: 4.4)
 
@@ -190,149 +194,150 @@ puts "8 itineraries created"
 
 puts "Creating activities..."
 
-activity_1 = Activity.create!(itinerary_id: itinerary_1.id, title: "Fashionista Shopping Spree", address: "Galeries Lafayette, 40 Boulevard Haussmann, 75009 Paris", description: "Explore the latest fashion trends at Galeries Lafayette, a world-famous department store with high-end fashion, cosmetics, and accessories.")
+activity_1 = Activity.create!(itinerary_id: itinerary_1.id, title: "Basque Getaway", address: " Chez Gladines, 11 bis rue des Halles, 75001, Paris", description: "Time to go to Gladines to taste a tasty and authentic Basque cuisine.")
 
 activity_1.photo.attach(
-  io: URI.open('https://cdn.sortiraparis.com/images/80/96242/703334-inauguration-vitrines-et-sapin-des-galeries-lafayettes-2021.jpg'),
-  filename: 'galeries-lafayettes',
-  content_type: 'image/jpg'
+  io: URI.open('https://uniiti.com/images/shops/slides/3bf51c72af8b71aa6244d648be00a95c21c13f9f.jpeg'),
+  filename: 'gladines',
+  content_type: 'image/jpeg'
 )
-activity_2 = Activity.create!(itinerary_id: itinerary_1.id, title: "Rooftop Cocktails with a View", address: "Terrasse Hôtel, 12-14 Rue Joseph de Maistre, 75018 Paris", description: "End your day with a cocktail at Terrass'' Hôtel, a trendy rooftop bar with stunning views of the city.")
+activity_2 = Activity.create!(itinerary_id: itinerary_1.id, title: "Visit in the confines of history", address: "La Conciergerie, 2 Bd du Palais, 75001, Paris", description: "Explore this former prison transformed into a museum offering exhibitions on the history of Paris and France.")
 activity_2.photo.attach(
-  io: URI.open('https://assets.hotelaparis.com/uploads/pictures/000/038/036/_19A4556_md.jpg'),
-  filename: 'rooftop',
+  io: URI.open('https://media.timeout.com/images/100004325/image.jpg'),
+  filename: 'conciergerie',
   content_type: 'image/jpg'
 )
-activity_3 = Activity.create!(itinerary_id: itinerary_1.id, title: "Breakfast at a Typical Parisian Café", address: "Café de Flore, 172 Boulevard Saint-Germain, 75006 Paris", description: "Start your day with a classic French breakfast at Café de Flore, a historic café frequented by writers, artists, and intellectuals.")
+activity_3 = Activity.create!(itinerary_id: itinerary_1.id, title: "A royal walk", address: "Jardins du Palais Royal, 172 Boulevard Saint-Germain, 75006 Paris", description: "A beautiful public garden with fountains, sculptures, benches to relax to end your day in the most romantic way")
 activity_3.photo.attach(
-  io: URI.open('https://www.pariszigzag.fr/wp-content/uploads/2020/12/Cafe%CC%81-de-flore-zigzag-2.jpg'),
-  filename: 'cafe-flore',
+  io: URI.open('https://media.fashionnetwork.com/m/23d0/cbc5/778f/4787/731f/ca09/cdda/1db1/9b8c/1a77/1a77.jpg'),
+  filename: 'jardin-palais-royal',
   content_type: 'image/jpg'
 )
-activity_4 = Activity.create!(itinerary_id: itinerary_2.id, title: "Mona Lisa at the Louvre", address: "Musée du Louvre, Rue de Rivoli, 75001 Paris", description: "Visit the Louvre museum and admire the world-famous Mona Lisa.")
+activity_4 = Activity.create!(itinerary_id: itinerary_2.id, title: "A walk along the canal", address: "Canal Saint-Martin, 75010, Paris", description: "A picturesque waterway with lively cafes, bars, and boutiques along its banks. ")
 activity_4.photo.attach(
-  io: URI.open('https://unpointculture.com/wp-content/uploads/2022/07/musee-du-louvre.jpeg'),
-  filename: 'louvre',
-  content_type: 'image/jpeg'
+  io: URI.open('https://www.unjourdeplusaparis.com/wp-content/uploads/2013/05/canal-saint-martin-paris.jpg'),
+  filename: 'canal-saint-martin',
+  content_type: 'image/jpg'
 )
-activity_5 = Activity.create!(itinerary_id: itinerary_2.id, title: "Modern Art at Centre Pompidou", address: "Centre Pompidou, Place Georges-Pompidou, 75004 Paris", description: "Explore the Centre Pompidou and its modern art exhibitions.")
+activity_5 = Activity.create!(itinerary_id: itinerary_2.id, title: "Cinematographic getaway", address: "Le Grand Rex, 1 Bd Poissonnière, 75002, Paris", description: "A historic cinema with an Art Deco interior, offering movies, concerts, and shows ... It is up to you to decie !")
 activity_5.photo.attach(
-  io: URI.open('https://explorez.com/wp-content/uploads/2022/04/Paris_Centre-Pompidou_EdNurg_AdobeStock_Editorial-Use-Only-scaled.jpeg'),
-  filename: 'pompidou',
-  content_type: 'image/jpeg'
+  io: URI.open('https://img.grouponcdn.com/deal/37g41rDqLHpH7rtp2SPWbJs3Pxa4/37-2048x1229/v1/t600x362.jpg'),
+  filename: 'grand-rex',
+  content_type: 'image/jpg'
 )
-activity_6 = Activity.create!(itinerary_id: itinerary_2.id, title: "Street Art in Montmartre", address: "Montmartre neighborhood, 75018 Paris", description: "End your day with a visit to the Montmartre neighborhood and its famous street art.")
+activity_6 = Activity.create!(itinerary_id: itinerary_2.id, title: "Inventive cocktails", address: "Le Syndicat Cocktail Club, 51 Rue du Faubourg Saint-Denis, 75010, Paris", description: "A speakeasy-style bar, in a subdued atmosphere, with unique and inventive cocktails. Ideal for a date.")
 activity_6.photo.attach(
-  io: URI.open('https://www.pariszigzag.fr/wp-content/uploads/2022/02/Fontaine_Chateau_Eau_Montmartre_Paris_2-Copie.jpg'),
-  filename: 'montmartre',
+  io: URI.open('https://media-cdn.tripadvisor.com/media/photo-s/11/71/b8/b2/interieur.jpg'),
+  filename: 'speakeasy',
   content_type: 'image/jpg'
 )
-activity_7 = Activity.create!(itinerary_id: itinerary_3.id, title: "Candlelit Dinner at a Traditional French Restaurant", address: "Le Jules Verne, Champ de Mars, 5 Avenue Anatole France, 75007 Paris", description: "Have a candlelit dinner with stunning views of the Eiffel Tower at Le Jules Verne, a Michelin-starred restaurant.")
+activity_7 = Activity.create!(itinerary_id: itinerary_3.id, title: "Restaurant with a typical parisian view", address: "Au Bon Accueil, 14 Rue de Monttessuy, 75007 Paris", description: "A refined restaurant with a view of the Eiffel Tower, offering traditional French cuisine. A typical French Restaurant.")
 activity_7.photo.attach(
-  io: URI.open('https://www.parisinfo.com/var/otcp/sites/images/node_43/node_51/node_77884/node_77888/tour-eiffel-tour-eiffel-depuis-jardin-%7C-630x405-%7C-%C2%A9-sete-alexandre-nestora/21230464-1-fre-FR/Tour-Eiffel-Tour-Eiffel-depuis-Jardin-%7C-630x405-%7C-%C2%A9-SETE-Alexandre-Nestora.jpg'),
-  filename: 'jule-verne',
-  content_type: 'image/jpg'
-)
-activity_8 = Activity.create!(itinerary_id: itinerary_3.id, title: "Sunset Stroll along the Seine River", address: "Seine River", description: "Enjoy a romantic stroll along the Seine river and watch the sunset.")
-activity_8.photo.attach(
-  io: URI.open('https://www.exp1.com/blog/wp-content/uploads/sites/7/2020/07/Boat-along-the-Seine-River.jpg'),
-  filename: 'seine',
-  content_type: 'image/jpg'
-)
-activity_9 = Activity.create!(itinerary_id: itinerary_3.id, title: "Tour of Romantic Paris Spots", address: "Eiffel Tower, Pont des Arts, and other romantic locations", description: "Take a tour of the city's most romantic spots, including the Eiffel Tower and the Pont des Arts.")
-activity_9.photo.attach(
-  io: URI.open('https://www.pariszigzag.fr/wp-content/uploads/2018/07/pont-des-arts-paris-zigzag-1.jpg'),
-  filename: 'pont-des-arts',
-  content_type: 'image/jpg'
-)
-activity_10 = Activity.create!(itinerary_id: itinerary_4.id, title: "Street Art in Butte-aux-Cailles", address: "Butte-aux-Cailles neighborhood, 75013 Paris", description: "Explore the street art and trendy boutiques of the Butte-aux-Cailles neighborhood.")
-activity_10.photo.attach(
-  io: URI.open('https://www.voyagesetc.fr/wp-content/uploads/2021/09/Street-art-Paris-13-Jace-683x1024.jpg'),
-  filename: 'butte-aux-cailles',
-  content_type: 'image/jpg'
-)
-activity_11 = Activity.create!(itinerary_id: itinerary_4.id, title: "Picnic at Parc des Buttes Chaumont", address: "Parc des Buttes Chaumont, 1 Rue Botzaris, 75019 Paris", description: "Have a French picnic in the picturesque Parc des Buttes Chaumont.")
-activity_11.photo.attach(
-  io: URI.open('https://cdn.sortiraparis.com/images/80/98059/749179-photos-le-parc-des-buttes-chaumont.jpg'),
-  filename: 'parc',
-  content_type: 'image/jpg'
-)
-activity_12 = Activity.create!(itinerary_id: itinerary_4.id, title: "Music at a Jazz Club", address: "Le Caveau de la Huchette, 5 Rue de la Huchette, 75005 Paris", description: "Discover the local music scene at Le Caveau de la Huchette, a jazz club that's been around since 1946.")
-activity_12.photo.attach(
-  io: URI.open('https://parissecret.com/wp-content/uploads/2021/11/afp.com-20180118-partners-010-GTT16A00_184-highres-scaled.jpg'),
-  filename: 'jazz-club',
-  content_type: 'image/jpg'
-)
-activity_13 = Activity.create!(itinerary_id: itinerary_5.id, title: "Boat Tour of the Seine River", address: "Vedettes du Pont Neuf, Square du Vert Galant, 75001 Paris", description: "Take a boat tour of the Seine River with Vedettes du Pont Neuf and discover the city's most iconic landmarks from the water.")
-activity_13.photo.attach(
-  io: URI.open('https://www.relaisdulouvre.com/images/actualites/ae8c42400b0ff3324ea01890ed021126ceca3098.jpeg'),
-  filename: 'boat-tour',
+  io: URI.open('https://foodetective-production.s3.amazonaws.com/uploads/picture/photo/41efd8c2-5234-4c0c-a08a-541bf3241940/d8063e58-bbc2-4ad7-be8c-3f3d78e5831f.jpeg'),
+  filename: 'bonaccueil',
   content_type: 'image/jpeg'
 )
-activity_14 = Activity.create!(itinerary_id: itinerary_5.id, title: "Zoo and Aquarium Visit", address: "Parc Zoologique de Paris, Route de la Ceinture du Lac Daumesnil, 75012 Paris", description: "Explore the Parc Zoologique de Paris and its aquarium for a fun day out with the family.")
+activity_8 = Activity.create!(itinerary_id: itinerary_3.id, title: "Meet the Iron Lady", address: "Champ de Mars, 75007, Paris ", description: "A large public park, probably the most popular in Paris. Here you're gonna be able to admire the Eiffel Tower.")
+activity_8.photo.attach(
+  io: URI.open('https://www.parisinfo.com/var/otcp/sites/images/node_43/node_51/node_230/champ-de-mars-le-mur-pour-la-paix-%7C-630x405-%7C-%C2%A9-otcp-david-lefranc-i-158-10/26625-4-fre-FR/Champ-de-Mars-Le-Mur-pour-la-Paix-%7C-630x405-%7C-%C2%A9-OTCP-David-Lefranc-I-158-10.jpg'),
+  filename: 'champdemars',
+  content_type: 'image/jpg'
+)
+activity_9 = Activity.create!(itinerary_id: itinerary_3.id, title: "Amazing rooftop", address: "Café de l'Homme, 17 Pl. du Trocadéro et du 11 Novembre, 75016 Paris", description: "A stylish bar and restaurant with a terrace overlooking the Eiffel Tower and the Seine, offering a wide selection of cocktails and wines.")
+activity_9.photo.attach(
+  io: URI.open('https://media-cdn.tripadvisor.com/media/photo-s/1b/fb/96/e6/photo-de-la-terrasse.jpg'),
+  filename: 'caféhomme',
+  content_type: 'image/jpg'
+)
+activity_10 = Activity.create!(itinerary_id: itinerary_4.id, title: "A queen lunch", address: "La Véranda, 1 Bd de la Reine, 78000 Versailles", description: "Start your day off with a delicious breakfast at La Veranda. This elegant restaurant is housed in the Trianon Palace hotel, which is just a short walk from Versailles Château.")
+activity_10.photo.attach(
+  io: URI.open('https://i.pinimg.com/736x/aa/55/fa/aa55fa5e3d1f0ee09a04e03cf44dfdc6--restaurant-bar.jpg'),
+  filename: 'veranda',
+  content_type: 'image/jpg'
+)
+activity_11 = Activity.create!(itinerary_id: itinerary_4.id, title: "The royal visit", address: "Château de Versailles, Place d'Armes, 78000 Versailles", description: "No visit to Versailles is complete without a tour of the Château itself. Marvel at the opulent décor and learn about the history of the French monarchy as you explore the palace and its sprawling gardens.")
+activity_11.photo.attach(
+  io: URI.open('https://www.systemair.com/fileadmin/_processed_/c/7/csm_ref_Versailles_France_54ddd70ccd.jpg'),
+  filename: 'versailles',
+  content_type: 'image/jpg'
+)
+
+activity_12 = Activity.create!(itinerary_id: itinerary_4.id, title: "The little Venice", address: "La Petite Venise, Jardins du château de Versailles Place d'Armes, All. d'Apollon, 78000 Versailles", description: "End your magical day with this charming café takes its inspiration from the canals of Venice.")
+activity_12.photo.attach(
+  io: URI.open('https://musiam-paris.com/wp-content/uploads/2020/06/musiam-petite-venise-exterieur2-768x512.jpg'),
+  filename: 'venise',
+  content_type: 'image/jpg'
+)
+activity_13 = Activity.create!(itinerary_id: itinerary_5.id, title: "Artistic getaway", address: "La Recyclerie, 83 Bd Ornano, 75018 Paris ", description: "Begin your day in this ecological and solidarity living space, with a café, restaurant, vegetable garden, urban farm, and varied cultural programming.")
+activity_13.photo.attach(
+  io: URI.open('https://media.timeout.com/images/105479071/image.jpg'),
+  filename: 'recyclerie',
+  content_type: 'image/jpg'
+)
+activity_14 = Activity.create!(itinerary_id: itinerary_5.id, title: "Typical french lunch", address: "Le Coq Rico, 98 Rue Lepic, 75018 Paris", description: "Enjoy a typical French meal in this restaurant specializing in poultry, with a pleasant terrace and a beautiful view of Montmartre.")
 activity_14.photo.attach(
-  io: URI.open('https://static.apidae-tourisme.com/filestore/objets-touristiques/images/104/81/7360872.jpg'),
-  filename: 'paris-zoo',
-  content_type: 'image/jpg'
+  io: URI.open('https://www.hotel-relais-montmartre.com/website/var/tmp/fr/auto_850904660de984af948beee3aee98a4f/546_le-coq-rico-restaurant-paris.jpeg'),
+  filename: 'coq-rico',
+  content_type: 'image/jpeg'
 )
-activity_15 = Activity.create!(itinerary_id: itinerary_5.id, title: "Ice Cream at Berthillon", address: "Berthillon, 31 Rue Saint-Louis en l'Île, 75004 Paris", description: "End your day with a delicious ice cream at Berthillon, a renowned Parisian ice cream shop.")
+activity_15 = Activity.create!(itinerary_id: itinerary_5.id, title: "French Cancan night", address: "22 Rue des Saules, 75018 Paris", description: "End your day in this leLegendary cabaret where great artists like Picasso and Modigliani performed, with French song shows and poetic evenings.")
 activity_15.photo.attach(
-  io: URI.open('https://cdn-elle.ladmedia.fr/var/plain_site/storage/images/elle-a-table/les-dossiers-de-la-redaction/news-de-la-redaction/le-fondateur-des-glaces-berthillon-est-mort-2744986/48296535-1-fre-FR/Le-fondateur-des-glaces-Berthillon-est-mort.jpg'),
-  filename: 'berthillon',
+  io: URI.open('https://www.montmartre-addict.com/wp-content/uploads/2022/01/au-lapin-agile-cabaret-montmartre-2022.jpg'),
+  filename: 'cabaret',
   content_type: 'image/jpg'
 )
-activity_16 = Activity.create!(itinerary_id: itinerary_6.id, title: "Gourmet Getaway", address: "Ô Chateau, 68 Rue Jean-Jacques Rousseau, 75001 Paris", description: "Enjoy a wine and cheese tasting at Ô Chateau, a renowned wine bar in the heart of Paris.")
+activity_16 = Activity.create!(itinerary_id: itinerary_6.id, title: "A moment of peace", address: "Café de la Paix, 5 Pl. de l'Opéra, 75009 Paris", description: "Start your evening by enjoying a dinner at the most famous landmarks, this stunning opera house boasts ornate architecture and hosts a variety of performances throughout the year..")
 activity_16.photo.attach(
-  io: URI.open('https://media-cdn.tripadvisor.com/media/photo-s/1a/ce/a6/88/planche-fromage.jpg'),
-  filename: 'gourmet',
+  io: URI.open('https://media-cdn.tripadvisor.com/media/photo-s/1d/48/e1/f5/jardin-opera.jpg'),
+  filename: 'paix',
   content_type: 'image/jpg'
 )
-activity_17 = Activity.create!(itinerary_id: itinerary_6.id, title: "Dinner at a Michelin-starred Restaurant", address: "Le Bristol Paris, 112 Rue du Faubourg Saint-Honoré, 75008 Paris", description: "Indulge in a gourmet dinner at Le Bristol Paris, a luxurious hotel with a Michelin-starred restaurant.")
+activity_17 = Activity.create!(itinerary_id: itinerary_6.id, title: "A suspended moment", address: "Opéra Garnier, Pl. de l'Opéra, 75009 Paris", description: "One of Paris's most famous landmarks, this stunning opera house boasts ornate architecture and hosts a variety of performances throughout the year.")
 activity_17.photo.attach(
-  io: URI.open('https://upload.wikimedia.org/wikipedia/commons/e/e7/Le_Bristol_Paris.jpg'),
-  filename: 'bistrol',
+  io: URI.open('https://vivreparis.fr/wp-content/uploads/2022/04/palais-garnier.jpg'),
+  filename: 'garnier',
   content_type: 'image/jpg'
 )
-activity_18 = Activity.create!(itinerary_id: itinerary_6.id, title: "Pastry Workshop at Le Cordon Bleu", address: "Le Cordon Bleu Paris, 13-15 Quai André Citroën, 75015 Paris", description: "Learn the art of French pastry making with a workshop at Le Cordon Bleu Paris.")
+activity_18 = Activity.create!(itinerary_id: itinerary_6.id, title: "A vintage bar", address: "Harry's New York Bar, 5 rue Daunou, 75002 Paris", description: "Harry's Bar is the oldest cocktail bar in Europe. Continue your evening in this mythical bar that has always kept its authentic decoration and atmosphere ")
 activity_18.photo.attach(
-  io: URI.open('https://www.thuriesmagazine.fr/sites/default/files/315/_dsc4847.jpg'),
-  filename: 'cordon-bleu',
+  io: URI.open('https://axwwgrkdco.cloudimg.io/v7/lefooding.com/medias/2021/07/14_32_26_594_bar_harrys_new_york_bar_paris.jpg'),
+  filename: 'vintage-bar',
   content_type: 'image/jpg'
 )
-activity_19 = Activity.create!(itinerary_id: itinerary_7.id, title: "Hike in the Bois de Boulogne", address: "Bois de Boulogne, 75016 Paris", description: "Enjoy a nature hike in the Bois de Boulogne, a vast park on the western edge of Paris.")
+activity_19 = Activity.create!(itinerary_id: itinerary_7.id, title: "A Bike tour", address: "Bois de Boulogne, 75016 Paris", description: "Start your day with a bike ride in the mythical Bois de Boulogne.")
 activity_19.photo.attach(
   io: URI.open('https://www.apur.org/sites/default/files/images/publication/a-la-une/bois_boulogne_vincennes_935_550.jpg'),
   filename: 'bois-boulogne',
   content_type: 'image/jpg'
 )
-activity_20 = Activity.create!(itinerary_id: itinerary_7.id, title: "Botanical Garden Visit", address: "Jardin des Plantes, 57 Rue Cuvier, 75005 Paris", description: "Visit the Jardin des Plantes and explore its botanical gardens, greenhouses, and museums.")
+activity_20 = Activity.create!(itinerary_id: itinerary_7.id, title: "A well-deserved lunch", address: "Sushi Suki, 6 Rue Escudier, 92100 Boulogne-Billancourt", description: "If you're a fan of sushi, you'll love this restaurant. They offer a wide variety of rolls, sashimi, and nigiri, all made with fresh and high-quality ingredients. The atmosphere is simple but elegant, making it a great spot for a romantic lunch.")
 activity_20.photo.attach(
-  io: URI.open('https://cdn.sortiraparis.com/images/80/85531/604139-le-jardin-des-plantes.jpg'),
-  filename: 'jardin-plantes',
-  content_type: 'image/jpg'
+  io: URI.open('https://d1ralsognjng37.cloudfront.net/360dc712-8d03-4cb5-931e-2efd345ae5c2.jpeg'),
+  filename: 'sushis',
+  content_type: 'image/jpeg'
 )
-activity_21 = Activity.create!(itinerary_id: itinerary_7.id, title: "Canal Saint-Martin Boat Tour", address: "Canal Saint-Martin", description: "Take a boat tour of the Canal Saint-Martin and discover the city's hidden gems.")
+activity_21 = Activity.create!(itinerary_id: itinerary_7.id, title: "Sporting meeting", address: "Parc des Princes, 24 Rue du Commandant Guilbaud, 75016 Paris", description: "Enjoy a match in this famous stadium is home to Paris Saint-Germain football club. You can also take a tour of the facilities, visit the museum.")
 activity_21.photo.attach(
-  io: URI.open('https://cdn.sortiraparis.com/images/80/83517/577962-visuel-paris-canal-saint-martin.jpg'),
-  filename: 'canal-saint-martin',
+  io: URI.open('https://imgresizer.eurosport.com/unsafe/2560x0/filters:format(jpeg)/origin-imgresizer.eurosport.com/2020/06/06/2829065-58346328-2560-1440.jpg'),
+  filename: 'parc-des-princes',
   content_type: 'image/jpg'
 )
-activity_22 = Activity.create!(itinerary_id: itinerary_8.id, title: "Palace of Versailles Visit", address: "Palace of Versailles, Place d'Armes, 78000 Versailles", description: "Explore the Palace of Versailles, a grandiose royal residence and UNESCO World Heritage site.")
+activity_22 = Activity.create!(itinerary_id: itinerary_8.id, title: "A student classic", address: "Panthéon, Place du Panthéon, 75005 Paris ", description: "Take a look at this imposing neoclassical building houses which remains some of France's most distinguished citizens, including Voltaire, Rousseau, and Victor Hugo.")
 activity_22.photo.attach(
-  io: URI.open('https://a.cdn-hotels.com/gdcs/production173/d887/4ed9f247-792c-416d-8ddf-0049ae3059a1.jpg'),
-  filename: 'versailles',
+  io: URI.open('https://paris1900.lartnouveau.com/paris05/pantheon/acceuil/1panth55.jpg'),
+  filename: 'Panthéon',
   content_type: 'image/jpg'
 )
-activity_23 = Activity.create!(itinerary_id: itinerary_8.id, title: "Opera Garnier Guided Tour", address: "Opéra Garnier, Place de l'Opéra, 75009 Paris", description: "Visit the Opéra Garnier and its ornate architecture with a guided tour.")
+activity_23 = Activity.create!(itinerary_id: itinerary_8.id, title: "A little walk to the market", address: "Rue Mouffetard Market, Rue Mouffetard, 75005 Paris ", description: " This lively market street offers a wide variety of fresh produce, meats, cheeses, and other food items, as well as clothing and other goods..")
 activity_23.photo.attach(
-  io: URI.open('https://www.theatreinparis.com/uploads/images/spectacle/visit-palais-garnier-opera-header.jpg'),
-  filename: 'opera-garnier',
+  io: URI.open('https://upload.wikimedia.org/wikipedia/commons/8/8f/Street_market_rue_Mouffetard_St_Medard_dsc00727.jpg'),
+  filename: 'little-market',
   content_type: 'image/jpg'
 )
-activity_24 = Activity.create!(itinerary_id: itinerary_8.id, title: "Latin Quarter Walking Tour", address: "Latin Quarter, 75005 Paris", description: "Take a walking tour of the Latin Quarter and discover its historic landmarks, universities, and charming streets.")
+activity_24 = Activity.create!(itinerary_id: itinerary_8.id, title: "The last bar before the end of the world", address: "Le Dernier Bar avant la Fin du Monde - 19 Avenue Victoria, 75001 Paris" , description: "This quirky bar pays homage to science fiction, fantasy, and other geeky genres, with themed cocktails, decor, and events.")
 activity_24.photo.attach(
-  io: URI.open('https://myprivateparis.com/wp-content/uploads/2020/07/3-2.jpg'),
-  filename: 'quartier-latin',
+  io: URI.open('https://media-cdn.tripadvisor.com/media/photo-s/0f/ee/2d/38/lounge.jpg'),
+  filename: 'fin-du-monde',
   content_type: 'image/jpg'
 )
 
@@ -340,22 +345,22 @@ puts "24 activities created"
 
 puts "Creating reviews..."
 
-review_1 = Review.create!(itinerary_id: itinerary_1.id, user_id: user_1.id, rating: 5, content: "My partner and I loved this itinerary! The Eiffel Tower was a highlight, especially at sunset. The dinner at Le Jules Verne was exceptional and the Seine River cruise was a great way to see the city from a different perspectiv")
-review_2 = Review.create!(itinerary_id: itinerary_1.id, user_id: user_2.id, rating: 4.5, content: "I surprised my girlfriend with this itinerary and it was a huge hit! The views from the top of the Eiffel Tower were breathtaking, and the dinner at Le Jules Verne was the most romantic meal we've ever had. Highly recommend!")
-review_3 = Review.create!(itinerary_id: itinerary_2.id, user_id: user_3.id, rating: 4.5, content: "As an art and fashion lover, this itinerary was a dream come true. The Louvre and Musée d'Orsay were amazing, and the fashion exhibit at the Palais Galliera was fascinating. The shopping in the Marais was a great way to end the day!")
-review_4 = Review.create!(itinerary_id: itinerary_2.id, user_id: user_4.id, rating: 4, content: "I had a wonderful time on this itinerary. The tour guide was very knowledgeable and the art and fashion exhibits were top-notch. The Marais district had some great boutique shops and the street art was a nice surprise. Would recommend to anyone who loves art and fashion!")
-review_5 = Review.create!(itinerary_id: itinerary_3.id, user_id: user_1.id, rating: 4, content: "This itinerary showed me parts of Paris that I never would have discovered on my own. The Belleville neighborhood had some amazing street art and the flea market was a great find. The picnic in the park was a lovely way to end the day.")
-review_6 = Review.create!(itinerary_id: itinerary_3.id, user_id: user_2.id, rating: 3.5, content: "If you're looking for a unique Paris experience, this itinerary is perfect. The guide was great and the stops were all off the beaten path. The Belleville street art was a highlight and the flea market had some great vintage finds. The only downside was the weather - it was raining all day!")
-review_7 = Review.create!(itinerary_id: itinerary_4.id, user_id: user_3.id, rating: 4.5, content: "My family had a great time on this itinerary. The boat tour was a unique way to see the city and the zoo and aquarium were both very impressive. Berthillon ice cream was the perfect end to the day!")
-review_8 = Review.create!(itinerary_id: itinerary_4.id, user_id: user_3.id, rating: 4, content: "As a family with young children, this itinerary was perfect for us. The boat tour was a hit with the kids and the zoo and aquarium were a lot of fun. Berthillon ice cream was a highlight for everyone. Would recommend to any families visiting Paris!")
-review_9 = Review.create!(itinerary_id: itinerary_5.id, user_id: user_4.id, rating: 5, content: "As a foodie, this itinerary was a dream come true. The wine and cheese tasting at Ô Chateau was a highlight and the dinner at Le Bristol Paris was exceptional. The pastry workshop at Le Cordon Bleu was a great way to end the day. Highly recommend!")
-review_10 = Review.create!(itinerary_id: itinerary_5.id, user_id: user_4.id, rating: 4.5, content: "This itinerary was a bit on the pricey side, but it was worth every penny. The food and wine experiences were all top-notch and the pastry workshop was a lot of fun. Would recommend to anyone looking for a gourmet getaway in Paris!")
-review_11 = Review.create!(itinerary_id: itinerary_6.id, user_id: user_1.id, rating: 4, content: "This itinerary was a great way to escape the hustle and bustle of Paris. The hike in the Bois de Boulogne was refreshing and the botanical garden was beautiful. The boat tour of the Canal Saint-Martin was a nice surprise!")
-review_12 = Review.create!(itinerary_id: itinerary_6.id, user_id: user_1.id, rating: 5, content: "If you're looking for a break from the city, this itinerary is a great")
-review_13 = Review.create!(itinerary_id: itinerary_7.id, user_id: user_2.id, rating: 4.5, content: "As a wine lover, this itinerary was a highlight of my trip to Paris. The wine tasting at Les Caves du Louvre was exceptional and the visit to Montmartre was a great way to see a different side of the city. The dinner at Le Comptoir du Relais was delicious!")
-review_14 = Review.create!(itinerary_id: itinerary_7.id, user_id: user_2.id, rating: 4, content: "I had a great time on this wine tasting tour. The guide was very knowledgeable and the wines we tasted were all top-quality. The visit to Montmartre was a nice surprise and the dinner was fantastic. Would recommend to anyone who loves wine!")
-review_15 = Review.create!(itinerary_id: itinerary_8.id, user_id: user_3.id, rating: 5, content: "This itinerary was a great way to learn about the history of Paris. The tour of Notre-Dame Cathedral was fascinating and the visit to the Palace of Versailles was a highlight. The dinner at Le Procope, one of the oldest restaurants in Paris, was a great way to end the day.")
-review_16 = Review.create!(itinerary_id: itinerary_8.id, user_id: user_3.id, rating: 3.5, content: "As a history buff, I really enjoyed this itinerary. The guide was very knowledgeable and the sites we visited were all very interesting. The dinner at Le Procope was a nice touch - the atmosphere was very historic and the food was delicious. Would recommend to anyone interested in the history of Paris.")
+review_1 = Review.create!(itinerary_id: itinerary_1.id, user_id: user_1.id, rating: 5, content: "We had a great day exploring the history of Paris with these three activities. The Gladines restaurant was a true gem with delicious food and a cozy atmosphere. The visit to La Conciergerie was a memorable experience, walking through the halls of this former prison and learning about the rich history of France. Overall, this itinerary provided a great mix of food, culture, and nature. Highly recommended!")
+review_2 = Review.create!(itinerary_id: itinerary_1.id, user_id: user_2.id, rating: 4.5, content: "I surprised my girlfriend with this itinerary! We particularly appreciated the walk in the garden of plants that we had never seen while it is magnificent! To do again without any doubt ! On the other hand we were a little disappointed with the conciergerie which is very expensive and finally quite empty.")
+review_3 = Review.create!(itinerary_id: itinerary_2.id, user_id: user_3.id, rating: 4.5, content: "I wanted to find a romantic and original itinerary and I was not disappointed.The walk around the canal Saint-Martin is perfectly romantic and it is a superb place often ignored in Paris! We loved the visit of the Grand Rex, which is very interesting and especially magical ! Unfortunately we had a bad experience with the cocktails with which we got sick!")
+review_4 = Review.create!(itinerary_id: itinerary_2.id, user_id: user_4.id, rating: 4, content: "This itinerary is really good but there is some information to know before. Don't forget to book your visit to the Grand Rex because we arrived and there were no more seats available. Fortunately the walk to the Canal Saint-Martin and the cocktails made us forget that !")
+review_5 = Review.create!(itinerary_id: itinerary_3.id, user_id: user_1.id, rating: 4, content: "My date was a foreigner, she particularly enjoyed this tour. She was able to discover the Effel Tower from all angles. But for a Parisian, this itinerary is a bit classic, and above all, it is expensive.")
+review_6 = Review.create!(itinerary_id: itinerary_3.id, user_id: user_2.id, rating: 3.5, content: "This itinerary is much too centered around the Effel Tower is much too touristy ! Frankly not original !")
+review_7 = Review.create!(itinerary_id: itinerary_4.id, user_id: user_3.id, rating: 4.5, content: "We were amazed by the Palace of Versailles ! What a wonder ! It's probably the most beautiful thing to see when you are in Paris ! Little Venice was a very good way to end the day. We loved the lunch but found it a bit expensive for the quality of the meal.")
+review_8 = Review.create!(itinerary_id: itinerary_4.id, user_id: user_3.id, rating: 4, content: "Great visit, great food at le queen luch, but the Little Venice has no interest at all.")
+review_9 = Review.create!(itinerary_id: itinerary_5.id, user_id: user_4.id, rating: 5, content: "I think I hit the nail on the head with my date with this itinerary. He was born artist and loved the originality of the activities ! We had a great time, especially in the cabaret which was just wonderful ")
+review_10 = Review.create!(itinerary_id: itinerary_5.id, user_id: user_4.id, rating: 4.5, content: "This itinerary was a bit on the pricey side, but it was great and very original ! The food experience, typically French was really a blast ! Would recommend !")
+review_11 = Review.create!(itinerary_id: itinerary_6.id, user_id: user_1.id, rating: 4, content: "This itinerary was good but I found that the activities did not all fit together ! I loved the Opéra Garnier but I would have preferred to finish the evening with a more chic restaurant!")
+review_12 = Review.create!(itinerary_id: itinerary_6.id, user_id: user_1.id, rating: 5, content: "Wow this itinerary is absolutely great ! It's a mix of romance, surprise, luxury and fun! The Opera Garnier is beautiful and the show is genius ! Just perfect for a memorable evening !")
+review_13 = Review.create!(itinerary_id: itinerary_7.id, user_id: user_2.id, rating: 4.5, content: "As both of us are big sportsmen, this date was perfect for my girlfriend and me. The walk in the Bois de Boulogne was great because we had great weather ! The suhis were good, but I've seen better.And the game at the Parc des Princes was great ! Great atmosphere !")
+review_14 = Review.create!(itinerary_id: itinerary_7.id, user_id: user_2.id, rating: 4, content: "We loved the walk in the Bois de Boulogne and the sushis. But my date was disappointed by the Parc des Princes because the atmosphere was not very good and there were altercations between the supporters.")
+review_15 = Review.create!(itinerary_id: itinerary_8.id, user_id: user_3.id, rating: 5, content: "This itinerary is a sure value with sublime monuments to rediscover. We particularly appreciated the food market. Would recommend this itinerary without a doubt !")
+review_16 = Review.create!(itinerary_id: itinerary_8.id, user_id: user_3.id, rating: 3.5, content: "A very cliché route, nothing impressive")
 
 puts "16 reviews created"
 
