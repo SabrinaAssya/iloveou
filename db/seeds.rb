@@ -148,7 +148,7 @@ itinerary_6 = Itinerary.create!(title: "A night at the Opera",
   This itinerary promises you a moment suspended in time and an unforgettable evening.",
   price: "$$$",
   sunny: true,
-  culture: true,
+  cloudy: true,
   rainy: true,
   restaurant: true,
   culture: true,
@@ -162,7 +162,7 @@ sleep(1)
 
 itinerary_7 = Itinerary.create!(title: "Sporty Paris",
    description: "Experience a perfect day in Paris with this itinerary that combines nature, food, and sports. Start your day by immersing yourself in the beauty of nature at Le Bois de Boulogne. After working up an appetite, head to Sushi Suki for a delicious sushi lunch.
-   Finally, end your day at Le Parc des Princes, the iconic football stadium that's home to Paris Saint-Germain to catch a game."
+   Finally, end your day at Le Parc des Princes, the iconic football stadium that's home to Paris Saint-Germain to catch a game.",
    price: "$$",
    sunny: true,
    cloudy: true,
@@ -170,7 +170,7 @@ itinerary_7 = Itinerary.create!(title: "Sporty Paris",
    original: true,
    outdoor: true,
    duration: "More than 4h",
-   station_id: Station.where(name: "Boulogne-Jean Jaurès").ids.first,
+   station_id: Station.where(name: "Boulogne - Jean Jaurès").ids.first,
    user_id: user_3.id,
    rating: 4.7)
 
