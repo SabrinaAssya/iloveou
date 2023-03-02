@@ -3,7 +3,7 @@
   <% @itinerary.activities.each do|activity| %>
     <div class="mb-5 d-flex w-80 justify-content-between">
       <div>
-        <h4><%= activity.title %></h4>
+        <h4><strong><%= activity.title %></h4>
         <p><%= activity.description %></p>
       </div>
       <%= cl_image_tag activity.photo.key, width: 200, height: 150, class: "activity-img"%>
@@ -18,8 +18,8 @@
       <% end  %>
     </div>
   </div>
-  <div id="map" data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-map-markers-value="<%= @markers.to_json %>"></div>
 </div>
+<div id="map" data-controller="map" data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>" data-map-markers-value="<%= @markers.to_json %>"></div>
 <div class="reviews mt-5">
   <% @itinerary.reviews.each do|review| %>
   <div class="d-flex review-comment">
@@ -27,3 +27,47 @@
     <% end  %>
   </div>
 </div>
+
+
+review.rating.round.times do
+<div> coeur </div>
+end
+
+<% if @itinerary.reviews.count > 0  %>
+      <div class="reviews-grade d-flex justify-content-center">
+        <% @itinerary.reviews.each do|review| %>
+          <div class="review-comment">
+            <p class><%= review.content %></p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+
+<div class="d-flex">
+  <p><i class="fa-thin fa-heart"></i> Add to favorites</p>
+</div>
+
+
+
+<div class="container m-5 d-flex justify-content-center mt-5">
+        <div class="review-card p-5 mt-5 d-none" data-openreviewform-target="content">
+          <h2 class="text-center mb-5 h2-title"><strong>Write your review</strong></h2>
+            <p class="text-center mb-5">In order to guide other users, you can write your own opinion about this itinerary, and say what you liked and disliked.</p>
+              <div class="form" data-controller="hearts">
+                <%= simple_form_for([@itinerary, @review]) do |f| %>
+                <%= f.input :content, placeholder: "What did you think?" %>
+                <%= f.input :rating, as: :hidden, input_html: {data: { "hearts-target": "rating"}} %>
+                  <div class="my-3 d-flex justify-content-center mt-5 mb-5 rating">
+                    <div class="hearts">
+                      <% Review::AUTHORIZED_RATINGS.each do |index| %>
+                        <i id="<%= index %>" class="fa-solid fa-heart" data-hearts-target="heart" data-action="click->hearts#rating"></i>
+                      <% end %>
+                    </div>
+                  </div>
+                  <%= f.submit "Post Review", class: "btn-pink"%>
+                </div>
+              </div>
+          <% end %>
+        </div>
+      </div>

@@ -1,0 +1,207 @@
+.colored-background {
+  background: rgba(50, 169, 227, 0.33);
+  text-align: center;
+  padding: 5rem;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  .search-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    .station-search {
+      margin-right: 2rem;
+      .ts-wrapper.form-select {
+        min-width: 14rem;
+        border: none;
+        border-radius: 5px;
+      }
+      .station {
+        width: 20rem;
+      }
+    }
+    .wheather-dropdown {
+      margin-right: 2rem;
+    }
+    .budget-dropdown {
+      margin-right: 2rem;
+    }
+    p {
+      text-align: left;
+      font-size: 18px
+    }
+  }
+  .submit-search {
+    margin-top: 3rem;
+    button.btn-pink-sabrina {
+      text-decoration: none;
+      color: white;
+      background: linear-gradient(90deg, #EE5885, #EF396F);
+      padding: 15px;
+      padding-right: 25px;
+      padding-left: 25px;
+      border-radius: 15px;
+      font-size: 18px;
+      border: 2px solid transparent;
+      /* transition: 0.3s ease-in-out; */
+      box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+      &:hover {
+        color: white;
+        background: transparent;
+        border: 2px solid white;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.itinerary-categories {
+  display: flex;
+  justify-content: center;
+  // flex-wrap: wrap;
+  margin: 0px;
+  .search-input {
+    margin-bottom: 0 ;
+  }
+  .category-selector-home {
+    display: none;
+  }
+  .category-item-home {
+    flex: 1 0 0;
+    text-align: center;
+    transition: all ease 0.3s;
+    color: black;
+    &:first-child {
+      border-top-left-radius: 30px;
+    }
+    &:last-child {
+      border-top-right-radius: 30px;
+    }
+    &:hover {
+      background-color: rgba(238, 88, 133, 0.8);
+      color: white;
+      .fa-solid {
+        color: white;
+      }
+      &:first-child {
+        border-top-left-radius: 30px;
+      }
+      &:last-child {
+        border-top-right-radius: 30px;
+      }
+    }
+    p {
+      margin-bottom: 0px;
+    }
+    .fa-solid {
+      color: black;
+    }
+  }
+  .category-selector-home + label {
+    cursor: pointer;
+    font-size: 18px;
+    border: none;
+    padding: 15px;
+  }
+  .category-selector-home:checked + label {
+    background-color: #EE5885;
+    color: white;
+    width: 100%;
+    .fa-solid {
+      color: white;
+    }
+  }
+
+  #search_categories_restaurant:checked + label {
+    background-color: #EE5885;
+    color: white;
+    width: 100%;
+    border-top-left-radius: 30px;
+  }
+
+  #search_categories_original:checked + label {
+    background-color: #EE5885;
+    color: white;
+    width: 100%;
+    border-top-right-radius: 30px;
+  }
+}
+
+.wheather-dropdown {
+  abbr {
+    display: none;
+  }
+  .form-label {
+    margin-bottom: 1rem;
+    font-size: 18px;
+    text-align: left;
+    display: flex;
+  }
+  input {
+    cursor: pointer;
+  }
+  .ts-wrapper.form-select {
+    min-width: 14rem;
+    border: none;
+    border-radius: 5px;
+  }
+}
+
+.budget-dropdown {
+  abbr {
+    display: none;
+  }
+  .form-label {
+    margin-bottom: 1rem;
+    font-size: 18px;
+    text-align: left;
+    display: flex;
+  }
+  input {
+    cursor: pointer;
+  }
+  .ts-wrapper.form-select {
+    min-width: 10rem;
+    border: none;
+    border-radius: 5px;
+  }
+}
+
+.duration-dropdown {
+  abbr {
+    display: none;
+  }
+  .form-label {
+    margin-bottom: 1rem;
+    font-size: 18px;
+    text-align: left;
+    display: flex;
+  }
+  input {
+    cursor: pointer;
+  }
+  .ts-wrapper.form-select {
+    min-width: 11rem;
+    border: none;
+    border-radius: 5px;
+  }
+}
+
+.ts-dropdown-content {
+  padding: 5px 0;
+  text-align: left;
+}
+
+.ts-wrapper.multi .ts-control > div.active {
+  background: #EE5885;
+  color: #fff;
+  border: 0px solid rgba(0, 0, 0, 0);
+}
+
+.ts-wrapper.multi .ts-control > div {
+  cursor: pointer;
+  margin: 0 3px 3px 0;
+  padding: 1px 5px;
+  background: #EE5885;
+  color: white;
+  border: 0px solid #dee2e6;
+}

@@ -1,0 +1,17 @@
+.btn-create-activity {
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(90deg,#EE5885,#EF396F);
+    padding: 15px;
+    border-radius: 15px;
+    font-size: 20px;
+    transition: 0.3s ease-in-out;
+    width: 30%;
+    border: none;
+    margin-top:50px;
+    &:hover {
+      color: #EE5885;
+      background: transparent;
+      border: 2px solid #EE5885;
+  }
+}

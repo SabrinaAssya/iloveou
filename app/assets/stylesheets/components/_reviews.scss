@@ -3,6 +3,12 @@
   color: #EE5885;
 }
 
+.row {
+ h2 {
+  font-weight: bold;
+  }
+}
+
 .btn-blue-review {
   text-decoration: none;
   color: white;
@@ -33,6 +39,8 @@
   margin: 0 auto;
   display: flex;
   justify-content: center;
+  border: solid 2px transparent;
+  background-origin: border-box;
   &:hover {
     color: #EE5885;
     background: transparent;
@@ -49,7 +57,7 @@
   overflow: 10px;
   display:block;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  width: 90%;
+  // width: 90%;
 }
 
 .hearts i {
@@ -66,4 +74,3 @@
 .fa-heart.active {
   color: #EE5885;
 }
-

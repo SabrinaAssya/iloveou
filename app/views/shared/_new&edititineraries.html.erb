@@ -2,11 +2,14 @@
   <%= simple_form_for(@itinerary) do |f| %>
     <%= f.input :title, placeholder: "Choose a title for your itinerary" %>
     <%= f.input :description, placeholder: "Describe your itinerary" %>
-      <div class="form-check">
-        <%= f.input :sunny %>
-        <%= f.input :cloudy %>
-        <%= f.input :rainy %>
+      <div class="weather-title">
+      Weather
       </div>
+        <div class="form-check">
+          <%= f.input :sunny %>
+          <%= f.input :cloudy %>
+          <%= f.input :rainy %>
+        </div>
       <div class="form-check">
         <%= f.input :price,
           collection: ["$","$$","$$$"],
@@ -19,7 +22,9 @@
           as: :radio_buttons
         %>
       </div>
-
+      <div class="category-title">
+      Category
+      </div>
       <div class="form-check">
         <%= f.input :restaurant %>
         <%= f.input :culture %>
@@ -28,6 +33,6 @@
         <%= f.input :original %>
       </div>
         <%= f.association :station, placeholder: "Please choose the station", input_html: {data: {controller: "tom-select", tom_select_options_value: {tags: true}}}%>
-        <%= f.submit class: "btn btn-primary" %>
+        <%= f.submit class: "btn-create-activity" %>
   <% end %>
 </div>

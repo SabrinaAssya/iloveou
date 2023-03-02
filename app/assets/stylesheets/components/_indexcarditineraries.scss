@@ -1,11 +1,9 @@
 .itineraries-card {
-  display: inline-grid;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 10px;
-  margin-left: 160px;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  padding-top: 10px;
 }
 
 .itinerary-card {
@@ -75,6 +73,9 @@ a.itinerary-title {
   h5 {
     color: #32A9E3;
     font-size: 16px;
+  }
+  .fa-circle {
+    font-size: 10px;
   }
 }
 

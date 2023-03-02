@@ -1,45 +1,61 @@
-<div class="i-header mb-5">
+<div class="container mt-5">
   <div class="row">
-    <div class="col-9">
+    <div class="col-8">
       <h2><%= @itinerary.title %></h2>
-      <p class= "mt-5"><%= @itinerary.description %></p>
-      <div class="info-text d-flex">
-        <div class="info-text-station py-5">
-          <p><i class="fa-solid fa-train-subway"></i>   <%= @itinerary.station.name %></p>
-        </div>
-        <div class="info-text-rating p-5">
-          <i class="fa-solid fa-star"></i>
-          <%= @itinerary.rating %>
-        </div>
-        <div class="info-text-review p-5">
-          <p><i class="fa-solid fa-comment"></i> <%= @itinerary.reviews.count%> reviews </p>
-        </div>
-        <div class="username p-5">
-          <%= @itinerary.user.first_name %>
+      <div class="add-favorites">
+        <div class="fav-btn-show">
+          Add to favorite
         </div>
       </div>
-      <div class="categories">
+      <p class="itinerary-description"><%= @itinerary.description %></p>
+      <div class="info-text d-flex mt-0">
+        <div class="info-text-station">
+          <p><i class="fa-solid fa-train-subway"></i>   <%= @itinerary.station.name %></p>
+        </div>
+        <div class="info-text-rating">
+          <i class="fa fa-heart little-heart fa-2s"></i>
+          <%= @itinerary.rating.round(2) %>
+        </div>
+        <div class="info-text-review">
+          <p><span><%= @itinerary.reviews.count%></span> reviews </p>
+        </div>
+        <div class="info-text-username">
+          <%= @itinerary.user.first_name %>
+          <%= @itinerary.user.last_name %>
+        </div>
+      </div>
+      <div class="categories d-flex">
         <p>
-          <% if @itinerary.restaurant == true  %>
-            <i class="fa-solid fa-utensils"></i>
+          <% if @itinerary.restaurant? %>
+          <div class="ustensil d-flex">
+            <p><i class="fa-solid fa-utensils"></i> restaurant</p>
+          </div>
           <% end  %>
-          <% if @itinerary.culture == true  %>
-            <i class="fa-solid fa-palette"></i>
+          <% if @itinerary.culture? %>
+            <div class="palette d-flex">
+              <p><i class="fa-solid fa-palette"></i> Culture</p>
+            </div>
           <% end  %>
-          <% if @itinerary.drinks == true  %>
-            <i class="fa-solid fa-champagne-glasses fa-5x"></i>
+          <% if @itinerary.drinks? %>
+            <div class="champagne d-flex">
+              <p><i class="fa-solid fa-champagne-glasses"></i> Drinks</p>
+            </div>
           <% end  %>
-          <% if @itinerary.outdoor == true  %>
-            <i class="fa-solid fa-tree-city fa-2x"></i>
+          <% if @itinerary.outdoor? %>
+            <div class="tree d-flex">
+              <p><i class="fa-solid fa-tree-city"></i> Outdoor</p>
+            </div>
           <% end  %>
-          <% if @itinerary.original == true  %>
-            <i class="fa-solid fa-face-grin-stars fa-2x"></i>
+          <% if @itinerary.original? %>
+            <div class="grin-stars d-flex">
+              <p><i class="fa-solid fa-face-grin-stars"></i> Original</p>
+            </div>
           <% end  %>
         </p>
       </div>
     </div>
     <div class="col-3">
-      <div class="info-box d-flex justify-content-center">
+      <div class="info-box d-flex justify-content-center mt-5">
         <div class="hour">
           <p><i class="fa-solid fa-clock"></i> <%= @itinerary.duration %></p>
         </div>
@@ -47,14 +63,14 @@
           <p><%= @itinerary.price %></p>
         </div>
         <div class="weather">
-        <p>
-            <% if @itinerary.sunny == true  %>
+          <p>
+            <% if @itinerary.sunny? %>
               <i class="fa-solid fa-sun"></i>
             <% end  %>
-            <% if @itinerary.rainy == true  %>
+            <% if @itinerary.rainy? %>
               <i class="fa-solid fa-cloud-rain"></i>
             <% end  %>
-            <% if @itinerary.cloudy == true  %>
+            <% if @itinerary.cloudy? %>
               <i class="fa-solid fa-cloud-sun"></i>
             <% end  %>
           </p>
@@ -63,47 +79,111 @@
     </div>
   </div>
 </div>
-<div class="container activities">
-  <% @itinerary.activities.each do|activity| %>
-    <div class="mb-5 d-flex w-80 justify-content-between">
-      <div>
-        <h4><%= activity.title %></h4>
-        <div class="activity-address d-flex">
-          <i class="fa-solid fa-location-dot"></i>
-          <p><%= activity.address %></p>
+
+<div class="container mt-5">
+  <div class="row">
+    <% @itinerary.activities.each_with_index do|activity, index| %>
+      <div class="col-1">
+        <p class="activity-number"><%= index+1 %></p>
+        <div class="border-activities">
         </div>
-        <p><%= activity.description %></p>
       </div>
-      <%= cl_image_tag activity.photo.key, width: 200, height: 150, class: "activity-img"%>
-    </div>
+      <div class="col-11">
+        <div class="mb-5 d-flex w-80 justify-content-between">
+          <div>
+            <h4><%= activity.title %></h4>
+            <div class="activity-address d-flex">
+              <i class="fa-solid fa-location-dot"></i>
+              <p><%= activity.address %></p>
+            </div>
+            <p><%= activity.description %></p>
+          </div>
+          <%= cl_image_tag activity.photo.key, width: 200, height: 150, class: "activity-img"%>
+        </div>
+      </div>
     <% end %>
-</div>
-<div class="container map-activities">
-  <div style="width: 90%; height: 600px; margin : auto"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-</div>
-<div class="container">
-  <div class="review-title d-flex align-items-center">
-    <div class="heart-font">
-      <% @itinerary.reviews.count %>
-      <i class="fa fa-heart fa-2x"></i>
-    </div>
-    <div class="review-text">
-      <h2 class="ml-2"><%= @itinerary.title %></h2>
-      <p><%= @itinerary.reviews.count %> reviews</p>
-    </div>
   </div>
-  </div>
-  <div class="container review-container">
-    <% if @itinerary.reviews.count > 0  %>
+</div>
+
+<div id="map"
+     data-controller="map"
+     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+     data-map-markers-value="<%= @markers.to_json %>"></div>
+
+<% if @itinerary.reviews.count > 0  %>
+  <div class="container mt-5" data-controller="openreviewform">
+    <div class="container">
+      <div class="review-title d-flex align-items-center mb-5">
+        <div class="d-flex align-items-center">
+          <div class="heart-font">
+            <i class="fa fa-heart fa-2xl fa-heart-count"></i>
+          </div>
+          <div class="review-text">
+            <h2 class="ml-2"><%= @itinerary.title %></h2>
+            <p class="mb-0"><span><%= @itinerary.reviews.count%></span> reviews</p>
+          </div>
+        </div>
+        <div class="btn-blue-review-exist" data-action="click->openreviewform#revealContent">
+          Write a review
+        </div>
+      </div>
+      <div class="review-card p-5 mb-5 d-none position-relative" data-openreviewform-target="content">
+        <span class="position-absolute end-0 me-5 btn" data-action="click->openreviewform#hideContent"><i class="fa-regular fa-circle-xmark"></i></span>
+        <h2 class="text-center mb-5 h2-title"><strong>Write your review</strong></h2>
+        <p class="text-center mb-5">In order to guide other users, you can write your own opinion about this itinerary, and say what you liked and disliked.</p>
+        <div class="form" data-controller="hearts">
+          <%= simple_form_for([@itinerary, @review]) do |f| %>
+            <%= f.input :content, placeholder: "What did you think?" %>
+            <%= f.input :rating, as: :hidden, input_html: {data: { "hearts-target": "rating"}} %>
+            <div class="my-3 d-flex justify-content-center mt-5 mb-5 rating">
+              <div class="hearts">
+                <% Review::AUTHORIZED_RATINGS.each do |index| %>
+                  <i id="<%= index %>" class="fa-solid fa-heart" data-hearts-target="heart" data-action="click->hearts#rating"></i>
+                <% end %>
+              </div>
+            </div>
+            <%= f.submit "Post Review", class: "btn-pink"%>
+          <% end %>
+        </div>
+      </div>
       <div class="reviews-grade d-flex justify-content-center">
         <% @itinerary.reviews.each do|review| %>
-          <div class="review-comment">
-            <p class><%= review.content %></p>
+          <div class="review-comment-card">
+            <div class="avatar-grade d-flex">
+              <div class="user-avatar">
+              </div>
+              <% review.rating.round.times do %>
+                <i class="fa-solid fa-heart fa-2x comment-heart"></i>
+              <% end %>
+            </div>
+            <p class ="review-content"><%= review.content %></p>
+            <div class="date-user-comment">
+              <p><%= l(review.created_at, format: "%d %B %Y") %></p>
+              <p><%= @itinerary.user.first_name %><%= @itinerary.user.last_name %></p>
+            </div>
           </div>
         <% end %>
       </div>
-    <% end %>
+    </div>
+  </div>
+<% else %>
+    <div data-controller ="openreviewform">
+      <div class="container m-5">
+        <div class="row mb-5">
+          <div class="col-8">
+            <div class="title">
+              <h4><strong>NO REVIEW HAS BEEN WRITTEN YET</strong></h4>
+              <h2 class="h2-title">BE THE FIRST ONE TO COMMENT THIS ITINERARY</h2>
+            </div>
+            <div class="btn-blue-review mt-4" data-action="click->openreviewform#revealContent">Write the very first review</div>
+          </div>
+          <div class="col-4">
+            <%= image_tag "Customerreviews.png", class: "w-100", alt: "une image"%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+</div>
+<% end %>

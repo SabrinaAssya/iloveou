@@ -6,7 +6,7 @@
         <p>Discover the perfect date itinerary! Say goodbye to the hassle of planning, and let us guide you through the best subway stations for a memorable experience. </p>
         <p>Start your journey to a unforgettable date today!</p>
         <div class="call-to-action">
-          <%= link_to "Explore now", itineraries_path, class: "btn-blue" %>
+          <%= link_to "Explore now", search_path, class: "btn-blue" %>
         </div>
       </div>
 
@@ -15,22 +15,26 @@
       </div>
     </div>
 
+    <div class="home-search">
+      <%= render "shared/home_search" %>
+    </div>
+
     <div class="app-features">
       <h2>What We Provide</h2>
       <h1>BRINGING YOU THE BEST DATE EXPERIENCES!</h1>
       <div class="features-card">
         <div class="first-card">
-          <%= image_tag "road_icon", class: "card-img" %>
+          <%= image_tag "road_icon" , class: "card-img" %>
           <h3>Optimize Your Date</h3>
           <p>Perfect for your next dates and saving time on planning it!</p>
         </div>
         <div class="second-card">
-          <%= image_tag "love_paperplane_icon", class: "card-img" %>
+          <%= image_tag "love_paperplane_icon" , class: "card-img" %>
           <h3>Share Your Experiences</h3>
           <p>You’ll probably help create a new couple, who knows?</p>
         </div>
         <div class="third-card">
-          <%= image_tag "review_icon", class: "card-img" %>
+          <%= image_tag "review_icon" , class: "card-img" %>
           <h3>Leave A Review</h3>
           <p>Did you love your date or was it a disaster? Help people to find the best itinerary for their date.</p>
         </div>
@@ -47,6 +51,7 @@
         <p>Have a unique date idea? <br> Share it with others and inspire their next adventure.</p>
         <%= link_to "Write your own itinerary", new_itinerary_path, class: "btn-pink-sabrina" %>
       </div>
+    </div>
   </div>
 
   <div class="end-page">
@@ -59,7 +64,7 @@
       </div>
     </div>
     <div class="right-side">
-      <%= image_tag "love_message", class: "side-img" %>
+      <%= image_tag "end-page-image", class: "side-img" %>
     </div>
   </div>
 </div>

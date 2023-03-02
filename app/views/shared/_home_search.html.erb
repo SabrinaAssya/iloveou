@@ -1,0 +1,93 @@
+<div class="form-home-search">
+  <%= simple_form_for :search, url: itineraries_path, method: "GET" do |f| %>
+
+      <%= f.input :categories,
+                    as: :check_boxes,
+                    wrapper_html: {
+                      class: "search-input mb-0"
+                    },
+                    checked: params.dig(:search, :categories),
+                    collection_wrapper_tag: 'div',
+                    collection_wrapper_class: 'itinerary-categories',
+                    item_wrapper_class: 'category-item-home',
+                    label_method: ->(cat) {
+                      content_tag('div') do
+                        "<i class=\"fa-solid #{category_fa_class(cat)}\"></i><p>#{cat}</p>".html_safe
+                      end
+                    },
+                    input_html: {
+                      class: 'category-selector-home', multiple: true
+                    },
+                    collection: ["Restaurant", "Culture", "Drinks","Outdoor","Original"],
+                    include_blank: false,
+                    include_hidden: false  %>
+
+    <div class="colored-background">
+      <div class="search-wrap">
+        <div class="station-search">
+            <p>Where do you want to date?</p>
+            <%= f.input :station,
+                        wrapper_html: {
+                        class: "search-input station",
+                        },
+                        collection: Station.all,
+                        selected: params.dig(:search, :station),
+                        value_method: :name,
+                        prompt: "Please enter a subway station",
+                        input_html: {
+                          data: {
+                            controller: "tom-select",
+                            tom_select_options_value: {tags: true}
+                          },
+                        }%>
+        </div>
+        <div class="wheather-dropdown">
+              <%= f.input :weather,
+                      wrapper_html: {
+                      class: "search-input",},
+                      collection: ["Sunny", "Cloudy", "Rainy"],
+                      input_html: { multiple: true, autocomplete:"off", placeholder: "Select", class: "tag-selector", data: { controller: "tom-select", "tom-select-checkbox-value": true, action: "change->tom-select#display" }},
+                      item_wrapper_class: 'tag-item',
+                      include_blank: false,
+                      include_hidden: false,
+                      item_wrapper_tag: 'li',
+                      collection_wrapper_class: 'dropdown-menu',
+                      item_wrapper_class: 'dropdown-item' %>
+        </div>
+        <div class="budget-dropdown">
+              <%= f.input :price,
+                          wrapper_html: {
+                          class: "search-input"},
+                          checked: params.dig(:search, :price),
+                          collection: ["$", "$$", "$$$"],
+                          input_html: { multiple: true, class: "tag-selector", data: { controller: "tom-select", placeholder: "Select", "tom-select-checkbox-value": true, action: "change->tom-select#display" }},
+                          item_wrapper_class: 'tag-item',
+                          include_blank: false,
+                          include_hidden: false,
+                          item_wrapper_tag: 'li',
+                          collection_wrapper_class: 'dropdown-menu',
+                          item_wrapper_class: 'dropdown-item' %>
+        </div>
+        <div class="duration-dropdown">
+              <%= f.input :duration,
+                          wrapper_html: {
+                          class: "search-input"},
+                          checked: params.dig(:search, :duration),
+                          collection: ["1h-2h", "2h-4h", "More than 4h"],
+                          input_html: { multiple: true,  class: "tag-selector", data: { controller: "tom-select", placeholder: "Select", "tom-select-checkbox-value": true, action: "change->tom-select#display" }},
+                          item_wrapper_class: 'tag-item',
+                          include_blank: false,
+                          include_hidden: false,
+                          item_wrapper_tag: 'li',
+                          collection_wrapper_class: 'dropdown-menu',
+                          item_wrapper_class: 'dropdown-item' %>
+        </div>
+      </div>
+      <div class="submit-search">
+          <%= f.button :button do %>
+            <button class="btn-pink-sabrina"> Let's date </button>
+          <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

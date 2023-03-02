@@ -2,7 +2,7 @@ class ActivitiesController < ApplicationController
 
   def index
     @activities = Activity.where(itinerary: Itinerary.find(params[:itinerary_id]))
-    @activities = Activity.all
+    # The `geocoded` scope filters only flats with coordinates
   end
 
   def show
@@ -22,7 +22,7 @@ class ActivitiesController < ApplicationController
     @itinerary = Itinerary.find(params[:itinerary_id])
     @activity.itinerary = @itinerary
     if @activity.save
-      redirect_to itinerary_activities_path(Itinerary.find(params[:itinerary_id]))
+      redirect_to itinerary_path(@itinerary)
     else
       render :new, status: :unprocessable_entity
     end

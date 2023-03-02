@@ -1,0 +1,148 @@
+.search-form {
+  abbr {
+    display: none;
+  }
+  .form-label {
+    margin-bottom: 0.5rem;
+    display: none;
+  }
+  .ts-wrapper.form-select.select.single {
+    border-radius: 5px;
+    border: 1px solid black;
+  }
+
+  .first-dropdown {
+    .weather-dropdown {
+      .ts-wrapper.form-select {
+        border: 1px solid black;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  .second-dropdown {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    a.form-select.select.single {
+      border: 1px solid black;
+      margin-top: 1rem;
+      /* margin-right: 1rem; */
+      width: 7rem;
+    }
+    .budget-dropdown {
+      .ts-wrapper.form-select {
+        border: 1px solid black;
+      }
+    }
+    .duration-dropdown {
+      .ts-wrapper.form-select {
+        border: 1px solid black;
+      }
+    }
+  }
+  .categories {
+    .category-wrapper {
+      display: flex;
+      justify-content: space-between;
+      /* margin: 0px; */
+      margin-top: 1rem;
+    }
+    .category-selector + label {
+      display: flex;
+      cursor: pointer;
+      text-align: center;
+      padding:5px;
+      border: 1px solid transparent;
+      border-radius: 13px;
+      font-size: 13px;
+      .fa-solid {
+        display: flex;
+        justify-content: center;
+        color: black;
+      }
+      &:hover {
+        background-color: #ee588576;
+      }
+    }
+    .category-selector:checked + label {
+      border: 1px solid transparent;
+      background: #EE5885;
+      color: white;
+      .fa-solid {
+        display: flex;
+        justify-content: center;
+        color: white;
+      }
+    }
+    p {
+      margin-bottom: 0px;
+      margin-top: 0.2rem;
+    }
+  }
+}
+
+.search-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 5rem;
+  margin-right: 3rem;
+}
+
+.search-card {
+  /* border: 1px solid black; */
+  padding: 2rem;
+  border-radius: 20px;
+  position: absolute;
+  background: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  left: 5rem;
+  width: 33%;
+  margin-top: 4rem;
+  h1 {
+    margin-bottom: 1rem;
+    font-size: 39px;
+  }
+  button.btn {
+    padding: 0;
+  }
+  .submit-search {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    margin-top: 2rem;
+    button.btn-pink-2 {
+      text-decoration: none;
+      color: white;
+      background: linear-gradient(90deg, #EE5885, #EF396F);
+      padding: 10px;
+      padding-right: 25px;
+      padding-left: 25px;
+      border: 2px solid transparent;
+      border-radius: 15px;
+      font-size: 18px;
+      width: 100%;
+    }
+  }
+}
+
+
+.background-img {
+  width: 88%;
+  position: relative;
+  border-radius: 3rem;
+}
+
+.search-page-container {
+  /* margin-right: 2rem; */
+  margin-top: 7rem;
+  margin-bottom: 15rem;
+  .top-itineraries {
+    margin-top: 12rem;
+    .title {
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
