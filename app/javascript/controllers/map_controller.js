@@ -1,4 +1,4 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus";
 import mapboxgl from 'mapbox-gl';
 
 export default class extends Controller {
@@ -25,7 +25,7 @@ export default class extends Controller {
   fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds()
     this.markersValue.forEach(marker => bounds.extend([ marker.lng, marker.lat ]))
-    this.map.fitBounds(bounds, { padding: 10, maxZoom: 50, duration: 0 })
+    this.map.fitBounds(bounds, { padding: 100, maxZoom: 50, minZoom: 2, duration: 0 })
   }
 
   addMarkersToMap() {
@@ -33,7 +33,6 @@ export default class extends Controller {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window)
       console.log(marker.info_window)
 
-      // Pass the element as an argument to the new marker
       new mapboxgl.Marker()
         .setLngLat([marker.lng, marker.lat])
         .setPopup(popup)

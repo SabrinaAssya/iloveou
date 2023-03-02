@@ -3,23 +3,25 @@
   <i id="left" class="fa-solid fa-arrow-left" data-action="click->carousel#left"></i>
   <div class="carousel" data-carousel-target="carousel">
     <% top_itineraries.each do |itinerary|%>
-      <div class="card-slider" data-carousel-target="card" style= "background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url('<%=  cl_image_path itinerary.activities.first.photo.key %>')">
-        <div class="card-info">
-          <h2><%= itinerary.title %></h2>
-          <div class="itinerary-user">
-            <%= cl_image_tag itinerary.user.photo.key, class: "user-photo"  %>
-            <div class="name-review">
-              <p><%= itinerary.user.first_name%> <%= itinerary.user.last_name%></p>
-              <p><% if itinerary.rating == itinerary.rating.round %>
-                <%= itinerary.rating.round %>
-              <% else %>
-                <%= itinerary.rating %>
-              <% end %>
-              / 5 ● <span><%= itinerary.reviews.count %></span> reviews </p>
+      <%= link_to itinerary_path(itinerary) do %>
+        <div class="card-slider" data-carousel-target="card" style= "background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.4)), url('<%=  cl_image_path itinerary.activities.first.photo.key %>')">
+          <div class="card-info">
+            <h2><%= itinerary.title %></h2>
+            <div class="itinerary-user">
+              <%= cl_image_tag itinerary.user.photo.key, class: "user-photo"  %>
+              <div class="name-review">
+                <p><%= itinerary.user.first_name%> <%= itinerary.user.last_name%></p>
+                <p><% if itinerary.rating == itinerary.rating.round %>
+                  <%= itinerary.rating.round %>
+                <% else %>
+                  <%= itinerary.rating %>
+                <% end %>
+                / 5 ● <span><%= itinerary.reviews.count %></span> reviews </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
   <i id="right" class="fa-solid fa-arrow-right" data-action="click->carousel#right"></i>

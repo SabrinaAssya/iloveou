@@ -8,10 +8,13 @@
 
 .itinerary-card {
   /* border: 1px solid red; */
-  border-radius: 15px;
+  border-radius: 30px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   margin: 1rem;
   padding: 10px;
+  padding-top: 0;
+  padding-right: 0;
+  padding-left: 0;
   width: 350px;
   height: 300px;
   .itinerary-photo {
@@ -23,16 +26,21 @@
 
 .picture-left {
   border-radius: 15px 0 0 0;
+  width: 50%;
+  object-fit: cover;
 }
 
 .picture-right {
   border-radius: 0 15px 0 0;
+  width: 50%;
+  object-fit: cover;
 }
 
 .mono-picture{
   border-radius: 15px 15px 0 0;
 }
 a.itinerary-title {
+    padding-left: 10px;
     text-decoration: none;
     color: black;
     font-weight: bold;
@@ -43,7 +51,10 @@ a.itinerary-title {
   align-items: center;
   justify-content: space-between;
   padding-right: 30px;
+  padding-left: 5px;
   padding-top: 10px;
+  padding-bottom: 10px;
+  position: relative;
   .itinerary-btn {
     a.btn-blue {
       text-decoration: none;
@@ -53,6 +64,9 @@ a.itinerary-title {
       border-radius: 8px;
       font-size: 10px;
       transition: 0.3s ease-in-out;
+      position: relative;
+      bottom: -82px;
+      right: -30px;
       &:hover {
         color: #32A9E3;
         background: transparent;
@@ -61,23 +75,30 @@ a.itinerary-title {
 
      }
      .fa-heart {
-      color: #FF002B;
+      color: #EE5885;
     }
   }
 }
 
 .itinerary-description-card {
+ font-size: 10px;
+ padding-left: 15px;
+    p {
+  line-height: 100%;
+  margin-bottom: 10px;
+ }
+
   .fa-heart {
     color: #EE5885;
   }
   h5 {
     color: #32A9E3;
-    font-size: 16px;
+    font-size: 12px;
   }
   .fa-circle {
     font-size: 10px;
   }
-}
+ }
 
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
