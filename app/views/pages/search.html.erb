@@ -1,5 +1,5 @@
 <div class="search-page-container">
-  <div class="header">
+  <div class="search-header">
     <%= image_tag "couple-travelling-in-the-subway.jpg", class: "background-img" %>
     <div class="search-card">
       <h1><strong>Plan your romantic journey</strong>, today</h1>
@@ -17,48 +17,43 @@
                           tom_select_options_value: {tags: true}
                         },
                       }%>
-          <div class="dropdown">
-            <a class="form-select select single" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Weather </a>
-            <div class="dropdown-menu">
+          <div class="first-dropdown">
+            <div class="weather-dropdown">
               <%= f.input :weather,
-                            wrapper_html: {
-                            class: "search-input",},
-                            as: :check_boxes,
-                            checked: params.dig(:search, :weather),
-                            collection: ["sunny", "cloudy", "rainy"],
-                            input_html: { multiple: true, class: "tag-selector"},
-                            item_wrapper_class: 'tag-item',
-                            include_blank: false,
-                            include_hidden: false,
-                            item_wrapper_tag: 'li',
-                            collection_wrapper_class: 'dropdown-menu',
-                            item_wrapper_class: 'dropdown-item' %>
+                      wrapper_html: {
+                      class: "search-input",},
+                      collection: ["Sunny", "Cloudy", "Rainy"],
+                      input_html: { multiple: true, autocomplete:"off", placeholder: "Weather", class: "tag-selector", data: { controller: "tom-select", "tom-select-checkbox-value": true, action: "change->tom-select#display" }},
+                      item_wrapper_class: 'tag-item',
+                      include_blank: false,
+                      include_hidden: false,
+                      item_wrapper_tag: 'li',
+                      collection_wrapper_class: 'dropdown-menu',
+                      item_wrapper_class: 'dropdown-item' %>
             </div>
-            <a class="form-select select single" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Budget </a>
-            <div class="dropdown-menu">
+          </div>
+          <div class="second-dropdown">
+            <div class="budget-dropdown">
               <%= f.input :price,
-                        wrapper_html: {
-                        class: "search-input"},
-                        as: :check_boxes,
-                        checked: params.dig(:search, :price),
-                        collection: ["$", "$$", "$$$"],
-                        input_html: { multiple: true, class: "tag-selector" },
-                        item_wrapper_class: 'tag-item',
-                        include_blank: false,
-                        include_hidden: false,
-                        item_wrapper_tag: 'li',
-                        collection_wrapper_class: 'dropdown-menu',
-                        item_wrapper_class: 'dropdown-item' %>
+                          wrapper_html: {
+                          class: "search-input"},
+                          checked: params.dig(:search, :price),
+                          collection: ["$", "$$", "$$$"],
+                          input_html: { multiple: true, class: "tag-selector", data: { controller: "tom-select", placeholder: "Budget", "tom-select-checkbox-value": true, action: "change->tom-select#display" }},
+                          item_wrapper_class: 'tag-item',
+                          include_blank: false,
+                          include_hidden: false,
+                          item_wrapper_tag: 'li',
+                          collection_wrapper_class: 'dropdown-menu',
+                          item_wrapper_class: 'dropdown-item' %>
             </div>
-            <a class="form-select select single" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Duration </a>
-            <div class="dropdown-menu">
+            <div class="duration-dropdown">
               <%= f.input :duration,
                           wrapper_html: {
                           class: "search-input"},
-                          as: :check_boxes,
                           checked: params.dig(:search, :duration),
                           collection: ["1h-2h", "2h-4h", "More than 4h"],
-                          input_html: { multiple: true,  class: "tag-selector" },
+                          input_html: { multiple: true,  class: "tag-selector", data: { controller: "tom-select", placeholder: "Duration", "tom-select-checkbox-value": true, action: "change->tom-select#display" }},
                           item_wrapper_class: 'tag-item',
                           include_blank: false,
                           include_hidden: false,
@@ -95,5 +90,16 @@
       </div>
     </div>
   </div>
-
+  <div class="top-itineraries">
+      <div class="title">
+        <h1>FIND YOUR PERFECT DATE ITINERARY</h1>
+        <p>Discover romantic destinations through subway station - with insider tips and recommendations from our community. <span>So what's your next date?</span></p>
+      </div>
+      <%= render "shared/top_itinerary_card" %>
+      <div class="text-btn">
+        <p>Have a unique date idea? <br> Share it with others and inspire their next adventure.</p>
+        <%= link_to "Write your own itinerary", new_itinerary_path, class: "btn-pink-sabrina" %>
+      </div>
+    </div>
+  </div>
 </div>

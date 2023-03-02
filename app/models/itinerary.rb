@@ -22,8 +22,7 @@ class Itinerary < ApplicationRecord
       ratings << review.rating
     end
     average = ratings.sum.fdiv(ratings.size)
-    self.update(rating: average)
+    self.update(rating: average.round(2))
   end
 
 end
-

@@ -1,4 +1,4 @@
-<div class="i-header mb-5">
+<div class="container mt-5">
   <div class="row">
     <div class="col-8">
       <h2><%= @itinerary.title %></h2>
@@ -80,27 +80,29 @@
   </div>
 </div>
 
-<div class="container activities row mb-5">
-  <% @itinerary.activities.each_with_index do|activity, index| %>
-    <div class="col-1">
-      <p class="activity-number"><%= index+1 %></p>
-      <div class="border-activities">
-      </div>
-    </div>
-    <div class="col-11">
-      <div class="mb-5 d-flex w-80 justify-content-between">
-        <div>
-          <h4><%= activity.title %></h4>
-          <div class="activity-address d-flex">
-            <i class="fa-solid fa-location-dot"></i>
-            <p><%= activity.address %></p>
-          </div>
-          <p><%= activity.description %></p>
+<div class="container mt-5">
+  <div class="row">
+    <% @itinerary.activities.each_with_index do|activity, index| %>
+      <div class="col-1">
+        <p class="activity-number"><%= index+1 %></p>
+        <div class="border-activities">
         </div>
-        <%= cl_image_tag activity.photo.key, width: 200, height: 150, class: "activity-img"%>
       </div>
-    </div>
-  <% end %>
+      <div class="col-11">
+        <div class="mb-5 d-flex w-80 justify-content-between">
+          <div>
+            <h4><%= activity.title %></h4>
+            <div class="activity-address d-flex">
+              <i class="fa-solid fa-location-dot"></i>
+              <p><%= activity.address %></p>
+            </div>
+            <p><%= activity.description %></p>
+          </div>
+          <%= cl_image_tag activity.photo.key, width: 200, height: 150, class: "activity-img"%>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <div id="map" class="mt-5"
@@ -112,7 +114,6 @@
 <% if @itinerary.reviews.count > 0  %>
   <div class="container mt-5" data-controller="openreviewform">
     <div class="container">
-
       <div class="review-title d-flex align-items-center mb-5">
         <div class="d-flex align-items-center">
           <div class="heart-font">
