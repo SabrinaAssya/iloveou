@@ -1,82 +1,69 @@
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-8">
-      <h2><%= @itinerary.title %></h2>
-      <div class="add-favorites">
-        <div class="fav-btn-show">
-          Add to favorite
-        </div>
-      </div>
-      <p class="itinerary-description"><%= @itinerary.description %></p>
-      <div class="info-text d-flex mt-0">
-        <div class="info-text-station">
-          <p><i class="fa-solid fa-train-subway"></i>   <%= @itinerary.station.name %></p>
-        </div>
-        <div class="info-text-rating">
-          <i class="fa fa-heart little-heart fa-2s"></i>
-          <%= @itinerary.rating.round(2) %>
-        </div>
-        <div class="info-text-review">
-          <p><span><%= @itinerary.reviews.count%></span> reviews </p>
-        </div>
-        <div class="info-text-username">
-          <%= @itinerary.user.first_name %>
-          <%= @itinerary.user.last_name %>
-        </div>
-      </div>
-      <div class="categories d-flex">
-        <p>
-          <% if @itinerary.restaurant? %>
-          <div class="ustensil d-flex">
-            <p><i class="fa-solid fa-utensils"></i> restaurant</p>
-          </div>
-          <% end  %>
-          <% if @itinerary.culture? %>
-            <div class="palette d-flex">
-              <p><i class="fa-solid fa-palette"></i> Culture</p>
-            </div>
-          <% end  %>
-          <% if @itinerary.drinks? %>
-            <div class="champagne d-flex">
-              <p><i class="fa-solid fa-champagne-glasses"></i> Drinks</p>
-            </div>
-          <% end  %>
-          <% if @itinerary.outdoor? %>
-            <div class="tree d-flex">
-              <p><i class="fa-solid fa-tree-city"></i> Outdoor</p>
-            </div>
-          <% end  %>
-          <% if @itinerary.original? %>
-            <div class="grin-stars d-flex">
-              <p><i class="fa-solid fa-face-grin-stars"></i> Original</p>
-            </div>
-          <% end  %>
-        </p>
-      </div>
+<div class="show-itineraries-description">
+  <div class="title-filter">
+    <h1> <%= @itinerary.title %> </h1>
+    <div class="itinerary-filter">
+      <p> <i class="fa-solid fa-clock"></i> <%= @itinerary.duration %> </p>
+      <p> <%= @itinerary.price %> </p>
+      <p>
+        <% if @itinerary.sunny? %>
+          <i class="fa-solid fa-sun"></i>
+        <% end %>
+        <% if @itinerary.cloudy? %>
+          <i class="fa-solid fa-cloud-sun"></i>
+        <% end %>
+        <% if @itinerary.rainy? %>
+          <i class="fa-solid fa-cloud-rain"></i>
+        <% end %>
+      </p>
     </div>
-    <div class="col-3">
-      <div class="info-box d-flex justify-content-center mt-5">
-        <div class="hour">
-          <p><i class="fa-solid fa-clock"></i> <%= @itinerary.duration %></p>
-        </div>
-        <div class="price">
-          <p><%= @itinerary.price %></p>
-        </div>
-        <div class="weather">
-          <p>
-            <% if @itinerary.sunny? %>
-              <i class="fa-solid fa-sun"></i>
-            <% end  %>
-            <% if @itinerary.rainy? %>
-              <i class="fa-solid fa-cloud-rain"></i>
-            <% end  %>
-            <% if @itinerary.cloudy? %>
-              <i class="fa-solid fa-cloud-sun"></i>
-            <% end  %>
-          </p>
-        </div>
-      </div>
+  </div>
+  <div class="info">
+    <div class="station-reviews-user">
+      <h3> <i class="fa-solid fa-train-subway"></i> <%= @itinerary.station.name %> </h3>
+      <i class="fa-solid fa-circle"></i>
+      <h3> <i class="fa-solid fa-heart"></i> <%= @itinerary.rating %> </h3>
+      <i class="fa-solid fa-circle"></i>
+      <h3> <span> <%= @itinerary.reviews.size %> </span> reviews </h3>
+      <i class="fa-solid fa-circle"></i>
+      <%= cl_image_tag @itinerary.user.photo.key %>
+      <h3> <%= @itinerary.user.first_name %> <%= @itinerary.user.last_name %> </h3>
     </div>
+    <%= link_to "Add to favorites", itinerary_favorites_path(@itinerary.id), class: "btn-pink-show" %>
+  </div>
+  <div class="description">
+    <p> <%= @itinerary.description %> </p>
+  </div>
+  <div class="categories">
+    <% if @itinerary.restaurant? %>
+      <div class="title-icon">
+        <i class="fa-solid fa-utensils"></i>
+        <p>Restaurant</p>
+      </div>
+    <% end %>
+    <% if @itinerary.culture? %>
+      <div class="title-icon">
+        <i class="fa-solid fa-masks-theater"></i>
+        <p>Culture</p>
+      </div>
+    <% end %>
+    <% if @itinerary.drinks? %>
+      <div class="title-icon">
+        <i class="fa-solid fa-champagne-glasses"></i>
+        <p>Drinks</p>
+      </div>
+    <% end %>
+    <% if @itinerary.outdoor? %>
+      <div class="title-icon">
+        <i class="fa-solid fa-tree-city"></i>
+        <p>Outdoor</p>
+      </div>
+    <% end %>
+    <% if @itinerary.original? %>
+      <div class="title-icon">
+        <i class="fa-solid fa-face-grin-stars"></i>
+        <p>Original</p>
+      </div>
+    <% end %>
   </div>
 </div>
 
@@ -84,13 +71,13 @@
   <div class="row">
     <% @itinerary.activities.each_with_index do|activity, index| %>
       <div class="col-1">
-        <p class="activity-number"><%= index+1 %></p>
+        <p class="activity-number">0<%= index+1 %></p>
         <div class="border-activities">
         </div>
       </div>
-      <div class="col-11">
-        <div class="mb-5 d-flex w-80 justify-content-between">
-          <div>
+      <div class="col-11 mt-5">
+        <div class="mb-5 d-flex w-80 justify-content-between align-items-start">
+          <div class="text">
             <h4><%= activity.title %></h4>
             <div class="activity-address d-flex">
               <i class="fa-solid fa-location-dot"></i>
