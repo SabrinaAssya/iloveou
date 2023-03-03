@@ -26,7 +26,7 @@ class ItinerariesController < ApplicationController
         image_url: helpers.asset_url("location.png")
       }
     end
-    @itinerary.user = current_user
+    # @itinerary.user = current_user
   end
 
   def create
