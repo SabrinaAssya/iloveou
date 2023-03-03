@@ -27,11 +27,13 @@
 .picture-left {
   border-radius: 15px 0 0 0;
   width: 50%;
+  object-fit: cover;
 }
 
 .picture-right {
   border-radius: 0 15px 0 0;
   width: 50%;
+  object-fit: cover;
 }
 
 .mono-picture{
