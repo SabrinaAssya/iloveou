@@ -23,7 +23,7 @@ class ItinerariesController < ApplicationController
         lng: activity.longitude,
         lat: activity.latitude,
         info_window: render_to_string(partial: "info_window", locals: { activity: activity }),
-        marker: render_to_string(partial: "marker", locals: { activity: activity })
+        image_url: helpers.asset_url("location.png")
       }
     end
     @itinerary.user = current_user
