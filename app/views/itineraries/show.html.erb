@@ -138,9 +138,42 @@
               <div class="user-avatar">
               <%= cl_image_tag review.user.photo.key %>
               </div>
-              <% review.rating.round.times do %>
-                <i class="fa-solid fa-heart fa-2x comment-heart"></i>
+              <% if review.rating.round == 1 %>
+                <i class="stars fa-solid fa-heart"></i>
+                <i class="stars fa-regular fa-heart"></i>
+                <i class="stars fa-regular fa-heart"></i>
+                <i class="stars fa-regular fa-heart"></i>
+                <i class="stars fa-regular fa-heart"></i>
+              <% elsif review.rating.round == 2 %>
+                <i class="stars fa-solid fa-heart"></i>
+                <i class="stars fa-solid fa-heart"></i>
+                <i class="stars fa-regular fa-heart"></i>
+                <i class="stars fa-regular fa-heart"></i>
+                <i class="stars fa-regular fa-heart"></i>
+              <% elsif review.rating.round == 3 %>
+                <i class="stars fa-solid fa-heart"></i>
+                <i class="stars fa-solid fa-heart"></i>
+                <i class="stars fa-solid fa-heart"></i>
+                <i class="stars fa-regular fa-heart"></i>
+                <i class="stars fa-regular fa-heart"></i>
+              <% elsif review.rating.round == 4 %>
+                <i class="stars fa-solid fa-heart"></i>
+                <i class="stars fa-solid fa-heart"></i>
+                <i class="stars fa-solid fa-heart"></i>
+                <i class="stars fa-solid fa-heart"></i>
+                <i class="stars fa-regular fa-heart"></i>
+              <% elsif review.rating.round == 5 %>
+                <i class="stars fa-solid fa-heart"></i>
+                <i class="stars fa-solid fa-heart"></i>
+                <i class="stars fa-solid fa-heart"></i>
+                <i class="stars fa-solid fa-heart"></i>
+                <i class="stars fa-solid fa-heart"></i>
               <% end %>
+
+
+              <%# <% review.rating.round.times do %>
+                <%# <i class="fa-solid fa-heart fa-2x comment-heart"></i> %>
+              <%# end %>
             </div>
             <p class ="review-content"><%= review.content %></p>
             <div class="date-user-comment">
