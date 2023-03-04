@@ -1,8 +1,138 @@
+.show-itineraries-description {
+  margin-top: 10rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  .title-filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .itinerary-filter {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #32A9E3;
+      color: white;
+      padding: 1rem;
+      border-radius: 15px;
+      p {
+        margin-bottom: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        border-right: 2px solid white;
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+  }
+  .info {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .station-reviews-user {
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      img {
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+        border-radius: 100%;
+        margin-left: 1rem;
+      }
+      h3 {
+        font-size: 20px;
+        margin-bottom: 0;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+      .fa-solid {
+        color: #EE5885;
+      }
+      .fa-circle {
+        font-size: 4px;
+        color: black;
+      }
+    }
+    .btn-pink-show {
+      text-decoration: none;
+      color: white;
+      background: linear-gradient(90deg, #EE5885, #EF396F);
+      padding: 10px;
+      /* padding-right: 25px; */
+      /* padding-left: 25px; */
+      border-radius: 15px;
+      font-size: 15px;
+      border: 2px solid transparent;
+      /* transition: 0.3s ease-in-out; */
+      &:hover {
+        color: #EF396F;
+        background: transparent;
+        border: 2px solid #EE5885;
+      }
+    }
+  }
+  .description {
+    margin-top: 1rem;
+  }
+  .categories {
+    display: flex;
+    align-items: center;
+    margin-top: 2rem;
+    p {
+      margin-bottom: 0;
+    }
+    .title-icon {
+      text-align: center;
+      margin-right: 2rem;
+      .fa-solid {
+        color: black;
+      }
+    }
+  }
+}
 
+.itinerary-activities {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5rem;
+  .activity-text {
+    padding-right: 5rem;
+  }
+  .activity-img {
+    text-align: right;
+    img {
+      width: 350px;
+      height: 250px;
+      border-radius: 20px;
+      object-fit: cover;
+    }
+  }
+}
+
+i.stars.fa-heart {
+  margin-right: 10px;
+  font-size: 1.5rem;
+  color: #EE5885;
+}
+
+.text {
+  padding-right: 5rem;
+}
 
 .activity-img {
-  border-radius: 10px;
+  text-align: right;
+  width: 350px;
+  height: 250px;
+  border-radius: 20px;
+  object-fit: cover;
 }
+
 
 .add-favorites {
   margin-top: 1rem;
@@ -23,9 +153,9 @@
 }
 
 .border-activities{
-  border-left: dashed 2px #EE5885;
+  border-left: dashed 2px #32A9E3;
   height: calc(100% - 2rem);
-  margin-right: 50px;
+  margin-right: 1rem;
 }
 
 
@@ -226,8 +356,10 @@
 
 .activity-number {
   font-size: 40px;
-  color: #EE5885;
-  margin-right: 50px;
+  color: #32A9E3;
+  margin-right: 1rem;
+  margin-bottom: 0rem;
+  margin-top: 2rem;
 }
 
 .review-text {
