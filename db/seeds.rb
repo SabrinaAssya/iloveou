@@ -61,7 +61,7 @@ puts "4 users created"
 
 puts "creating itineraries..."
 
-itinerary_1 = Itinerary.create!(title: "A Taste of authentic parisian culture",
+itinerary_1 = Itinerary.create!(title: "Authentic parisian culture",
    description: "Immerse yourself in the best of Parisian culture with this itinerary that combines three unique experiences.
    It offers a perfect blend of culture, cuisine, and relaxation that is sure to make for a memorable day in Paris",
    price: "$$",
@@ -93,7 +93,7 @@ itinerary_2 = Itinerary.create!(title: "A Fancy night out in Paris",
 
 sleep(1)
 
-itinerary_3 = Itinerary.create!(title: "A Taste of Parisian Elegance",
+itinerary_3 = Itinerary.create!(title: "Parisian Elegance",
   description: "Discover the sophisticated side of Paris with this itinerary that takes you to some of the city's most refined locations.
   It is perfect for those who appreciate the finer things in life and want to experience the best of Paris's gastronomy and culture.",
   price: "$$$",
@@ -190,7 +190,22 @@ itinerary_8 = Itinerary.create!(title: "The typical student Paris",
   user_id: user_4.id,
   rating: 4.4)
 
-puts "8 itineraries created"
+  itinerary_9 = Itinerary.create!(title: "Montmarte mon amour",
+  description: "Discover the picturesque streets and bohemian charm of Montmartre with this itinerary featuring three unique experiences. Enjoy a full day of culture, history,
+  and charm in one of Paris's most beloved neighborhoods with this itinerary.",
+  price: "$$$",
+  sunny: true,
+  cloudy: true,
+  culture: true,
+  restaurant: true,
+  outdoor: true,
+  duration: "More than 4h",
+  station_id: Station.where(name: "Abbesses").ids.first,
+  user_id: user_4.id,
+  rating: 4.5)
+
+
+puts "9 itineraries created"
 
 puts "Creating activities..."
 
@@ -322,13 +337,13 @@ activity_21.photo.attach(
   filename: 'parc-des-princes',
   content_type: 'image/jpg'
 )
-activity_22 = Activity.create!(itinerary_id: itinerary_8.id, title: "A student classic", address: "Panthéon, Place du Panthéon, 75005 Paris ", description: "Take a look at this imposing neoclassical building houses which remains some of France's most distinguished citizens, including Voltaire, Rousseau, and Victor Hugo.")
+activity_22 = Activity.create!(itinerary_id: itinerary_8.id, title: "A student classic", address: "Panthéon, Place du Panthéon, 75005 Paris", description: "Take a look at this imposing neoclassical building houses which remains some of France's most distinguished citizens, including Voltaire, Rousseau, and Victor Hugo.")
 activity_22.photo.attach(
   io: URI.open('https://paris1900.lartnouveau.com/paris05/pantheon/acceuil/1panth55.jpg'),
   filename: 'Panthéon',
   content_type: 'image/jpg'
 )
-activity_23 = Activity.create!(itinerary_id: itinerary_8.id, title: "A little walk to the market", address: "Rue Mouffetard Market, Rue Mouffetard, 75005 Paris ", description: " This lively market street offers a wide variety of fresh produce, meats, cheeses, and other food items, as well as clothing and other goods..")
+activity_23 = Activity.create!(itinerary_id: itinerary_8.id, title: "A little walk to the market", address: "Rue Mouffetard Market, Rue Mouffetard, 75005 Paris", description: " This lively market street offers a wide variety of fresh produce, meats, cheeses, and other food items, as well as clothing and other goods..")
 activity_23.photo.attach(
   io: URI.open('https://upload.wikimedia.org/wikipedia/commons/8/8f/Street_market_rue_Mouffetard_St_Medard_dsc00727.jpg'),
   filename: 'little-market',
@@ -341,7 +356,26 @@ activity_24.photo.attach(
   content_type: 'image/jpg'
 )
 
-puts "24 activities created"
+activity_25 = Activity.create!(itinerary_id: itinerary_9.id, title: "Breakfast at le Moulin", address: "Café des Deux Moulins, 15 Rue Lepic, 75018 Paris", description: "Start your day in this café, famous for being featured in the movie Amélie, and offers a variety of breakfast options, along with a classic Parisian atmosphere.")
+activity_25.photo.attach(
+  io: URI.open('https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Cafe_des_2_Moulins%2C_Paris_24_August_2019.jpg/1200px-Cafe_des_2_Moulins%2C_Paris_24_August_2019.jpg'),
+  filename: 'moulin',
+  content_type: 'image/jpg'
+)
+activity_26 = Activity.create!(itinerary_id: itinerary_9.id, title: "Sacré-Coeur", address: "Sacré-Cœur Basilica, 35 Rue du Chevalier de la Barre, 75018 Paris", description: " This iconic basilica is located at the top of Montmartre and offers breathtaking views of the city, along with stunning architecture and religious history.")
+activity_26.photo.attach(
+  io: URI.open('https://media.lesechos.com/api/v1/images/view/634a65f94964ff337a6d4f05/1280x720/0702547684232-web-tete.jpg'),
+  filename: 'sacré-coeur',
+  content_type: 'image/jpg'
+)
+activity_27 = Activity.create!(itinerary_id: itinerary_9.id, title: "A pink world", address: "La Maison Rose, 2 Rue de l'Abreuvoir, 75018 Paris" , description: " This pink-colored café has been a favorite spot of artists and writers for over a century, and offers a cozy and authentic atmosphere.")
+activity_27.photo.attach(
+  io: URI.open('https://offloadmedia.feverup.com/parissecret.com/wp-content/uploads/2021/05/29055633/shutterstock_750180577-1-1024x609-2.jpg'),
+  filename: 'maison-rose',
+  content_type: 'image/jpg'
+)
+
+puts "27 activities created"
 
 puts "Creating reviews..."
 
@@ -361,8 +395,11 @@ review_13 = Review.create!(itinerary_id: itinerary_7.id, user_id: user_3.id, rat
 review_14 = Review.create!(itinerary_id: itinerary_7.id, user_id: user_4.id, rating: 4, content: "We loved the walk in the Bois de Boulogne and the sushis. But my date was disappointed by the Parc des Princes because the atmosphere was not very good and there were altercations between the supporters.")
 review_15 = Review.create!(itinerary_id: itinerary_8.id, user_id: user_1.id, rating: 5, content: "This itinerary is a sure value with sublime monuments to rediscover. We particularly appreciated the food market. Would recommend this itinerary without a doubt !")
 review_16 = Review.create!(itinerary_id: itinerary_8.id, user_id: user_3.id, rating: 3.5, content: "A very cliché route, nothing impressive")
+review_17 = Review.create!(itinerary_id: itinerary_9.id, user_id: user_1.id, rating: 4.5, content: "This itinerary was really great ! We had a great time! Montmartre is really beautiful and my date dreamed of seeing the pink house !")
+review_18 = Review.create!(itinerary_id: itinerary_9.id, user_id: user_3.id, rating: 4.5, content: "A little bit touristic but great time !")
 
-puts "16 reviews created"
+
+puts "18 reviews created"
 
 puts "Creating favorites..."
 favorite_1 = Favorite.create!(itinerary_id: itinerary_1.id, user_id: user_1.id)
